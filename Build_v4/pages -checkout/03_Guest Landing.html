@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>RITES</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+        
+        <meta name="author" content="Rites" />
+        <meta name="keywords" content="" />
+
+        <link rel="manifest" href="site.webmanifest">
+        <link rel="apple-touch-icon" href="icon.png">
+        <!-- Place favicon.ico in the root directory -->
+
+        <link href="../css/normalize.css" rel="stylesheet">
+        <link href="../css/main.css" rel="stylesheet">
+    </head>
+
+    <body>
+        <header class="chkout-head clearfix">
+            <a href="" class="back-link">Back to Shopping Bag</a>
+            
+            <a href="" class="help-link">
+                <span class="care-call"></span>
+                <span class="body-text">Need Help?</span>
+                <span class="phone">+44 7982 234 234</span>
+            </a>
+  
+            <a href="/" class="riteslogo">Rites</a>
+        </header>
+
+        <main>
+            <section class="chkout-content">
+                <h1 class="page-title">Secure Checkout</h1> 
+                <!--
+                <div class="progress-bar">
+                    <div class="progress-step step-complete">
+                        <span class="step-num">1</span>
+                        <div class="step-title">Your Details</div>
+                    </div>
+
+                    <div class="progress-step step-active">
+                        <span class="step-num">2</span>
+                        <div class="step-title">Delivery Address</div>
+                    </div>
+
+                    <div class="progress-step">
+                        <span class="step-num">3</span>
+                        <div class="step-title">Shipping Method</div>
+                    </div>
+
+                    <div class="progress-step">
+                        <span class="step-num">4</span>
+                        <div class="step-title">Payment</div>
+                    </div>
+                </div>
+                -->
+
+                <div class="chkout-wrapper">                   
+                    <div class="chkout-container">
+                        <form id="">
+                            <div class="step">
+                                <div class="step-head">
+                                    <span class="step-num">1</span>
+                                    <h3 class="step-title">Your Details</h3>
+                                </div>
+
+                                <div class="step-body">
+                                    <div class="email-info">
+                                        <div>You are checking out as:</div>
+                                        <div>meg@days-and-days.com
+                                            <a href="" class="chkout-change">Edit</a></div>
+                                        
+                                    </div>
+
+                                    <div class="col-line">
+                                        <div class="half-line">
+                                            <label for="FirstName" class="chk-label">First Name *</label>
+                                            <input type="text" name="FirstName" class="chk-input">
+                                        </div>
+
+                                        <div class="half-line">
+                                            <label for="LastName" class="chk-label">Last Name *</label>
+                                            <input type="text" name="LastName" class="chk-input">
+                                        </div>
+                                    </div>
+                                    
+
+                                    <div class="half-line">
+                                        <label for="Phone" class="chk-label">Phone</label>
+                                        <input type="tel" name="Phone" class="chk-input"> 
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="step">
+                                <div class="step-head">
+                                    <span class="step-num">2</span>
+                                    <h3 class="step-title">Delivery Address</h3>
+                                </div>
+
+                                <div class="step-body">
+                                    <div class="form-line">
+                                        <label for="AddressLine1" class="chk-label">Address *</label>
+                                        <input type="text" name="AddressLine1" class="chk-input">
+                                    </div>
+
+                                    <div class="form-line">
+                                        <input type="text" name="AddressLine2" class="chk-input">
+                                    </div>
+
+                                    <div class="col-line">
+                                        <div class="desk-half-line">
+                                            <label for="City" class="chk-label">City *</label>
+                                            <input type="text" name="City" class="chk-input">
+                                        </div>
+
+                                        <div class="desk-half-line">
+                                            <label for="Postcode" class="chk-label">Postal or Zip Code *</label>
+                                            <input type="tel" name="Postcode" class="chk-input">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-line">
+                                        <div class="half-line">
+                                            <label for="Country" class="chk-label">Country *</label>
+                                            <select name="Country" class="form-select chk-input">
+                                                <option >United Kingdom</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="half-line">
+                                            <label for="State" class="chk-label">State / Region / Province</label>
+                                            <input type="tel" name="State" class="chk-input">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="step">
+                                <div class="step-head">
+                                    <span class="step-num">3</span>
+                                    <h3 class="step-title">Delivery Method</h3>
+                                </div>
+                                <div class="step-body">
+                                    <div class="warning">Please enter delivery address above to see available options</div>
+
+                                    <div class="delivery-options">
+                                        <div class="select-option">
+                                            <input type="radio" name="deliveryOptionRadio" id="standard" checked>
+
+                                            <label class="label-wrapper" for="standard">
+                                                <div class="radio-wrapper">
+                                                    <span class="radio-btn"></span>
+                                                    <span class="radio-label">Standard</span>
+                                                </div>
+                                                
+                                                <div class="option-details">5-3 Business days</div>
+
+                                                <div class="price">£6.49</div>
+                                            </label> 
+                                        </div>
+
+                                        <div class="select-option">
+                                            <input type="radio" name="deliveryOptionRadio" id="express">
+
+                                            <label class="label-wrapper" for="express">
+                                                <div class="radio-wrapper">
+                                                    <span class="radio-btn"></span>
+                                                    <span class="radio-label">Express</span>
+                                                </div>
+
+                                                <div class="option-details">1-2 Business days</div>
+
+                                                <div class="price">£15.49</div>
+                                            </label>
+                                        </div>
+
+                                        <div class="select-option">
+                                            <input type="radio" name="deliveryOptionRadio" id="sat-delivery">
+
+                                            <label class="label-wrapper" for="sat-delivery">
+                                                <div class="radio-wrapper">
+                                                    <span class="radio-btn"></span>
+                                                    <span class="radio-label">Saturday Delivery</span>
+                                                </div>
+
+                                                <div class="option-details">Delivery is guaranteed this Saturday for orders placed on until Friday at 3:30 pm.</div>
+
+                                                <div class="price">£25</div>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="step">
+                                <div class="step-head">
+                                    <span class="step-num">4</span>
+                                    <h3 class="step-title">Payment</h3>
+                                </div>
+
+                                <div class="step-body">
+                                    <div class="payment-options">
+                                        <div class="select-option">
+                                            <input type="radio" name="paymentOptionRadio" id="credit-card" checked>
+
+                                            <label class="label-wrapper" for="credit-card">
+                                                <div class="radio-wrapper">
+                                                    <span class="radio-btn"></span>
+                                                    <span class="radio-label">Debit or Credit Card</span>
+                                                </div>
+                                            </label> 
+                                        </div>
+
+                                        <div class="select-option">
+                                            <input type="radio" name="paymentOptionRadio" id="paypal">
+
+                                            <label class="label-wrapper paypal" for="paypal">
+                                                <div class="radio-wrapper">
+                                                    <span class="radio-btn"></span>
+                                                    <span class="radio-label">Paypal</span>
+                                                </div>
+                                            </label> 
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-line">
+                                        <label for="CardNumber" class="chk-label">Card Number</label>
+                                        <input type="tel" name="CardNumber" class="chk-input">
+                                    </div>
+
+                                    <div class="col-line">
+                                        <div class="half-line">
+                                            <label for="ExpiryDate" class="chk-label">Expiry Date</label>
+
+                                            <div class="col-line">
+                                                <div class="desk-half-line">
+                                                    <select name="expiremonth" placeholder="Month" class="form-select chk-input">
+                                                        <option value>Month</option>
+                                                        <option value="01">01</option>
+                                                        <option value="01">02</option>
+                                                    </select>
+                                                </div>
+
+                                                <div class="desk-half-line">
+                                                    <select name="expireyear" placeholder="Month" class="form-select chk-input">
+                                                        <option value>Year</option>
+                                                        <option value="01">2018</option>
+                                                        <option value="01">2019</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="half-line cvv-space">
+                                            <div class="col-line">
+                                                <div class="desk-half-line">
+                                                    <label for="CardCCV" class="chk-label">CCV</label>
+                                                    <input type="tel" name="ccv" class="chk-input">
+                                                </div>
+
+                                                <a href="" class="tooltip">
+                                                    <span class="bg-question"></span>
+                                                    <div class="tooltext">CVV is the 3 or 4 digit code that can be found on the front or back of a credit card</div>
+                                                </a> 
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="half-line">
+                                        <label for="CardName" class="chk-label">Name on the card</label>
+                                        <input type="text" name="CardName" class="chk-input">
+                                    </div>
+
+                                    
+                                    <div class="select-option">
+                                        <input type="checkbox" checked name="billing" id="billing">
+                                        <label for="billing" class="radio-wrapper">
+                                            <span class="radio-btn"></span>
+                                            <span class="chkbox-label">Billing address same as shipping</span>
+                                        </label>
+                                    </div> 
+
+                                    <div class="edit-billing hidden">
+                                        <h3 class="step-title">Enter New Billing Address</h3>
+                                        <div class="form-line">
+                                            <label for="AddressLine1" class="chk-label">Address *</label>
+                                            <input type="text" name="AddressLine1" class="chk-input">
+                                        </div>
+
+                                        <div class="form-line">
+                                            <input type="text" name="AddressLine2" class="chk-input">
+                                        </div>
+
+                                        <div class="col-line">
+                                            <div class="desk-half-line">
+                                                <label for="City" class="chk-label">City *</label>
+                                                <input type="text" name="City" class="chk-input">
+                                            </div>
+
+                                            <div class="desk-half-line">
+                                                <label for="Postcode" class="chk-label">Postal or Zip Code *</label>
+                                                <input type="tel" name="Postcode" class="chk-input">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-line">
+                                            <div class="half-line">
+                                                <label for="Country" class="chk-label">Country *</label>
+                                                <select name="Country" class="form-select chk-input">
+                                                    <option >United Kingdom</option>
+                                                </select>
+                                            </div>
+
+                                            <div class="half-line">
+                                                <label for="State" class="chk-label">State / Region / Province</label>
+                                                <input type="tel" name="State" class="chk-input">
+                                            </div>
+                                        </div>
+                                    </div>  
+                                </div>
+
+                                <div class="place-order">
+                                    <div class="terms"> By completing your order, you accept our <a href="">Terms and Conditions of Sale.</a></div>
+                                    <button class="btn-round-pink">Place Order and Pay</button>
+                                </div> 
+                            </div>  
+                        </form>
+                    </div>
+                    
+
+                    <div class="summary-wrapper">
+                        <div class="summary-container">
+                            <h3 class="subtitle">Order Summary</h3>
+                            <div class="price-summary">
+                                <div class="summary-item">
+                                    <div class="label">Subtotal</div>
+                                    <div class="price">
+                                        <span class="currency">£ </span>
+                                        <span class="value">2,324</span>
+                                    </div>
+                                </div>
+                                <div class="summary-item">
+                                    <div class="label">Shipping</div>
+                                    <div class="price">
+                                        <span class="currency"> </span>
+                                        <span class="value">Free</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="price-total">
+                                <div class="label">Total</div>
+                                <div class="price">
+                                    <span class="currency">£ </span>
+                                    <span class="value">2,324</span>
+                                </div>
+                            </div>  
+                        </div>
+
+                    </div>
+              
+                
+            </section>
+            
+        </main>
+
+        <script src="../js/vendor/modernizr-3.5.0.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+        <script>window.jQuery || document.write('<script src="../js/vendor/jquery-3.2.1.min.js"><\/script>')</script>
+        <script src="../js/plugins.js"></script>
+        <script src="../js/script.js"></script>
+
+    
+    </body>
+</html>
+
+
+
