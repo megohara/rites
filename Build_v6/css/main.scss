@@ -1,0 +1,5717 @@
+
+
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+
+html {
+    color: #222;
+    font-size: 1em;
+    line-height: 1.4;
+}
+
+/*
+ * Remove text-shadow in selection highlight:
+ * https://twitter.com/miketaylr/status/12228805301
+ *
+ * Vendor-prefixed and regular ::selection selectors cannot be combined:
+ * https://stackoverflow.com/a/16982510/7133471
+ *
+ * Customize the background color to match your design.
+ */
+
+::-moz-selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+/*
+ * A better looking default horizontal rule
+ */
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+/*
+ * Remove the gap between audio, canvas, iframes,
+ * images, videos and the bottom of their containers:
+ * https://github.com/h5bp/html5-boilerplate/issues/440
+ */
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+    vertical-align: middle;
+}
+
+/*
+ * Remove default fieldset styles.
+ */
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+/*
+ * Allow only vertical resizing of textareas.
+ */
+
+textarea {
+    resize: vertical;
+}
+
+/* ==========================================================================
+   Browser Upgrade Prompt
+   ========================================================================== */
+
+.browserupgrade {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+@font-face {
+    font-family: 'basisgrot-reg';
+    src: url('fonts/BasisGrotesquePro-Regular.otf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'basisgrot-lgt';
+    src: url('fonts/BasisGrotesquePro-Light.otf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'basisgrot-med';
+    src: url('fonts/BasisGrotesquePro-Medium.otf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'saoltext-book';
+    src: url('fonts/SaolText-Book.otf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+$x-lrg-desk: 1440px;
+$lrg-desk: 1366px;
+$med-desk: 1280px;
+$sm-desk: 1140px;
+$tablet: 1024px;
+$mobile: 768px;
+$sm-mobile: 450px;
+$x-sm-mobile: 350px;
+
+@mixin at-least($bp) {
+  @media screen and (min-width: $bp) {
+    @content 
+  }
+}
+
+@mixin until($bp) {
+  @media screen and (max-width: $bp - 1) {
+    @content 
+  }
+}
+
+@mixin between($min-bp, $max-bp ) {
+  @media screen and (min-width: $min-bp) and (max-width: $max-bp - 1) {
+    @content 
+  }
+}
+
+/*Typography*/
+$site-font-stack: 'basisgrot-reg', Helvetica, sans-serif;
+$sans-med: 'basisgrot-med', Helvetica, sans-serif;
+$serif-stack: 'saoltext-book', serif;
+$body-tracking: 0.4px;
+$btn-tracking: 0.7px;
+
+$h1-size: 20px;
+$h1-mob-size: 16px;
+
+/*Colours*/
+$near-black: #333333;
+$lgt-blk: #424244;
+$x-lgt-grey: #f8f8f8;
+$lgt-grey: #EAE9E9;
+$med-grey: #DFDFDF;
+$dk-grey: #999999;
+$x-dk-grey: #666666;
+$gold: #C1B497;
+$dk-gold: #9B885F;
+$hot-pink: #ff2e63;
+
+/*Colours*/
+$secondary-border: 1px solid $med-grey;
+
+/*icons*/
+$close-white: url(../css/images/icons/icon-close.svg) no-repeat center center;
+$close-gld: url(../css/images/icons/icon-close-gld.svg);
+$close: url(../css/images/icons/icon-close-blk.svg);
+$bullet: url(images/icons/bullet.svg);
+$bullet-body: $bullet top 7px left / 3px no-repeat;
+$email: url(../css/images/icons/icon-email.svg);
+$email-gold: url(../css/images/icons/icon-email-gold.svg);
+$phone-gold: url(../css/images/icons/icon-phone-gold.svg);
+$dropdown: url(../css/images/icons/icon-dropdown.svg);
+$tick: url(../css/images/icons/icon-tick-white.png) no-repeat center center/ 12px $gold;
+$question: url(../css/images/icons/icon-question.svg);
+$question-gold: url(../css/images/icons/icon-question-gold.svg);
+$chat-gold: url(../css/images/icons/icon-chat-gold.svg);
+$plus: url(../css/images/icons/icon-plus.svg);
+$plus-gold: url(../css/images/icons/icon-plus-gold.svg);
+$fb-gold: url(../css/images/icons/logo-fb-gold.svg);
+$insta-gold: url(../css/images/icons/logo-insta-gold.svg);
+$pint-gold: url(../css/images/icons/logo-pint-gold.svg);
+$fav-white:  url(../css/images/icons/icon-fav-white.svg);
+
+/*setout variables*/
+$mob-menu-item-pad: 14px 26px; 
+
+
+ // $Universal
+
+body, .bodycopy {
+    font-family: $site-font-stack;
+    font-size: 13px;
+    -webkit-font-smoothing: antialiased;
+    color: $near-black;
+    letter-spacing: 0.2px;
+
+    &.noscroll {
+        overflow: hidden;
+    }
+}
+
+.body-text {
+    color: $near-black;
+} 
+
+p {
+    line-height: 19px;
+}
+
+a, .a {
+    font-family: $site-font-stack;
+    text-decoration: none;
+    font-weight: normal !important;
+    color: $dk-gold;
+    letter-spacing: $body-tracking;
+}
+
+
+.sale{
+    color: $hot-pink;
+}
+
+.warning {
+    color: red;
+    margin-bottom: 15px;
+} 
+
+ul, ol {
+    list-style: none;
+    margin: 0;
+    padding-left: 0;
+}
+
+
+.search-input {
+    border: none;
+    width: 304px;
+    padding: 0 0 0 25px;
+    border: 1px solid #EAE9E9;
+    border-right: none;
+    border-radius: 3px 0 0 3px;
+    height: 36px;
+
+    &:focus + .search-btn {
+        border: 1px solid $gold;
+        background: url(../css/images/icons/icon-search-white.svg) 7px 1px/16px 11px no-repeat;
+        background-color: $gold;
+        background-position: 11px 11px;
+        background-size: 13px 13.5px;
+
+        @include until($tablet) {
+           border-radius: 0;
+           background-position: 14px 13px;
+        } 
+    } 
+
+    @include between($tablet, $med-desk) {
+        width: 266px;
+    } 
+
+    @include until($tablet) {
+        padding: 0 0 0 50px;
+        width: 96%;
+        height: 40px;
+        border-left: none;
+        border-radius: 0;
+    }
+
+    @include until($mobile) {
+        padding: 0 0 0 6.6%;
+    } 
+
+    @include until($sm-mobile) {
+        width: 90%;
+    }
+}
+
+input {
+    font-family: $site-font-stack;
+    font-size: 12px;
+    letter-spacing: $body-tracking;
+}
+
+input:focus {
+    outline: none;
+    border-color: $gold;
+    color: $near-black;
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: $lgt-blk;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: $lgt-blk;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: $lgt-blk;
+}
+:-moz-placeholder { /* Firefox 18- */
+  color: $lgt-blk;
+}
+
+select {;
+    display: block;
+    height: 40px;
+    border: 1px solid $lgt-grey;
+    border-radius: 0;
+    -webkit-appearance: none; 
+   -moz-appearance: none;
+   appearance: none; 
+    background: $dropdown no-repeat right 17px center/ 10px; 
+    font-family: $site-font-stack;
+    font-size: 12px;
+    font-weight: normal;
+    color: $near-black;
+
+    &:focus {
+        border: 1px solid $gold;
+        outline: none;
+    }
+}
+
+.form-select {
+    width: 100%;
+    padding-left: 22px;
+}
+
+label {
+    font-size: 11px;
+    color: $x-dk-grey;
+}
+
+.img-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+
+.img-container img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.page-title-a {
+    font-family: $serif-stack;
+    font-size: $h1-size;
+    font-weight: normal;
+    line-height: 25px;
+    letter-spacing: 0;
+
+    @include until($med-desk) {
+        font-size: 18px;
+        line-height: 25px;
+    } 
+}
+.page-title {
+    @extend .page-title-a;
+    margin: 0 0 40px 0;
+
+    @include between($tablet, $med-desk) {
+        margin: 0 0 22px 0;
+    }
+
+    @include between($mobile, $tablet) {
+        margin: 0 0 22px 8%;
+    } 
+
+    @include until($mobile) {
+        margin: 0;
+        padding: 25px 0 22px 10%;
+        background-color: $x-lgt-grey;
+    } 
+}
+
+.subtitle {
+    @extend .page-title-a;
+}
+
+.sub-serif {
+    @extend .page-title-a;
+    font-size: 15px;
+    color: $dk-gold;
+}
+
+.htitle {
+    margin: 0;
+    font-family: $serif-stack;
+    font-weight: normal;
+}
+
+h3 {
+    @extend .htitle;
+    font-size: 18px;
+}
+
+.h3-gold {
+    color: $dk-gold;
+}
+
+h4 {
+    @extend .htitle;
+    font-size: 16px;
+}
+
+.h4-gold {
+    color: $dk-gold;
+}
+
+h5 {
+    @extend .htitle;
+    font-size: 14px;
+}
+
+h6 {
+    margin: 0;
+    font-family: "basisgrot-med", Helvetica, sans-serif;
+    font-size: 13px;
+    font-weight: normal;
+}
+
+.text-sml {
+    font-size: 12px;
+}
+
+.sm-grey {
+    @extend .text-sml;
+    color: $dk-grey;
+}
+
+/* ____ICONS & LOGO_____*/
+
+.riteslogo {
+    padding-left: 50px;
+    padding-top: 10px;
+    font-family: $serif-stack;
+    font-size: 33px;
+    letter-spacing: 0.4px;
+    color: #000000;
+
+    @include until($tablet) {
+        position: absolute;
+        left: 50%;
+        margin-left: -32px;
+        padding: 0;
+        font-size: 28px;
+        line-height: 28px;
+        margin-top: 13px;
+    }
+}
+
+.icon {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.icon-menu {
+   
+}
+
+.icon-search {
+    @extend .icon;
+    background: url(../css/images/icons/icon-search.svg) 7px 1px/16px 11px no-repeat;
+    background-position: 6px 3px;
+    background-size: 13px 14.5px;
+    height: 19px;
+    width: 20px;
+}
+
+.icon-close-gld {
+    @extend .icon;
+    background: url(../css/images/icons/icon-close-gld.svg) no-repeat center center;
+    height: 10px;
+    width: 16px;
+}
+
+.icon-more {
+    @extend .icon;
+    background: url(../css/images/icons/icon-plus.svg) no-repeat center center;
+    height: 10px;
+    width: 16px;
+}
+
+.sec-close {
+    padding: 9px 10px 11px;
+    border-radius: 100%;
+    border: 1px solid $gold;
+}
+
+.icon-info-block {
+    @extend .icon;
+    height: 12px;
+}
+
+.icon-user {
+    @extend .icon-info-block;
+    background: url(../css/images/icons/icon-user.svg) 9px 5px/18px 13px no-repeat;
+    width: 14px;
+    height: 16px;
+    background-position: -3px 0px;
+}
+
+.icon-assist {
+    @extend .icon-info-block;
+    background: url(../css/images/icons/icon-question.svg) 7px 1px/16px 11px no-repeat;
+    width: 12px;
+    background-position: -2px 0px;
+    height: 14px;
+
+    @include until($tablet) {
+        background: url(../css/images/icons/icon-question.svg) 5px 0px/10px 10px no-repeat;
+        width: 20px;
+        background-position: 3px 3px;
+        height: 20px;
+    }
+}
+
+.icon-wish {
+    @extend .icon-info-block;
+    background: url(../css/images/icons/icon-favourite.svg) 7px 1px/17px 12px no-repeat;
+    width: 16px;
+    height: 14px;
+    background-position: 0px 0px;
+}
+
+.icon-bag {
+    @extend .icon;
+    background: url(../css/images/icons/icon-bag.svg) 7px 1px/17px 14px no-repeat;
+    width: 16px;
+    height: 16px;
+    background-position: 0px 0px;
+}
+
+.bag-count {
+    font-size: 15px;
+    vertical-align: middle;
+    margin-left: 3px;
+}
+
+/* ____Buttons and Links_____*/
+
+button:focus {
+    outline: none;
+}
+
+.link-a {
+    color: $dk-gold;
+}
+
+.sm-a {
+    color: $dk-gold;
+    font-size: 12px;
+}
+
+.btn-link {
+    color: $dk-gold;
+    background: none;
+    font-size: 12px;
+    border: none;
+    padding: 0;
+    letter-spacing: $body-tracking;
+}
+
+.btn-container {
+    margin: 28px 0;
+}
+
+.btn-basic {
+    text-align: center;
+    font-size: 12px;
+    letter-spacing: $btn-tracking;
+    cursor: pointer;
+    height: 45px;
+    /*line-height: 45px;*/
+}
+
+.rites-btn {
+    @extend .btn-basic;
+    display: block;
+    border-radius: 3px;
+    border: none;
+    
+    @include until($mobile) {
+        height: 50px;
+        line-height: 49px;
+    }
+}
+
+.btn-primary {
+    @extend .rites-btn;
+    margin-bottom: 14px;
+    height: 45px;
+    line-height: 45px;
+    width: 100%;
+    background-color: $near-black;
+    color: #fff;
+
+    &:hover {
+        opacity: 0.8;
+    }
+}
+
+.btn-sec {
+    @extend .btn-primary;
+    background-color: $gold;
+    font-family: $sans-med;
+}
+
+.btn-dropdown {
+    @extend .rites-btn;
+    padding: 0 32px 0 18px;
+    height: 40px;
+    border: 1px solid $lgt-grey;
+    background-color: transparent;
+    background: $dropdown no-repeat right 17px center/ 10px;
+    line-height: 40px;
+
+    @include until($mobile) {
+        border: 1px solid $gold;
+        background: none;
+    }
+}
+
+.btn-add {
+    @extend .rites-btn;
+    display: inline-block;
+    padding: 0 35px;
+    height: 40px;
+    border: 1px solid $lgt-grey;    
+    line-height: 40px;
+    color: $dk-gold;
+
+    @include until($mobile) {
+        width: 100%;
+    }
+}
+
+.btn-round {
+    @extend .btn-basic;
+    border-radius: 22.5px;
+    min-width: 150px;
+    border: 1px solid $gold;
+    padding: 0 30px;
+    font-family: $sans-med;
+
+    @include until($tablet) {
+        display: block;
+        margin: 0 auto 16px;
+        padding: 0 12px;
+        max-width: 160px;
+        line-height: 43px;
+    }
+}
+
+.btn-round-primary {
+    @extend .btn-round;
+    background-color: $gold;
+    color: #ffffff;
+}
+
+.btn-round-sec {
+    @extend .btn-round;
+    background-color: transparent;
+    color: $dk-gold;
+}
+
+.btn-round-pink {
+    @extend .btn-round;
+    background-color: $hot-pink;
+    border: none;
+    color: #ffffff;
+}
+
+.custom-button {
+    @extend .btn-primary;
+    width: 210px;
+    margin: 10px auto 30px;
+    background: #3b5798;
+    font-family: $sans-med;
+}
+
+.amzn {
+    background: #FF9A00;
+}
+    
+
+input[type="radio"], input[type="checkbox"] {
+    display: none;
+}
+
+.radio-btn {
+    display: inline-block;
+    height: 22px;
+    width: 22px;
+    border: 1px solid $med-grey;
+    border-radius: 50%;
+    vertical-align: middle;
+}
+
+
+
+.select-option input[type=radio]:checked+.label-wrapper {
+  border: 1px solid $gold;
+}
+
+.select-option input[type=radio]:checked+.label-wrapper .radio-btn {
+    border: 1px solid $gold;
+    background: $tick;
+}
+
+.select-option input[type=checkbox]:checked+.radio-wrapper .radio-btn {
+    border: 1px solid $gold;
+    background: $tick;
+}
+
+.mob-radio {
+    display: inline-block;
+    border: $secondary-border;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 11px;
+    line-height: 40px;
+}
+
+.btn-mob-circle {
+    display: inline-block !important;
+        margin-right: 4px;
+        border: $secondary-border;
+        border-radius: 50%;
+        text-indent: 100%;
+        overflow: hidden;
+        width: 50px;
+        height: 50px;
+
+    /*@include until($med-desk) {
+        display: inline-block !important;
+        margin-right: 4px;
+        border: $secondary-border;
+        border-radius: 50%;
+        text-indent: 100%;
+        overflow: hidden;
+        width: 50px;
+        height: 50px;
+    }*/
+}
+
+.chkbox-item input[type=checkbox]:checked+.rts-chkbox {
+    border: 1px solid $gold;
+    background: $tick;
+}
+
+.chkbox-item {
+    padding: 8px 0;
+}
+
+.chkbox-link {
+    position: relative;
+    padding: 2px 0 0 34px;
+    color: $near-black;
+    font-size: 12px;
+}
+
+.rts-chkbox {
+    position: absolute;
+    top: -2px;
+    left: 0;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    border: 1px solid $med-grey;
+
+    &.active {
+        background: $tick;
+        border: 1px solid $gold;
+    }
+}
+
+/*----------------------------*/
+/* $Header
+/*----------------------------*/
+
+.main-head {
+    background-color: #ffffff;
+
+    @include until($tablet) {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background-color: #ffffff;
+        z-index: 999;
+    }
+}
+
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+
+    @include between($mobile, $tablet) {
+        padding: 0 50px;
+    }
+
+    @include until($tablet) {
+        display: block;
+        height: 50px;
+        border: none;
+    }
+
+    @include until($mobile) {
+        padding: 0 6.6%;
+    }
+}
+
+.head-left {
+    display: flex;
+}
+
+.header-info {
+    display: flex;
+    justify-content: space-between;
+
+    @include until($tablet) {
+        float: right;
+        height: 50px;
+    }
+}
+
+.nav-trigger {
+    @extend .icon;
+    display: block;
+    float: left;
+    margin-top: 14px;
+    background: url(../css/images/icons/icon-menu.svg) no-repeat center center;
+    height: 21px;
+    width: 18px;
+
+    &.close {
+        @extend .icon;
+        background: url(../css/images/icons/icon-close-blk.svg) no-repeat center center;
+        background-size: 12px;
+    }
+}
+
+.search-trigger {
+    @include until($tablet) {
+        display: block;
+        float: left;
+        margin: 18px 0 0 40px;
+        background: url(../css/images/icons/icon-search.svg) no-repeat;
+        background-size: 13px 14.5px;
+        height: 15px;
+        width: 15px;
+    }
+}
+
+.top-search {
+    display: flex;
+    justify-content: space-between;
+    width: 360px;
+    height: 36px;
+    margin-top: 14px;
+    margin-left: 27px;
+
+    @include between($tablet, $med-desk) {
+        width: 320px;
+    }
+
+    @include until($tablet) {
+        display: none;
+        position: absolute;
+        left: 0;
+        top: 50px;
+        width: 100%;
+        background: #fff;
+        margin: 0;
+        height: 40px;
+
+        &.active {
+            display: flex;
+        }
+    }
+}
+
+.search-btn {
+    background-color: #fff;
+    border: 1px solid $lgt-grey;
+    border-radius: 0 3px 3px 0;
+    height: 36px;
+    width: 37px;
+    background: url(../css/images/icons/icon-search.svg) 7px 1px/16px 11px no-repeat;
+    background-position: 11px 11px;
+    background-size: 12px 12.5px;
+    margin: 0 20px 0 0;
+
+    &:hover {
+        cursor: pointer;
+        opacity: 0.6;
+    }
+
+    @include until($tablet) {
+        margin: 0;
+        width: 40px;
+        height: 40px;
+        border-right: none;
+        border-radius: 0;
+        background-position: 14px 13px;
+    }
+}
+
+.info-item {
+    font-size: 12px;
+    color: $near-black;
+    padding: 23px 20px;
+
+    @include until($tablet) {
+        padding: 18px 0 0;
+    }
+
+    .info-btn {
+        vertical-align: middle;
+    }
+}
+
+
+.info-currency:hover, 
+.head-hover:hover,
+.info-wish:hover,
+.info-bag:hover,
+.cust-serv-link:hover,
+.cust-link:hover {
+    opacity: 0.6;
+}
+
+.info-currency {
+    @extend .info-item;
+    padding-left: 35px;
+    
+    @include until($tablet) {
+        display: none;
+    }
+
+    select {
+        border: none;
+        height: unset;
+    }
+}
+
+.info-user{
+    @extend .info-item;
+    position: relative;
+
+    .signin-acc-name {
+        display: none;
+    }
+
+    @include until($tablet) {
+        display: none;
+    }
+
+    &.active {
+        &:hover{
+            .customer-serv-dropdown {
+                display: block;
+            }
+        }
+
+        .info-btn {
+            display: none;
+        }
+
+        .signin-acc-name {
+            display: inline-block;
+            color: $near-black;
+
+        }
+    }
+
+    .customer-serv-dropdown {
+        width: 190px;
+        font-size: 13px;
+    }
+}
+
+.info-btn {
+    color: $near-black;
+}
+
+.info-assist {
+    @extend .info-item;
+    position: relative;
+
+    @include at-least($tablet){
+        &:hover {
+            .customer-serv-dropdown {
+                display: block;
+            }
+        }
+    }
+
+    @include until($tablet) {
+        display: none;
+        padding-top: 0;
+        border: 1px solid $lgt-blk;
+        border-radius: 15px;
+        height: 18px;
+        width: 18px;
+        margin-top: 16px;
+
+        .info-btn {
+            display: none;
+        }
+    }
+}
+
+.info-wish {
+    @extend .info-item;
+    position: relative;
+
+    @include until($tablet) {
+        margin-right: 40px;
+    }
+
+    .wish-count {
+        display: none;
+    }
+
+    &.active {
+        padding: 14px 18px;
+        height: 44px;
+        border-radius: 22px;
+        border: 1px solid $gold;
+        margin: 9px 12px 0 0;
+
+        /*.wish-count {
+            display: block;
+            position: absolute;
+            top: 9px;
+            right: 28px;
+            height: 20px;
+            width: 20px;
+            border-radius: 100%;
+            font-size: 12px;
+            text-align: center;
+            color: #fff;
+            background-color: $gold;
+            line-height: 21px;  
+        }*/
+
+        @include until($tablet) {
+            width: auto;
+
+            .wish-count {
+                top: 7px;
+                right: -17px;
+            }
+        }
+    }
+
+    .info-btn {
+        @include until($tablet) {
+            display: none;
+        }
+    }
+}
+
+.info-bag {
+    @extend .info-item;
+    padding: 11px 18px;
+    margin: 12px 32px 0 0;
+    height: 44px;
+    border-radius: 22px;
+
+    @include until($tablet) {
+        position: relative;
+        padding: 0;
+        margin: 17px 0;
+        height: auto;
+    }
+
+    .bag-count {
+        display: none;
+    }
+
+    &.active {
+        @include at-least($tablet) {
+            border: 1px solid $gold;
+            margin-top: 9px;
+
+            .icon-bag {
+                /*background: url(../css/images/icons/icon-bag-white.svg) 7px 1px/17px 14px no-repeat;*/
+                width: 16px;
+                height: 16px;
+                background-position: 0px 0px;
+            }
+
+            .bag-count {
+                display: inline-block;
+            }
+        }
+
+        @include until($tablet) {
+            .bag-count {
+                display: block;
+                position: absolute;
+                top: -10px;
+                right: -15px;
+                height: 20px;
+                width: 20px;
+                border-radius: 100%;
+                font-size: 12px;
+                text-align: center;
+                color: #FFFFFF;
+                background: #C1B497;
+                line-height: 21px;   
+            }
+        }
+    }
+}
+
+.customer-serv-dropdown {
+    display: none;
+    background-color: white;
+    border: 1px solid #EAE9E9;
+    position: absolute;
+    width: 250px;
+    top: 61px;
+    left: 0;
+    padding: 20px 33px;
+    z-index: 999;
+
+    @include between($mobile, $tablet) {
+        left: -1px;
+    }
+
+    @include until($mobile) {
+        display: none;
+    }
+
+    .bodycopy {
+        margin-bottom: 12px;
+
+        &:nth-child(3) {
+            margin-top: 20px;
+        }
+    }
+
+    .cust-serv-link {
+        display: block;
+        margin-bottom: 12px;
+    }
+
+    .cust-link {
+        display: block;
+        margin-bottom: 10px;
+        background-repeat: no-repeat;
+        padding-left: 23px;
+
+
+        &.email {
+            background-image: $email-gold;
+            background-size: 13px;
+            background-position: 0 2px;
+        }
+
+        &.phone {
+            background-image: $phone-gold;
+            background-size: 12px;
+            background-position: 2px 1px;
+        }
+
+        &.chat {
+            background-image: $chat-gold;
+            background-size: 13px;
+            background-position: 1px 1px;
+        }
+    }
+}
+
+.mob-cust-serv {
+    @include at-least($mobile) {
+        display: none;
+    }
+
+    @include until($mobile) {
+        display: none;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        height: 200px;
+        padding: 40px 6.6%;
+        background: #fff;
+    }
+
+    .cc-contact-wrapper {
+        margin-top: 20px;
+    }
+
+    .nav-close {
+        display: block;
+        margin: 0;  
+        position: absolute;
+        top: 34px;
+        right: 6.6%;
+    }
+}
+
+/*----------------------------*/
+/* $Footer
+/*----------------------------*/
+
+.sans-head {
+    font-family: $site-font-stack;
+    font-size: 16px;
+}
+
+
+/* ____NAVIGATION DROPDOWN MENU_____*/
+.rts-overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    visibility: hidden;
+
+    &.is-visible {
+        visibility: visible;
+        background: rgba(81, 81, 81, 0.35);
+        transition: background .3s 0s,-webkit-transform .3s 0s;
+        -webkit-transition: background .3s 0s,-webkit-transform .3s 0s;
+        transition: background .3s 0s,transform .3s 0s;
+        transition: background .3s 0s,transform .3s 0s,-webkit-transform .3s 0s;
+    }
+}
+
+.prime-nav {
+    padding: 0 0 0 50px;
+
+    @include until($tablet) {
+        display: none;
+        position: absolute;
+        top: 50px;
+        width: 86%;
+        max-width: 360px;
+        max-height: 100vh;
+        overflow: auto;
+        padding: 0 0 120px 0;
+        background-color: #fff;
+    }
+
+    .img-container {
+        @include at-least($tablet) {
+            padding-bottom: 90%;
+        }
+
+        @include until($tablet) {
+            width: 41%;
+            padding-bottom: 36%;
+        }
+
+        @include until($tablet) {
+            border-top: 1px solid #ffffff;
+        }
+    }
+}
+
+.nav-menu {
+    display: flex;
+
+    @include until($tablet) {
+        display: block;
+    }
+}
+
+.nav-item {
+    margin: 0 4px;
+
+    &:first-child .prime-title {
+        padding-left: 0;
+    }
+
+    @include at-least($tablet) {
+        &:hover {
+            .sec-nav {
+                display: flex;
+            }
+        }
+    }
+
+    @include until($tablet) {
+        margin: 0;
+    }
+}
+
+.prime-title {
+   /* display: none;*/
+    font-size: 15px;
+    display: block;
+    padding: 0px 20px 11px;
+
+    &:hover {
+        color: $near-black;
+        opacity: 1 !important;
+    }
+
+    @include until($tablet) {
+        padding: 0;
+        font-size: 13px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .img-a, .nav-a {
+        @include at-least($tablet) {
+            margin-bottom: 0;
+            float: none;
+        }
+    }
+
+    .img-container {
+        @include at-least($tablet) {
+            display: none;
+        }
+    }
+}
+
+.nav-a {
+    display: block;
+
+    @include at-least($tablet) {
+        margin-bottom: 6px;
+    }
+
+    @include until($tablet) {
+        width: 100%;
+        padding: $mob-menu-item-pad;
+        border-top: 1px solid $lgt-grey;
+        background: url(../css/images/icons/icon-arrow-next.svg) no-repeat right 19px top 17.5px;
+        background-size: 8px;
+    }
+}
+
+.img-a {
+    @extend .nav-a;
+
+    @include until($tablet) {
+        width: 59%;
+    }
+}
+
+.go-back {
+    background: url(../css/images/icons/icon-arrow-back.svg) no-repeat 26px center;
+    background-size: 8px;
+    padding-left: 52px;
+    background-color: $x-lgt-grey;
+}
+
+.l2-title {
+    display: none;
+
+    @include until($tablet) {
+        display: block;
+        padding: $mob-menu-item-pad;
+        background-color: $gold;
+        color: #ffffff;
+    }
+}
+
+.mob-menu-footer {
+    display: none;
+
+    @include until($tablet) {
+        display: block;
+        border-top: 3px solid $gold;
+        border-bottom: 1px solid $lgt-grey;
+    }
+
+    .icon-a {
+        @extend .nav-a;
+        padding-left: 68px;
+        color: $near-black;
+    }
+
+    .email-a {
+        @extend .icon-a;
+        background: $email no-repeat 26px center;
+        background-size: 15px;
+    }
+
+    .help-a {
+        @extend .icon-a;
+        background: url(../css/images/icons/icon-question.svg) no-repeat 29px center;
+        background-size: 8px;
+    }
+
+    .dropdown-a {
+        @extend .nav-a;
+        color: $near-black;
+       /* background: $dropdown right 19px/ 11px no-repeat;*/
+        background: none;
+    }
+
+    .btn-container.signed-in {
+        display: none;
+    }
+
+    .acc-signed-in {
+        display: none;
+        padding: 20px 0 4px 6.6%;
+
+        .cust-serv-link {
+            display: block;
+            margin-bottom: 16px;
+        }
+    }
+}
+
+.sec-nav {
+    display: none;
+    justify-content: space-between;
+    background-color: #fff;
+
+    &.active {
+        display: flex;
+    }
+    
+    @include at-least($tablet) {
+        position: absolute;
+        top: 94px;
+        left: 0;
+        width: 100%;
+        padding: 70px 17% 72px 55px;
+        border-top: 5px solid $x-lgt-grey;
+    }
+
+    @include between($tablet, $med-desk) {
+        top: 41px;
+        padding: 58px 52px 79px 52px;
+    }
+
+    @include between($tablet, $tablet) {
+        max-height: 100vh;
+        overflow: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+}
+
+.img-segment {
+    @include at-least($tablet) {
+        float: left;
+    }
+
+    /*@include between($mobile, $tablet) {
+        width: 240px;
+        margin-left: 26px;
+    }*/
+}
+
+.img-list-item {
+
+    @include at-least($lrg-desk) {
+        margin-left: 60px;
+        width: 150px;
+    }
+
+    @include between($med-desk, $lrg-desk) {
+        margin-left: 54px;
+        width: 140px;
+    }
+
+    @include between($tablet, $med-desk) {
+        margin-left: 39px;
+        width: 125px;
+    }
+
+    @include at-least($tablet) {
+        float: left;
+
+        &:first-child {
+            margin-left: 0;
+        }
+    }
+
+  /*  @include between($mobile, $tablet) {
+        width: 100%;
+        margin-bottom: 20px;
+    }*/
+
+    .img-list-a {
+        @extend .img-a;
+
+        @include at-least($tablet) {
+            margin-bottom: 28px;
+        }
+    }
+}
+
+.intro-list{
+    @include until($tablet) {
+        display: none;
+    }
+}
+
+.sec-title {
+    color: $near-black;
+
+    @include at-least($tablet) {
+        display: block;
+        margin-bottom: 21px;
+        font-size: 15px;
+        letter-spacing: $body-tracking;
+    }
+
+    @include until($tablet) {
+        font-family: $sans-med;
+        font-size: 15px;
+    }
+
+    .img-container {
+        @include at-least($tablet) {
+            display: none;
+        } 
+    }
+}
+
+.highlgt-segment {
+    float: left;
+
+    @include at-least($med-desk) {
+        margin-left: 38px;
+    }
+}
+
+.highlgt-item {
+    @extend .img-list-item;
+    width: 200px;
+    margin-left: 70px;
+
+    &:hover {
+        opacity: 0.8;
+    }
+
+    @include between($med-desk, $lrg-desk) {
+        width: 190px;
+        margin-left: 60px;
+    }
+
+    @include between($tablet, $med-desk) {
+        width: 160px;
+        margin-left: 40px;
+    }
+}
+
+.highlgt-a {
+    display: block;
+    margin-top: 28px;
+}
+
+.dsgn-all-a {
+    margin-bottom: 27px;
+}
+
+.dsgn-item {
+    @extend .highlgt-item;
+     width: 180px;
+
+    @include between($med-desk, $x-lrg-desk) {
+        width: 154px;
+    }
+
+    @include between($tablet, $med-desk) {
+        width: 140px;
+    }
+
+    /*@include between($mobile, $tablet) {
+        width: 300px;
+        margin-left: 0;
+    }*/
+
+    .highlgt-a {
+       /* @include between($mobile, $tablet) {
+            width: 54%;
+            margin-top: 0;
+        }*/
+    }
+}
+
+/*-----------------------------*/
+/* $General page
+/*-----------------------------*/
+.content {
+    padding: 44px 50px 0;
+    background-color: $x-lgt-grey;
+
+    @include between ($mobile, $med-desk) {
+        padding: 25px 2.3% 0;
+    } 
+
+    @include between($mobile, $tablet) {
+       margin-top: 50px;
+    } 
+
+    @include until($mobile) {
+        width: 100%;
+        padding: 0;
+        background: none;
+        margin-top: 50px;
+
+        img {
+            width: 100%;
+        }
+    } 
+} /*  page content offset for header */
+
+.head-wrapper {
+    margin: 0 auto;
+    max-width: 1100px;
+}
+
+.content-wrapper {
+    display: flex;
+    flex-flow: row wrap;  
+}
+
+/*-----------------------------*/
+/* $Homepage and Blocks
+/*-----------------------------*/
+
+.hp-content {
+    border-top: 1px solid $lgt-grey;
+
+    @include until($mobile) {
+        margin: 50px 0 50px;
+    }
+}
+
+.hp-mob-btns{
+    display: flex;
+    justify-content: space-between;
+    padding: 9px 6.6% 0;
+
+    .btn-sec {
+        width: 47%;
+        margin-bottom: 9px;
+    }
+}
+
+.row {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+
+    @include until($mobile) {
+        flex-flow: column;
+
+        .head-mod-text {
+            order: 2;
+        }
+
+        .head-mod-img {
+            padding: 0;
+        }
+    }
+}
+
+.land-row {
+    .halfhead-img {
+        margin-bottom: 0;
+    }
+
+    .mod-head-text {
+        padding: 24px 50px 70px;
+
+        @include until($mobile) {
+            margin-bottom: 0;
+            padding: 10px 10% 39px;
+        }
+    }
+}
+
+.two-mods {
+    width: 49.8%;
+
+    @include until($mobile) {
+        width: 100%;
+        padding: 0 10%;
+    }
+}
+
+.empty-plp {
+
+        flex-flow: row wrap;
+        padding: 0 50px;
+
+}
+
+.three-mods {
+    width: 49%;
+
+    @include until($mobile) {
+        width: 49%;
+
+        .module-text {
+            font-size: 17px;
+            line-height: 22px;
+        }
+    }
+}
+
+.halfhead-img {
+    display: block;
+    width:100%;
+    margin-bottom: 34px;
+
+    @include until($mobile) {
+        margin-bottom: 0;
+    }
+
+    img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+.land-img {
+    padding-bottom: 63%;
+}
+
+.port-img {
+    padding-bottom: 134%;
+}
+
+.insta-img {
+    padding-bottom: 95%;
+}
+
+.module {
+    .halfhead-img-container {
+         width: 100%;
+    }
+}
+
+.module-text {
+    padding: 18px 50px 67px;
+    font-family: $serif-stack;
+    font-size: 24px;
+    line-height: 32px;
+
+    @include between($mobile, $med-desk) {
+        padding-left: 28px;
+    }
+
+    @include until($med-desk) {
+        padding: 14px 28px 50px;
+        font-size: 22px;
+        line-height: 29px;
+    }
+
+    @include until($mobile) {
+        width: 100%;
+        padding: 9px 0 45px 0;
+        font-size: 20px;
+        line-height: 26px;
+    }
+}
+
+.module-title {
+    color: $near-black;
+}
+
+.mod-head-text {
+    width: 86%;
+    display: block;
+    padding:  168px 50px 0;
+    font-size: 33px;
+    line-height: 43px;
+
+    @include until($med-desk) {
+        width: 100%;
+        padding-right: 0;
+        font-size: 28px;
+        line-height: 33px;
+    }
+
+    @include between($mobile, $tablet) {
+        padding-top: 100px;
+    }
+
+    @include until($mobile) {
+        padding-top: 9px;
+        padding-left: 0;
+        font-size: 20px;
+        line-height: 26px;
+        margin-bottom: 50px;
+    }
+
+    .btn-sec {
+        width: 200px;
+        margin-top: 39px;
+
+        @include until($med-desk) {
+            margin-top: 29px;
+        }
+
+        @include until($mobile) {
+            display: none;
+        }
+    }
+}
+
+.mod-head-title {
+    font-family: $serif-stack;
+    margin: 0;
+    font-weight: normal;
+    font-size: 33px;
+    color: $near-black;
+
+    @include until($med-desk) {
+        font-size: 28px;
+        line-height: 33px;
+    }
+
+    @include until($mobile) {
+        font-size: 20px;
+        line-height: 26px;
+    }
+}
+
+.mod-head-subtitle {
+    font-family: $serif-stack;
+}
+
+.product-module {
+    margin: 0 0 70px 50px;
+    overflow: hidden;
+
+    @include between($mobile, $med-desk) {
+        margin: 0 0 34px 28px;
+    }
+
+    @include until($mobile) {
+        margin: 0 10%;
+    }
+
+    .btn-sec {
+        background: #fff;
+        color: $dk-gold;
+        border: 1px solid $gold;
+        width: 250px;
+
+        @include until($mobile) {
+            margin: 0 auto 46px;
+        }
+    }
+}
+
+.product-slider {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    width: 106%;
+
+    @include until($mobile) {
+        flex-flow: row wrap;
+        width: 100%;
+    }
+}
+
+.prod-slider-item {
+    width: 18.5%;
+
+    .img-container {
+        padding-bottom: 96%;
+    }
+
+    @include until($mobile) {
+        width: 48%;
+
+        &:last-child {
+            display: none;
+        }
+    }
+}
+
+.prod-text {
+    @extend .module-text;
+    padding: 3px 0 30px;
+}
+
+
+
+.prod-subtitle {
+    display: block;
+    font-size: 15px;
+    margin-top: 5px;
+}
+
+.insta-row {
+    margin: 68px 0 80px;
+    flex-flow: column wrap;
+    justify-content: flex-start;
+    max-height: 750px;
+
+    @include between($med-desk, $lrg-desk) {
+        max-height: 716px;
+    }
+
+    @include between($tablet, $med-desk) {
+        max-height: 690px;
+    }
+
+    @include between($mobile, $tablet) {
+        max-height: 600px;
+    }
+
+    @include between($mobile, $med-desk) {
+        margin-top: 26px;
+    }
+
+    @include until($mobile) {
+        margin: 0;
+        padding: 0 10%;
+        flex-flow: column nowrap;
+        max-height: unset;
+    }
+}
+
+.insta-mod {
+    .module-text {
+        padding: 0;
+
+        @include between($mobile, $lrg-desk) {
+            font-size: 22px;
+        }
+
+        @include until($med-desk) {
+            flex-flow: column;
+        }
+
+        @include until($mobile) {
+            padding: 10px 0;
+        }
+    }
+
+    .module-caption {
+        font-family: $serif-stack;
+    }
+
+    .insta-follow {
+        font-size: 13px;
+        padding-left: 29px;
+        padding-top: 4px;
+        padding-bottom: 4px;
+        background: $insta-gold -1px -1px/25px 27px no-repeat;
+        letter-spacing: 0.2px;
+
+        @include until($med-desk) {
+            margin-top: 14px;
+        }
+
+        @include until($mobile) {
+            display: none;
+        }
+    }
+
+    .insta-follow-2 {
+        @extend .insta-follow;
+        display: none;
+
+        @include until($mobile) {
+            display: block;
+            margin: 24px auto;
+            width: 154px;
+        }
+    }
+
+    .insta-name {
+        font-family: $sans-med;
+        margin-bottom: 10px;
+
+        .insta-date {
+            font-family: $site-font-stack;
+            color: $dk-grey;
+        }
+    }
+
+    .insta-img-cap {
+        width: 76%;
+
+        @include between($med-desk, $lrg-desk) {
+            padding-top: 0;
+        }
+
+        @include between($mobile, $tablet) {
+            display: none;
+        }
+
+        @include until($mobile) {
+            display: none;
+        }
+    }
+
+    .insta-prod-wrapper {
+        padding: 50px 0 0 0;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+
+        @include until($mobile) {
+            padding: 20px 0 0;
+        }
+
+        .insta-item {
+            width: 46%;
+
+            @include between($med-desk, $lrg-desk) {
+                width: 45%;
+            }
+        }
+
+        .img-container {
+            padding-bottom: 94%;
+        }
+    }
+
+    .btn-sec {
+        background: #fff;
+        color: $dk-gold;
+        border: 1px solid $gold;
+        width: 250px;
+
+        @include until($mobile) {
+            margin: 0 auto;
+        }
+    }
+}
+
+.insta-img-mod {
+    width: 49.8%;
+
+    @include between($mobile, $med-desk) {
+        margin-bottom: 93px;
+    }
+
+    @include until($mobile) {
+        order: 2;
+        width: 100%;
+    }
+}
+
+.insta-title-mod {
+    width: 50.2%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 50px 47px 32px;
+
+    @include between($mobile, $tablet) {
+        flex-flow: column;
+        padding-bottom: 20px;
+    }
+
+    @include until($mobile) {
+        width: 100%;
+        order: 1;
+        padding: 0 0 8px 0;
+    }
+}
+
+.insta-cap-mod {
+    width: 50.2%;
+    padding: 0 50px 0 32px;
+
+    @include until($mobile) {
+        width: 100%;
+        order: 3;
+        padding: 24px 0;
+    }
+}
+
+/*-----------------------------*/
+/* MINIBAG
+/*-----------------------------*/
+
+#minibag {
+    position: fixed;
+    top: 62px;
+    border: 1px solid $x-lgt-grey;
+    width: 374px;
+    background: #fff;
+    z-index: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-transition: right .5s cubic-bezier(.785,.135,.15,.86);
+    transition: right .5s cubic-bezier(.785,.135,.15,.86);
+    z-index: 1000;
+    right: -374px;
+
+    &.active {
+        right: 0;
+    }
+
+    .sub-serif {
+        padding: 22px 26px;
+    }
+
+    .bag-img-wrapper {
+        width: 26%;
+    }
+
+    .btn-sec {
+        margin: 16px auto 30px;
+        width: 165px;
+    }
+
+    @include until($tablet) {
+        display: none;
+    }
+}
+
+.bag-body {
+    overflow: auto;
+    max-height: 380px;
+}
+
+.bag-item {
+    padding: 17px 25px 17px 18px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    border-bottom: 1px solid $lgt-grey;
+    cursor: pointer;
+}
+
+.bag-item-content {
+    width: 70%;
+    position: relative;
+
+    .price-container {
+        float: right;
+        margin-top: 17px;
+    }
+}
+
+.bag-item-head {
+    .brand-title {
+        font-size: 15px;
+        color: $dk-gold;
+        line-height: 18px;
+    }
+}
+
+.bag-item-info {
+    margin-top: 6px;
+
+    .label {
+        display: inline-block;
+        width: 36px;
+        font-size: 11px;
+    }
+
+    .value {
+        font-size: 12px;
+    }
+
+    .btn-link {
+        float: left;
+        margin-top: 17px;
+    }
+}
+
+.summary {
+    border-top: 1px solid $x-lgt-grey;
+    padding: 22px 26px;
+}
+
+.price-recap {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    font-family: $sans-med;
+}
+
+/*-----------------------------*/
+/* $SHOPPING BAG
+/*-----------------------------*/
+
+.shopbag-wrapper {
+    display: flex;
+    flex-flow: row nowrap;  
+    justify-content: space-between;
+
+    @include at-least($med-desk) {
+        width: 1106px;
+        margin: 0 auto;
+    }
+
+    @include until($mobile) {
+        display: block;
+    }
+}
+
+.chkout-wrapper {
+    @extend .shopbag-wrapper;
+
+    @include until($tablet) {
+        flex-flow: column;
+    } 
+}
+
+.cart-section {
+    background-color: #ffffff;
+    border-radius: 3px;
+
+    @include until($mobile) {
+        width: 100% !important;
+    }
+}
+
+.cart-items {
+    @extend .cart-section;
+    width: 66.5%;
+    height: 100%;
+    margin-bottom: 46px;
+
+    @include between($med-desk, $lrg-desk) {
+        width: 65%;
+    }
+
+    @include between($tablet, $med-desk) {
+        width: 69%;
+    }
+
+    @include until($mobile) {
+        margin-bottom: 22px;
+    }
+}
+
+.summary-wrapper {
+    width: 355px;
+    margin-bottom: 16PX;
+
+    @include between($tablet, $med-desk) {
+        width: 28%;
+    }
+
+    @include between($mobile, $tablet) {
+        width: 31%;
+    }
+
+    @include until($mobile) {
+        width: 100%;
+    }
+
+    .subtitle {
+        margin-bottom: 23px;
+        color: $dk-gold;
+    }
+}
+
+.cart-item {
+    position: relative;
+    border-bottom: 1px solid $lgt-grey;
+
+    &:last-child {
+        border: none;
+    }
+
+    .btn-link {
+        position: absolute;
+        right: 46px;
+        bottom: 22px;
+
+        @include until($tablet) {
+            right: 20px;
+            bottom: 20px;
+        }
+    }
+}
+
+.bag-img-wrapper {
+    width: 16.5%;
+    float: left;
+
+    @include until($tablet) {
+        width: 140px;
+        padding: 17px 12px;
+    }
+
+    @include until($mobile) {
+        width: 33%;
+    }
+
+    .img-container {
+         padding-bottom: 139%;
+    }
+}
+
+.cart-item-info {
+    float: left;
+    width: 72%;
+    padding: 22px 46px 18px 31px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+
+    @include between($mobile, $tablet) {
+        display: block;
+        width: 63%;
+        padding: 20px;
+    }
+
+    @include until($mobile) {
+        width: 60%;
+        padding: 17px 14px 22px 5px;
+        flex-flow: column;
+    }
+
+    .brand-title {
+        display: block;
+        font-size: 16px;
+        font-family: $serif-stack;
+    }
+
+    .product-name {
+        margin-top: 5px;
+        display: block;
+        color: $near-black;
+
+        @include until($mobile) {
+            margin-top: 3px;
+        }
+    }
+
+    .price-container {
+        @include between($mobile, $tablet) {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        @include until($mobile) {
+            order: 2;
+            margin-top: 7px;
+        }
+    }
+}
+
+.cart-info-select {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 23px;
+    margin-bottom: 44px;
+
+    @include between($mobile, $tablet) {
+        margin-bottom: 0;
+
+        .select-item {
+            width: 48%;
+        }
+    }
+
+    @include until($mobile) {
+        display: block;
+        order: 3;
+        margin-top: 19px;
+        margin-bottom: 33px;
+
+        .select-item:last-child {
+            margin-top: 12px;
+        }
+    }
+
+    select {
+        padding: 0 35px 0 12px;
+        margin-top: 3px;
+
+        @include until($mobile) {
+            width: 90%;
+            max-width: 230px;
+        }
+    }
+
+    .size-select {
+        @include at-least($tablet) {
+            padding-right: 80px;
+            margin-right: 16px;
+        }
+
+        @include between($mobile, $tablet) {
+            width: 100%;
+        }
+    }
+}
+
+.summary-container {
+    @extend .cart-section;
+    padding: 30px 42px;
+    margin-bottom: 30px;
+
+    @include between($mobile, $tablet) {
+        padding: 30px 28px;
+    }
+
+    @include until($mobile) {
+        padding-left: 12px;
+        padding-right: 12px;
+        margin-bottom: 22px;
+
+        &:last-child{
+            background-color: initial;
+            padding: 27px 12px 0;
+        }
+    }
+
+    .btn-round-primary {
+        margin: 0 auto;
+        display: block;
+    }
+}
+
+.summary-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 6px;
+}
+
+.price-total {
+    @extend .summary-item;
+    border-top: 1px solid $lgt-grey;
+    margin-top: 25px;
+    margin-bottom: 30px;
+    padding-top: 19px;
+    font-family: $sans-med;
+}
+
+.bag-cc-info {
+    margin-bottom: 30px;
+
+    h4 {
+        margin-bottom: 6px;
+        color: $dk-gold;
+
+        @include until($mobile) {
+            color: $near-black;
+            font-size: 18px;
+        }
+    }
+}
+
+.empty-cart {
+    padding: 20px 30px;
+    display: flex;
+    justify-content: space-between;
+
+    @include until($tablet) {
+        padding: 16px 30px 30px;
+        display: block;
+
+        .btn-round-primary {
+            margin-top: 24px;
+        }
+    }
+
+    .h4-gold {
+        padding-top: 11px;
+        font-size: 18px;
+    }
+}
+
+/*-----------------------------*/
+/* $CHECKOUT */
+/*-----------------------------*/
+
+.step-num {
+    display: block;
+    background-color: $hot-pink;
+    border-radius: 50%;
+    font-family: $sans-med;
+    font-size: 12px;
+    color: #ffffff;
+    text-align: center;
+}
+
+.chkout-change {
+    position: absolute;
+    top: -2px;
+    right: 0;
+    padding-top: 3px;
+    margin-right: 20px;
+    font-size: 11px;
+    text-transform: uppercase;
+}
+
+.chkout-head {
+    @extend .main-head;
+    padding: 0 50px 0;
+    height: 50px;
+
+    .riteslogo {
+        float: none;
+        font-size: 28px;
+    }
+}
+
+.shopbag-content {
+    @extend .content;
+
+    @include between($mobile, $med-desk) {
+        padding: 30px 50px;
+    }
+
+    @include until($mobile) {
+        padding: 17px 6.6%;
+        background-color: $x-lgt-grey;
+    }
+
+    .page-title {
+        font-size: 20px;
+        width: 1106px;
+        margin-left: auto;
+        margin-right: auto;
+
+        @include between($mobile, $med-desk) {
+            margin-bottom:28px;
+            margin-left: 0;
+        }
+
+        @include until($mobile) {
+            margin: 0;
+            padding: 10px 0 21px;
+        }
+    }
+
+    .chk-label {
+        font-family: $sans-med;
+        color: $near-black;
+        font-size: 13px;
+    }
+
+    .chk-input {
+        margin-top: 4px;
+        border-radius: 0;
+        margin-bottom: 26px;
+    }
+
+    .mob-container {
+        .btn-round-primary {
+            display: none;
+        }
+
+        @include until($mobile) {
+            display: flex;
+            justify-content: space-between;
+
+            .btn-round-primary {
+                display: block;
+            }
+        }
+    }
+}
+
+.chkout-content {
+    @extend .shopbag-content;
+
+    @include between($mobile, $med-desk) {
+        margin-top: 50px;
+    }
+
+    .input-link {
+        margin-bottom: 9px;
+    }
+}
+
+.form-line {
+    width: 100%;
+}
+
+.col-line {
+    display: flex;
+    justify-content: space-between;
+
+    @include until($mobile) {
+        display: block;
+    } 
+}
+
+.half-line {
+    width: 48%;
+
+    @include until($mobile) {
+        width: 100%;
+    } 
+}
+
+.desk-half-line {
+    @extend .half-line;
+
+    @include until($mobile) {
+        display: inline-block;
+        width: 47%;
+        margin-right: 4%;
+
+        &:nth-child(2n) {
+            margin-right: 0;
+        }
+    }
+}
+
+.select-option {
+    margin-bottom: 24px;
+}
+
+.label-wrapper {
+    padding: 15px 48px 15px 13px;
+    border: 1px solid $med-grey;
+    border-radius: 3px;
+    display: flex;
+    justify-content: space-between;
+
+    @include until($tablet) {
+        display: block;
+        position: relative;
+    }
+    
+    .radio-wrapper {
+        display: flex;
+    }
+
+    .radio-label {
+        padding-left: 12px;
+        line-height: 22px;
+        font-size: 13px;
+        font-family: $sans-med;
+        color: $near-black;
+    }
+
+    .delivery-options {
+        .radio-wrapper {
+            width: 28%;
+
+            @include until($tablet) {
+                width: 100%;
+            }
+        } 
+
+        @include until($tablet) {
+            width: 32%;
+        }
+    }
+    
+    .option-details {
+        width: 45%;
+        padding-top: 2px;
+        font-size: 13px;
+
+        @include until($tablet) {
+            width: 100%;
+            max-width: 360px;
+            padding-left: 34px;
+        }
+    }
+
+    .price {
+        width: 6%;
+        margin-left: 20px;
+        padding-top: 2px;
+        font-size: 13px;
+        font-family: $sans-med;
+        color: $near-black;
+
+        @include until($tablet) {
+            position: absolute;
+            right: 39px;
+            top: 15px;
+        }
+    }
+}
+
+.payment-options, .saved-addresses, .saved-cards {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 17px;
+
+    @include until($mobile) {
+        display: block;
+    }
+
+    .select-option {
+        width: 48%;
+
+        @include until($mobile) {
+            width: 100%;
+        }
+    }
+}
+
+.saved-addresses, .saved-cards {
+    .label-wrapper {
+        position: relative;
+        padding-right: 12px;
+    }
+
+    .chkout-change {
+        top: 14px;
+        right: 15px;
+        margin-right: 0px;
+    }
+}
+
+.saved-info-wrapper {
+    font-size: 13px;
+    color: $near-black;
+    padding-left: 12px;
+    line-height: 19px;
+
+    .radio-label {
+        padding-left: 0;
+    }
+}
+
+.tooltip {
+    width: 36%;
+    font-size: 11px;
+    margin-top: 34px;
+    position: relative;
+
+    @include until($mobile) {
+        margin-left: 28px;
+    }
+}
+
+.bg-question {
+    position: absolute;
+    top: -4px;
+    left: -27px;
+    width: 22px;
+    height: 22px;
+    border: 1px solid $gold;
+    border-radius: 50%;
+    vertical-align: middle;
+    background: $question-gold no-repeat center center/ 8px;
+}
+
+.edit-billing {
+    margin: 38px 0 26px;
+
+    .step-title {
+        margin-bottom: 28px;
+    }
+}
+
+/*
+.progress-bar {
+    padding: 26px 30px;
+    width: 780px;
+    display: flex;
+    justify-content: space-around;
+    color: $dk-gold;
+
+    .step-num {
+        font-family: $sans-med;
+        font-size: 12px;
+        border: 1px solid #C1B497;
+        border-radius: 50%;
+        width: 31px;
+        height: 31px;
+        display: block;
+        margin: 0 auto;
+        text-align: center;
+        line-height: 30px;
+    }
+
+    .step-title {
+        margin-top: 7px;
+        font-size: 11px;
+    }
+}*/
+
+.chkout-container {
+    width: 720px;
+
+    @include between($mobile, $med-desk) {
+        width: 69%;
+    }
+
+    @include until($tablet) {
+        width: 100%;
+    } 
+}
+
+.step {
+    padding-bottom: 18px;
+    margin-bottom: 23px;
+    background-color: #ffffff;
+    border-radius: 3px;
+
+    .step-head {
+        display: flex;
+        padding: 26px 24px;
+
+        @include until($mobile) {
+            padding: 20px 22px 26px;
+        } 
+
+        .step-num {
+            width: 26px;
+            height: 26px;
+            line-height: 27px;
+        }
+
+        .step-title {
+            margin: 3px 15px;
+
+            @include until($mobile) {
+                margin: 3px 13px;
+            } 
+        }
+    }
+
+    .step-body {
+        padding: 0 67px;
+
+        .chkbox-link {
+            font-size: 13px;
+        }
+
+        @include until($mobile) {
+            padding: 0 24px;
+        } 
+    }  
+}
+
+.email-info {
+    position: relative;
+    width: 48%;
+    margin-bottom: 37px;
+
+    @include until($mobile) {
+        width: 100%;
+    } 
+}
+
+.logged-info {
+    @extend .email-info;
+    width: 100%;
+    margin-bottom: 11px;
+    line-height: 20px;
+
+    &:nth-child(2n) {
+        margin-top: 20px;
+        margin-bottom: 30px;
+    }
+}
+
+#signin {
+    .step {
+        margin-bottom: 0;
+    }
+
+    .email-info {
+        width: 100%;
+    }
+    
+    button {
+        margin: 8px auto 26px;
+        display: block;
+    }
+}
+
+#signin-reg {
+    .button-wrapper {
+        margin: 36px;
+
+         button {
+            display: block;
+            width: 180px;
+            margin: 23px auto;
+        }
+    }
+
+}
+
+.chkbox-label {
+    @extend .radio-label;
+    font-size: 13px;
+    color: $near-black;
+    font-family: $site-font-stack;
+    margin-left: 8px;
+}
+
+.place-order {
+    padding: 31px 67px 12px;
+    border-top: 1px solid $lgt-grey;
+    display: flex;
+    justify-content: space-between;
+
+    @include until($mobile) {
+        display: block;
+        padding: 26px 22px 12px;
+    }
+
+    .terms {
+        padding-top: 6px;
+        width: 40%;
+        font-size: 12px;
+
+        @include until($mobile) {
+            width: 100%;
+        }
+    }
+
+    button {
+        @include until($mobile) {
+            margin-top: 31px;
+            margin-bottom: 5px;
+        }
+    }
+}
+
+.social-signin {
+    padding: 31px 67px 12px;
+    background-color: #ffffff;
+    border-top: 1px solid $lgt-grey;
+
+    @include until($mobile) {
+        display: block;
+        padding: 26px 22px 12px;
+    }
+}
+
+.order-num-wrapper {
+    padding-left: 43px;
+
+    .order-num {
+        @extend h4;
+        padding-left: 20px;
+        color: $dk-gold;
+    }
+}
+
+.order-text {
+    margin-top: 22px;
+
+    .cc-list {
+        margin: 15px 0 30px;
+        list-style: disc inside;
+    }
+}
+
+.new-account-wrap {
+    padding: 27px;
+    border: 1px solid $gold;
+    border-radius: 3px;
+
+    .chk-input {
+        margin-bottom: 13px;
+    }
+
+    .select-option {
+        margin: 28px 0;
+    }
+
+    .btn-round-primary {
+        display: block;
+        margin-left: 42px;
+    }
+}
+
+.order-confirm-info {
+    display: flex;
+    justify-content: space-between;
+    margin: 48px 0 25px;
+
+    .info-block {
+        width: 50%;
+    }
+
+    .email {
+        background: $email-gold 4px 4px/18px no-repeat;
+        padding: 0 29px 0 42px;
+    }
+}
+
+.confirmed-summary {
+    @extend .step;
+    padding-bottom: 0;
+    
+    .order-list {
+        border-top: 1px solid $lgt-grey;
+
+        .cart-item {
+            padding: 17px;
+        }
+
+        .bag-img-wrapper {
+            @include at-least($mobile) {
+                width: 110px;
+            }
+
+            @include between($mobile, $tablet) {
+                padding: 0;
+                width: 100px;
+            }
+
+            @include until($mobile) {
+                padding: 0;
+                width: 30%;
+                max-width: 120px;
+            }
+        }
+
+        .cart-item-info {
+            @include at-least($mobile) {
+                padding: 0px 46px 0 20px;
+                width: 80%;
+            }
+
+            @include until($mobile) {
+                padding: 2px 14px 3px 22px;
+            }
+        }
+
+        .price-container {
+            right: 64px;
+        }
+    }
+
+    .order-sum-container {
+        padding: 22px 86px 2px 147px;
+        border-top: 1px solid $lgt-grey;
+
+        @include between($mobile, $tablet) {
+            padding: 22px 64px 2px 135px;
+        }
+
+        @include until($mobile) {
+            padding: 22px 22px 2px;
+        }
+    }
+}
+
+.sidebar-contact {
+    width: 335px;
+    padding: 22px 30px;
+    margin-bottom: 30px;
+
+    @include between($tablet, $med-desk) {
+        width: 28%;
+        padding: 22px 0 0 36px;
+    }
+
+    h3 {
+        margin-bottom: 20px;
+    }
+    
+    .contact-blk {
+        display: flex;
+        flex-flow: row nowrap;
+    }
+
+    .info {
+        padding: 18px 10px 25px;
+        line-height: 19px;
+    }
+}
+
+/*-----------------------------*/
+/* $FOOTER */
+/*-----------------------------*/
+
+
+.cc-footer {
+    display: flex;
+    padding: 24px 50px 32px;
+
+    @include until($tablet) {
+        display: block;
+        padding-bottom: 8px;
+    }
+
+    @include until($mobile) {
+        padding: 24px 6.6% 26px;
+        display: flex;
+    }
+
+    h3 {
+        font-family: $site-font-stack;
+        font-size: 20px;
+        margin-top: 9px;
+
+        @include until($tablet) {
+            width: 100%;
+            font-size: 18px;
+        }
+
+        @include until($mobile) {
+            font-size: 16px;
+            width: 50%;
+        }
+    }
+}
+
+.cc-contact-wrapper {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    margin-left: 72px;
+    width: 690px;
+
+    @include between($mobile, $tablet) {
+        margin: 22px 0;
+        width: 96%;
+    }
+
+    @include until($mobile) {
+        margin-left: 0;
+        width: 50%;
+    }
+
+    .contact-blk {
+        width: 100%;
+        margin-bottom: 22px;
+
+        .care-a {
+            display: block;
+            margin-bottom: -51px;
+
+            .care-email, .care-call, .care-faq {
+                @include until($lrg-desk) {
+                    margin-left: 0;
+                }
+            }
+        }
+
+        h6 {
+           padding: 3px 0 13px 64px;
+
+           @include until($lrg-desk) {
+                padding-top: 19px;
+            }
+
+            @include until($mobile) {
+                display: none;
+            }
+        }
+    }
+
+    .call {
+        background: $phone-gold 12px 3px/18px no-repeat;
+    }
+
+    .email {
+        background: $email-gold 0px 4px/23px no-repeat;
+    }
+
+    .call, .email {
+        @include until($mobile) {
+            background: none;
+        }
+    }
+
+    .info {
+        padding-left: 64px;
+
+        @include until($mobile) {
+            display: none;
+        }
+    }
+
+    .faq-blk {
+        @include until($mobile) {
+            display: none;
+        }
+    }
+}
+
+.ritesfooter {
+    border-top: 1px solid $gold;
+
+    @include until($mobile) {
+        border: none;
+    }
+
+    .subscribe {
+        width: 50%;
+        margin: 66px 0 60px 50%;
+        padding-left: 62px;
+
+        @include until($tablet) {
+            margin: 50px;
+            padding-left: 0;
+        }
+
+        @include until($mobile) {
+            width: 100%;
+            margin: 0;
+            padding: 50px 6.6%;
+        }
+
+        .sans-head {
+            font-size: 20px;
+            line-height: 26px;
+
+            @include until($tablet) {
+                font-size: 18px;
+            }
+
+            @include until($mobile) {
+                font-size: 16px;
+                line-height: 24px;
+            }
+        }
+    }
+}
+
+.subscribe-input {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 31px;
+
+    @include until($tablet) {
+        margin-top: 24px;
+    }
+
+    @include until($mobile) {
+        margin-top: 19px;
+    }
+
+    .nl-input {
+        height: 58px;
+        border: 1px solid #C1B497;
+        padding-left: 24px;
+        width: 262px;
+        border-radius: 3px 0 0 3px; 
+        font-size: 14px;
+
+        @include until($mobile) {
+            height: 50px;
+            width: 80%;
+            font-size: 13px;
+            padding-left: 14px;
+        }
+    }
+
+    .nl-btn {
+        padding: 0 34px;
+        background-color: $gold;
+        border: $gold;
+        color: white;
+        border-radius: 0px 3px 3px 0;
+        letter-spacing: 0.7px;
+        cursor: pointer;
+
+        &:hover {
+            opacity: 0.8;
+        }
+
+        @include until($mobile) {
+            height: 50px;
+            padding: 0 20px;
+            font-size: 13px;
+        }
+    }
+}
+
+.footer-row {
+    padding: 0 50px;
+    display: flex;
+    margin-bottom: 100px;
+
+    @include until($tablet) {
+        display: block;
+    }
+
+    @include until($mobile) {
+        padding: 6px 6.6%;
+    }
+
+    .social {
+        order: 2;
+        padding-left: 62px;
+
+        @include until($tablet) {
+            padding-left: 0;
+            margin-bottom: 50px;
+        }
+
+        .sans-head {
+            @include at-least($tablet) {
+                display: none;
+            }
+
+            @include until($tablet) {
+                margin-bottom: 20px;
+            }
+        }
+
+        .contact-blk {
+            display: inline-block;
+            margin-right: 32px;
+
+            @include until($mobile) {
+                margin-right: 12px;
+            }
+        }
+
+        .care-a {
+            display: block;
+            border: 1px solid $gold;
+            border-radius: 50%;
+            height: 51px;
+            width: 51px;
+
+            &.care-fb {
+                background: $fb-gold 16px 13px/18px 23px no-repeat;
+            }
+
+            &.care-insta {
+                background: $insta-gold 15px 14px/20px 20px no-repeat
+            }
+
+            &.care-pint {
+                background: $pint-gold 15px 14px/20px 22px no-repeat
+            }
+        }
+    }
+
+    .footer-menu {
+        width: 50%;
+        display: flex;
+
+        @include until($tablet) {
+             width: 100%;
+        }
+
+        @include until($mobile) {
+            flex-flow: row wrap;
+        }
+
+        .footer-list {
+            padding-right: 94px;
+
+            @include until($med-desk) {
+                padding-right: 74px;
+
+                &:last-child {
+                    padding-right: 0;
+                }
+            }
+
+            @include until($mobile) {
+                width: 50%;
+                padding: 0;
+
+                .nav-a {
+                    border: none;
+                    background: none;
+                    padding: 4px 0;
+                }
+            }
+        }
+    }
+
+    .sec-title {
+        font-family: $site-font-stack;
+
+        @include until($mobile) {
+            margin-bottom: 16px;
+        }
+    }
+}
+
+.footer-terms {
+    display: flex;
+    padding: 0 50px;
+    margin-bottom: 60px;
+    font-size: 12px;
+
+    li {
+        margin-right: 20px;
+    }
+
+    @include until($mobile) {
+        padding: 0 6.6%;
+    }
+}
+
+/*-----------------------------*/
+/* $PRODUCT DETAIL PAGE (PDP) */
+/*-----------------------------*/
+
+.crumb-container {
+    float: left;
+    width: 14%;
+    margin-top: 90px;
+
+    @include until($med-desk) {
+        width: 15.5%;
+        margin-top: 68px;
+    }
+
+    @include until($tablet) {
+        display: none;
+    } 
+
+    .crumb {
+        line-height: 25px;
+
+        &:before {
+            content: "/ ";
+            color: $dk-gold;
+        }
+
+        &:first-child:before{
+            content: none;
+        }
+    }
+}
+
+.product-container {
+    display: flex;
+    flex-flow: row nowrap;
+    margin: 0 0 50px 2.5%;
+
+    @include between($mobile,$tablet) {
+        display: block;
+        margin: 0;
+    }
+
+    @include until($mobile) {
+        display: block;
+        margin-left: 0;
+    }
+}
+
+.product-header {
+    width: 44.5%;
+
+    @include between($lrg-desk, $x-lrg-desk) {
+        width: 43%;
+    } 
+
+    @include between($med-desk, $lrg-desk) {
+        width: 49%;
+    } 
+
+    @include between($tablet, $med-desk) {
+        width: 46%;
+    } 
+
+    @include between($mobile, $tablet) {
+        float: left;
+        width: 50%;
+    } 
+
+    @include until($mobile) {
+        width: 100%;
+    } 
+
+    .img-container {
+        padding-bottom: 139.5%;
+
+        a:hover {
+            opacity: 1;
+        }
+    }
+}
+
+.pdp-row {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 122px;
+
+    @include until($lrg-desk) {
+        flex-flow: column;
+        margin-top: 34px;
+        justify-content: flex-start;
+    }
+
+    @include between($mobile, $med-desk) {
+        margin-top: 10px;
+    }
+
+    @include until($mobile) {
+        margin-top: 12px;
+    }
+}
+
+.product-info {
+    width: 55.5%;
+    margin: 90px 0 0 0;
+    padding-left: 72px;
+
+    @include between($med-desk, $lrg-desk) {
+        width: 51%;
+        padding-left: 80px;
+    }
+
+    @include between($tablet, $med-desk) {
+        margin-top: 70px;
+    }
+
+    @include between($mobile, $tablet) {
+        float: right;
+        margin: 68px 3.5% 200px 0;
+        padding-left: 0;
+        width: 40%;
+    }
+
+    @include until($mobile) {
+        position: relative;
+        margin: 38px 0;
+        width: 100%;
+        padding: 0;
+    } 
+
+    .price-container {
+        font-size: 16px;
+
+        @include between($mobile, $tablet) {
+            font-size: 14px;
+        }
+
+        @include until($mobile) {
+            margin: 0 10%;
+        }
+    }
+
+    .product-transaction {
+        width: 290px;
+        margin-top: 30px;
+
+        @include between($mobile, $med-desk) {
+            margin-top: 24px;
+        }
+
+        @include until($mobile) {
+            width: 80%;
+            margin: 32px 10% 0;
+            max-width: 375px;
+        }
+    }
+}
+
+.sizes-wrapper {
+    @include between($mobile, $tablet) {
+        margin-bottom: 28px;
+    }
+
+    @include until($mobile) {
+        margin-bottom: 23px;
+    }
+}
+
+.picker-container {
+    margin-top: 12px;
+
+    @include between($mobile, $med-desk) {
+        margin-top: 8px;
+    }
+
+    @include until($mobile) {
+        margin-top: 14px;
+    }
+}
+
+.size-picker {
+
+    @include at-least($mobile) {
+        position: relative;
+        display: flex;
+        flex-flow: row nowrap;
+    }
+
+    @include until($mobile) {
+        float: none;
+        width: 100%;
+    }
+}
+
+.size-item {
+    @extend .mob-radio;
+    margin: 0 8px 8px 0;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+
+    &:hover {
+        border-color: $gold;
+    }
+
+    &:last-child {
+        margin-right: 0;
+    }
+
+    @include until($mobile) {
+        margin: 0px 3px 10px 3px;
+
+        &:last-child{
+            margin-right: 0;
+        }
+    }
+
+    &.active {
+        background-color: $gold;
+        border: $gold;
+
+        .size-value {
+            color: #ffffff;
+        }
+    }
+
+    &.outofstock {
+        opacity: 0.8;
+        position: relative;
+
+        .crossthrough {
+            width: 28px;
+            height: 28px;
+            display: block;
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            background: 
+            linear-gradient(to top left,
+                rgba(0,0,0,0) 0%,
+                rgba(0,0,0,0) calc(50% - 0.8px),
+                rgba(180,180,180,180) 50%,
+                rgba(0,0,0,0) calc(50% + 0.8px),
+                rgba(0,0,0,0) 100%);
+            }
+    }
+}
+
+.size-input {
+    display: none;
+}
+
+.size-guide-link {
+    position: absolute;
+    font-size: 12px;
+
+    @include between($mobile, $med-desk) {
+        top: -23px;
+    }
+
+    @include at-least($tablet) {
+        right: 0;
+        top: -27px;
+    }
+
+    @include until($mobile) {
+        position: relative;
+        font-size: 12px;
+        margin-top: 12px;
+        float: right;
+    }
+}
+
+.product-actions {
+    margin-top: 32px;
+    display: flex;
+    justify-content: space-between;
+
+    @include until($mobile) {
+        width: 100%;
+    }
+
+    .btn-primary, .btn-sec {
+        width: 47%;
+    }
+
+    .moodboard {
+        background: $fav-white 14px 16px/23px 12px no-repeat;
+        background-color: #C1B497;
+        padding: 0 0 0 17px;
+    }
+}
+
+.help-wrapper {
+    @include until($lrg-desk) {
+        display: flex;
+    }
+
+    @include between($mobile, $tablet) {
+        margin-top: 46px;
+    }
+
+
+    @include until($mobile) {
+        margin: 0 10%;
+    }
+}
+
+.care-title {
+    @include until($lrg-desk) {
+        display: none;
+    }
+}
+
+.care-title2 {
+    @include at-least($lrg-desk) {
+        display: none;
+    }
+
+    @include until($lrg-desk) {
+        margin: 16px 24px 0 0;
+    }
+    
+    @include until($mobile) {
+        width: 42%;
+    }
+}
+
+.care-links {
+    margin-top: 24px;
+
+    @include until($lrg-desk) {
+        margin-top: 0;
+    }
+
+    @include until($mobile) {
+        width: 47%;
+    }
+}
+
+.care-link {
+    display: block;
+    margin-bottom: 11px;
+    padding-left: 26px;
+
+    @include until($lrg-desk) {
+        margin: 0 0 0 8px;
+        vertical-align: middle;
+    }
+
+    @include until($med-desk) {
+        padding-left: 0;
+    }
+}
+
+.care-email {
+    @extend .btn-mob-circle;
+    @extend .care-link;
+    background: $email-gold 0px 3px/18px no-repeat;
+    background-position: 15px 18px;
+    line-height: 50px;
+}
+
+.care-call {
+    @extend .care-link;
+    @extend .btn-mob-circle;
+    background: $phone-gold 4px 2px/13px no-repeat;  
+    background-position: 17px 17px;
+    line-height: 50px;
+}
+
+.care-faq {
+    @extend .care-link;
+    @extend .btn-mob-circle;
+    background: $question-gold 3px 4px/10px no-repeat;
+    background-position: 19px 17px;
+    line-height: 50px;
+}
+
+.related-wrapper {
+    display: none;
+}
+
+.expand-info {
+    display: none;
+    margin-top: -63px;
+    background: white;
+    padding: 69px 50px 40px;
+    margin-left: -50px;
+    width: 624px;
+    border-radius: 4px;
+    
+    @include between($lrg-desk, $x-lrg-desk) {
+        width: 596px;
+    }
+
+    @include between($med-desk, $lrg-desk) {
+        padding: 69px 40px 40px;
+        margin-left: -40px;
+        width: 526px;
+    }
+
+    @include until($med-desk) {
+        margin: 30px 0;
+        background: none;
+        padding: 0;
+        width: 290px;
+    }
+
+    .section-title {
+        margin-top: 20px; 
+        font-size: 14px;
+        font-family: $sans-med;
+    }
+}
+
+.product-description {
+    font-size: 17px;
+    width: 350px;
+
+    @include between($med-desk, $lrg-desk) {
+        order: 2;
+        margin-top: 95px;
+    }  
+
+    @include between($mobile, $med-desk) {
+        order: 2;
+        margin-top: 78px;
+        font-size: 13px;
+        width: 290px;
+    }    
+
+    @include until($mobile) {
+        order: 2;
+        width: 100%;
+        font-size: 17px;
+        line-height: 25px;
+        background: $x-lgt-grey;
+        margin-top: 32px;
+        padding: 60px 29% 10px 10%;
+    }  
+
+    p {
+        line-height: 24px;
+        margin-top: 0;
+
+        @include between($mobile, $med-desk) {
+            line-height: 21px;
+        }    
+    }
+}
+
+.product-details {
+    .more-details-a {
+        display: flex;
+        justify-content: space-between;
+        width: 80%;
+        margin-top: 64px;
+        font-size: 15px;
+
+        @include between($mobile, $med-desk) {
+            margin-top: 18px;
+            width: 290px;
+        }
+
+        @include until($mobile) {
+            margin-top: 0px;
+            width: 70%;
+        }
+
+        .plus-more {
+            background: $plus-gold 9px 9px/15px no-repeat;
+            height: 35px;
+            width: 35px;
+            display: block;
+            border: 1px solid $gold;
+            border-radius: 50%;
+            margin-top: -7px;
+        }
+    }
+
+    .item-details {
+        margin: 43px 0 0;
+        font-size: 15px;
+
+        @include between($mobile, $lrg-desk) {
+            margin-top: 25px;
+        }
+
+        @include between($mobile, $tablet) {
+            padding-bottom: 20px;
+        }
+
+        @include until($med-desk) {
+            display: none;
+            font-size: 13px;
+            width: 290px;
+        }
+
+        @include until($mobile) {
+            margin: 0;
+            padding: 6px 0 0;
+        }
+
+        li {
+           /* background: $bullet-body;
+            padding-left: 24px;*/
+        }
+    }
+
+    .pdp-accordian {
+        position: relative;
+        width: 350px;
+
+        @include until($mobile) {
+            width: unset;
+            padding: 0 10%;
+        }
+
+        &:first-child {
+            @include until($mobile) {
+                padding-bottom: 21px;
+                background-color: $x-lgt-grey;
+            }
+
+            .more-details-a {
+                @include at-least($med-desk) {
+                    display: none;
+                }
+            }
+
+            &.active {
+                .more-details-a {
+                    display: none;
+                }
+
+                .item-details {
+                    display: block;
+                    width: 290px;
+                    margin-top: 18px;
+                    padding-bottom: 10px;
+                }
+            }
+        }
+
+        &:last-child {
+            @include until($mobile) {
+                padding-top: 26px;
+            }
+
+            .more-details-a {
+                @include between($mobile, $med-desk) {
+                    margin-top: 30px;
+                }
+            }
+
+            &.active {
+                .more-details-a {
+                    width: 528px;
+
+                    @include between($med-desk, $lrg-desk) {
+                        width: 452px;
+                    }
+
+                    @include between($mobile, $med-desk) {
+                        width: 290px;
+                    }
+
+                    @include until($mobile) {
+                        width: 70%;
+                    }
+                }
+
+                .plus-more {
+                     transform: rotate(45deg);
+                }
+            }
+        }
+    }
+}
+
+.pdp-bullet {
+    display: flex;
+    width: 100%;
+    margin-bottom: 8px;
+    line-height: 21px;
+
+    @include between($mobile, $med-desk) {
+        line-height: 19px;
+    }
+
+    .detail-type {
+        width: 30%;
+    }
+
+    .detail-info {
+        width: 70%;
+    }
+}
+
+.pdp-sec-images {
+
+    .img-list {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        width: 87%;
+        margin: 0 auto;
+
+        @include between($mobile, $tablet) {
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        @include until($mobile) {
+            width: 100%;
+        } 
+    }
+
+    @include between($mobile, $tablet) {
+        float: left;
+        width: 50%;
+    }
+
+    @include until($mobile) {
+        width: auto;
+        margin: 5px 7%;
+    } 
+}
+
+.pdp-sec-img {
+    margin-bottom: 10%;
+
+    @include at-least($tablet) {
+        width: 47.5%;
+    } 
+
+    @include between($mobile, $tablet) {
+        margin: 40px 0 0 0;
+        width: 100%;
+    } 
+
+    @include until($mobile) {
+        width: 100%;
+    } 
+
+    .img-container {
+        padding-bottom: 140%;
+    }
+}
+
+/*-----------------------------*/
+/* $LISTING PAGE (PLP) */
+/*-----------------------------*/
+
+.plp-content {
+    @extend .content;
+    display: flex;
+    flex-flow: row wrap;
+    background-color: #ffffff;
+    padding-top: 18px;
+    border-top: 1px solid $gold;
+
+    @include between($mobile, $med-desk) {
+        padding: 18px 50px 0;
+    } 
+
+    @include until($tablet) {
+        border-top: 1px solid #f8f8f8;
+        padding-top: 0;
+    }
+}
+
+.listing-info {
+    @include at-least($tablet) {
+        position: absolute;
+        left: 50px;
+        right: 50px;
+        z-index: 10;
+        display: flex;
+
+        &.fixed {
+            top: 0px;
+        }
+    }
+
+    @include until($tablet) {
+        width: 100%;
+    }
+}
+
+.list-header {
+    width: 31.3%;
+    margin-top: 12px;
+
+    @include between($sm-desk, $med-desk) {
+        width: 29%;
+    } 
+
+    @include between($tablet, $sm-desk) {
+        width: 25%;
+    } 
+
+    @include until($tablet) {
+        margin-top: 0;
+        width: 100%;
+    } 
+
+    @include until($mobile) {
+        margin: 22px 0 14px 6.6%;
+        width: 80%;
+    } 
+
+    &.active {
+        background-color: #ffffff;
+    }
+
+    .page-title {
+        display: inline-block;
+        margin: 8px 0 0;
+        font-size: 21px;
+        font-family: "saoltext-book", serif;
+        line-height: 24px;
+        padding-right: 40px;
+        /*letter-spacing: 0.5px;*/
+
+
+        @include until($med-desk) {
+            margin-left: 0;
+        } 
+
+        @include until($mobile) {
+            font-size: 22px;
+            padding: 0;
+            background-color: #ffffff;
+        } 
+    }
+
+    .count-container {
+        display: block;
+        font-size: 14px;
+        margin-top: 4px;
+
+        @include until($mobile) {
+            color: $near-black;
+            font-size: 12px;
+        }
+    }
+}
+
+.plp-sidebar {
+    width: 31.3%;
+    margin-top: 200px;
+
+    @include between($sm-desk, $med-desk) {
+        width: 29%;
+    } 
+
+    @include between($tablet, $sm-desk) {
+        width: 25%;
+    } 
+
+    @include until($tablet) {
+        display: none;
+    } 
+
+    .filter-fix {
+        top: 200px;
+    }
+
+    .btn-add {
+        margin-top: 20px;
+    }
+}
+
+.active-filter {
+    display: flex;
+    font-size: 12px;
+    margin-bottom: 12px;
+}
+
+.filter-tag {
+    display: inline-block;
+    padding: 0px 38px 0 20px;
+    line-height: 38px;
+    border-radius: 20px;
+    border: 1px solid #EAE9E9;
+    background: $close-gld right 14px top 14px/9px no-repeat;
+
+    &:hover {
+        border-color: $gold;
+    }
+}
+
+.filters-wrapper {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    width: 61.7%;
+    background-color: white;
+    height: 100%;
+    padding: 8px 0;
+    z-index: 999;
+
+    @include between($sm-desk, $med-desk) {
+        width: 71%;
+    }
+
+    @include between($tablet, $sm-desk) {
+        width: 75%;
+    }
+
+    @include between($mobile, $tablet) {
+        width: 100%;
+        margin-top: 22px;
+    }
+
+    @include until ($mobile) {
+        width: 100%;
+        position: absolute;
+        padding: 8px 6.6%;
+        background: #fff;
+        height: auto;
+
+        &.fixed {
+          top: 50px;
+          border-top: 1px solid $x-lgt-grey;
+        }
+    }
+}
+
+.nav-filter {
+    display: flex;
+    flex-flow: row nowrap;
+    width: 100%;
+
+    @include until ($mobile) {
+        display: block;
+        width: 48%;
+
+        .btn-dropdown {
+            padding: 0;
+            text-align: center;
+            height: 44px;
+            line-height: 44px;
+        }
+    }
+
+    .filter-footer {
+        display: none;
+    }
+}
+
+.nav-filter.active {
+    position: fixed;
+    top: 50px;
+    left: 0;
+    background-color: $x-lgt-grey;
+    z-index: 999;
+    width: 100%;
+    padding: 23px 6.6% 80px;
+    max-height: 100vh;
+    overflow: auto;
+
+    @include between($mobile, $tablet) {
+        top: 109px;
+    }
+
+    .btn-dropdown {
+        display: none;
+        border: none;
+        background-color: white;
+        padding-left: 22px;
+        font-family: $serif-stack;
+        font-size: 18px;
+        padding-top: 5px;
+    }
+
+    .filter-container .btn-dropdown {
+        display: block;
+    }
+
+    .filter-menu {
+        position: relative;
+        display: block;
+        box-shadow: none;
+        border-radius: 0 0 3px 3px;
+    }
+
+    .facet {
+        border: none;
+        padding-top: 6px;
+        margin-bottom: 20px;
+    }
+
+    .filter-count, .filter-close, .filter-footer {
+        display: block;
+    }
+
+    .filter-footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        z-index: 999;
+        background-color: $x-lgt-grey;
+        width: 100%;
+        padding: 18px 6.6%;
+
+        button  {
+            display: inline-block;
+            width: 43%;
+            max-width: unset;
+            min-width: unset;
+            margin: 0px 3%;
+        }
+    }
+}
+
+.filter-container {
+    margin-right: 10px;
+    width: 100%;
+
+    &:hover {
+        @include at-least($mobile) {
+            .filter-menu, #sort-menu {
+                display: block;
+            }
+
+            .btn-dropdown {
+                border: 1px solid $gold;
+            }
+        }
+    }
+
+    @include until ($mobile) {
+        width: 100%;
+    }
+
+    &.sort-filter {
+        min-width: 180px;
+        margin-right: 0;
+        width: 35%;
+        position: relative;
+
+        @include until ($x-lrg-desk) {
+            width: 37.5%;
+        }
+
+        @include until ($mobile) {
+            min-width: 0;
+            width: 48%;
+            border: 1px solid $gold;
+            border-radius: 3px;
+
+            .sort-selected {
+                display: none;    
+            }
+        }
+
+        .btn-dropdown {
+
+            @include until($mobile) {
+                display: none;
+                text-align: center;
+            }
+        }
+
+        .mob-sort-select {
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            height: 100%;
+            width: 0;
+
+            @include until($mobile) {
+                width: 100%;
+            }
+        }
+
+        .mob-sort-btn {
+            display: none;
+
+            @include until($mobile) {
+                display: block;
+                height: 42px;
+                line-height: 42px;
+                border: none;
+                background: none;
+                border-radius: 3px;
+                padding: 0;
+                font-size: 12px;
+                letter-spacing: 0.7px;
+                font-family: $site-font-stack;
+            }
+        }
+    }
+
+    .btn-dropdown {
+        width: 100%;
+        text-align: left;
+        height: 48px;
+        line-height: 48px;
+        border-radius: 2px;
+
+        @include until ($mobile) {
+            display: none;
+            height: 44px;
+            line-height: 44px;
+            border-radius: 3px;
+        }
+
+        &.selected {
+            border: 1px solid $gold;
+        }
+    }
+
+    .filter-active {
+        display: none;
+    }
+}
+
+.filter {
+    display: none;
+    position: absolute;
+    z-index: 5;
+    margin-top: -1px;
+     -webkit-box-shadow: 0 6px 18px 0 rgba(0,0,0,.1);
+    box-shadow: 0 6px 18px 0 rgba(0,0,0,.1);
+}
+
+.filter-menu {
+    @extend .filter;
+    width: 280px;
+
+    @include until($mobile) {
+        width: 100%;
+    }
+
+    .chkbox-item {
+        padding: 10px 0;
+    }
+
+    &.size-filter {
+        width: 254px;
+
+        @include until($mobile) {
+            width: 100%;
+        }
+    }
+}
+
+#sort-menu {
+    @extend .filter;
+    width: 100%;
+
+    @include until($mobile) {
+        width: 100%;
+        left: 0;
+    }
+
+    .facet {
+        padding: 0;
+    }
+
+    .chkbox-item {
+        padding: 17px 21px;
+
+        &:hover, &.active {
+            background-color: #f5f5f5;
+
+            .chkbox-link {
+                color: $near-black;
+            }
+        }
+    }
+
+    .chkbox-link {
+        padding-left: 0;
+    }
+
+    .rts-chkbox {
+        display: none;
+    }
+}
+
+.filter-count {
+    display: none;
+
+    @include until($tablet) {
+        text-align: center;
+        margin-bottom: 23px;
+    }
+}
+
+.filter-close {
+    @extend .sec-close;
+    display: none;
+
+    @include until($tablet) {
+        position: absolute;
+        padding: 8px 10px 9px;
+        right: 6.6%;
+        top: 14px;
+    }
+}
+
+.facets-wrapper {
+    display: flex;
+    flex-flow: row nowrap;
+    width: 100%;
+    justify-content: space-between;
+
+    @include until($tablet) {
+        flex-flow: row wrap;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+}
+
+.facet {
+    padding: 20px 21px 30px;
+    height: 100%;
+    background: #ffffff;
+    border: 1px solid $lgt-grey;
+
+    @include until($tablet) {
+        width: 100%;
+        padding: 20px 22px;
+    }
+}
+
+.facet-content {
+    padding-left: 1px;
+
+    .chkbox-item:hover .chkbox-link {
+        color: $dk-gold;
+
+        .rts-chkbox {
+            border: 1px solid $gold;
+        }   
+    }
+}
+
+.size-facet {
+    @extend .facet-content;
+    display: flex;
+    flex-flow: wrap;
+
+    @include between($tablet, $med-desk) {
+        justify-content: left;
+    }
+
+    .size-item {
+        margin: 6px 6px 8px;
+    }
+}
+
+.facet-name {
+    margin-bottom: 19px;
+}
+    
+.size-value {
+    color: $near-black;
+}
+
+.facet-search {
+    display: flex;
+    justify-content: space-between;
+
+    .facet-input {
+        @extend .search-input;
+        height: 40px;
+        padding-left: 20px;
+        width: 196px;
+
+        &:focus {
+            border: 1px solid $gold;
+
+            + .search-btn {
+                border: 1px solid $gold;
+                background: url(../css/images/icons/icon-search-white.svg) 7px 1px/16px 11px no-repeat;
+                background-color: $gold;
+                background-position: 13px 13px;
+                background-size: 12px 12.5px;
+            }   
+        }
+
+        @include until($tablet) {
+            width: 94%;
+            border-left: 1px solid $lgt-grey;
+        }
+    }
+
+    .search-btn {
+        margin: 0;
+        border-radius: 0 3px 3px 0;
+        border: 1px solid $lgt-grey;
+        height: 40px;
+        width: 40px;
+        background: url(../css/images/icons/icon-search.svg) no-repeat;
+        background-position: 13px 13px;
+        background-size: 12px 12.5px;
+    }
+}
+
+.dsgn-facet {
+    @extend .facet-content;
+    max-height: 260px;
+    overflow: auto;
+    margin-top: 20px;
+
+    @include until($tablet) {
+        max-height: 195px;
+    }
+}
+
+.color-list {
+    width: 340px;
+
+    @include until($tablet) {
+        width: 100%;
+    }
+}
+
+.color-facet {
+    @extend .facet-content;
+    display: flex;
+    flex-flow: column wrap;
+    align-content: space-between;
+    max-height: 240px;
+    padding: 0 20px;
+
+    @include until($tablet) {
+        padding: 0;
+
+        .chkbox-item {
+            width: 50%;
+        }
+    }
+}
+
+.facet-footer {
+    text-align: center;
+    margin-top: 37px;
+
+    @include between($med-desk, $lrg-desk) {
+        margin-top: 28px;
+    }
+
+    @include until($med-desk) {
+        margin-top: 22px;
+    }
+
+    button {
+        margin: 0 10px;
+
+        @include until($tablet) {
+            margin: 0 auto 16px;
+        }
+    }
+}
+
+
+.listing-products {
+    @include at-least ($mobile) {
+        width: 61.7%;
+        margin-top: 62px;
+    }
+
+    @include between($sm-desk, $med-desk) {
+        width: 71%;
+    } 
+
+    @include until($sm-desk) {
+        width: 75%;
+    } 
+
+    @include between($tablet, $med-desk) {
+        margin-top: 63px;
+    }
+
+    @include between ($mobile, $tablet) {
+        width: 100%;
+        margin-top: 25px;
+    }
+
+    @include until ($mobile) {
+        margin: 84px 6.6% 20px;
+        width: 86.8%;
+    }
+}
+
+.products-wrapper {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+
+.listing-item {
+    width: 44%;
+
+    @include between($tablet, $lrg-desk) {
+        width: 45.3%;
+    }
+
+    @include between($mobile, $tablet) {
+        width: 29%;
+    }
+
+    @include until ($mobile) {
+        width: 48.3%;
+    }
+
+    .img-container {
+        padding-bottom: 138%;
+    }
+}
+
+.listing-landscape-item {
+    width: 100%;
+
+    @include between($mobile, $tablet) {
+        width: 65%;
+    }
+
+    .img-container {
+        padding-bottom: 61.5%;
+    }
+}
+
+.item-subtitle {
+    margin: 11px 0 0 1px;
+    height: 140px;
+    font-size: 12px;
+
+    @include until($tablet) {
+        height: 120px;
+    }
+
+    .brand-title {
+        font-family: $site-font-stack;
+        font-size: 14px;
+    }
+
+    .product-name {
+        color: #000;
+        margin-top: 4px;
+    }
+
+    .price-container {
+        margin-top: 13px;
+        color: #000;
+    }
+}
+
+.listing-load {
+    margin: 0 0 120px;
+}
+
+.load-more {
+    @extend .btn-round-primary;
+    margin: 0 auto;
+    display: block;
+}
+
+/*-----------------------------*/
+/* $My Account */
+/*-----------------------------*/
+
+.acc-content {
+    @extend .chkout-content;
+
+    @include at-least($med-desk) {
+        margin-top: 0;
+    }
+}
+
+.acc-container {
+    @extend .chkout-container;
+    margin: 0 auto;
+    padding-bottom: 50px;
+
+    .step {
+        padding-bottom: 0;
+
+        @include until($mobile) {
+            padding-bottom: 30px;
+        }
+    }
+
+    .detail-step {
+        @include until($mobile) {
+            padding-bottom: 30px;
+        }
+    }
+
+    .order-list {
+        padding-bottom: 44px;
+    }
+
+    .step-head {
+        padding: 17px 30px;
+        color: $dk-gold;
+
+        .step-title {
+            margin: 0;
+        }
+    }
+
+    .step-body {
+        @include at-least($mobile) {
+            padding: 0 32px 38px;
+        }
+    }
+
+    .social-signin {
+        margin-top: 12px;
+        padding-left: 0;
+
+        @include until($mobile) {
+            padding-right: 0;
+        }
+
+        .custom-button {
+            margin-left: 0;
+            margin-bottom: 0;
+
+            @include until($mobile) {
+                margin-left: auto;
+            }
+
+            &.amzn {
+                margin-bottom: 30px;
+            }
+        }
+    }
+
+    .label-wrapper {
+        @include until($mobile) {
+            padding-right: 13px;
+            padding-left: 13px;
+        }
+    }
+
+    .radio-label {
+        @include at-least($mobile) {
+            width: 20%;
+        }
+    }
+
+    .saved-info-wrapper {
+        @include at-least($mobile) {
+            width: 60%;
+        }
+    }
+
+    .detail-edit {
+        @include until($tablet) {
+            text-align: right;
+            margin: 13px 0 4px;
+        }
+    }
+
+    .button-wrapper {
+        margin-top: 10px;
+        width: 48%;
+
+        @include until($mobile) {
+            width: 100%;
+        }
+
+        button {
+            display: block;
+        }
+    }
+}
+
+.detail-step {
+    @extend .step;
+
+    .step-head {
+        border-bottom: 1px solid $lgt-grey;
+    }
+
+    .step-body {
+        padding-top: 38px;
+    }
+
+    .change-input {
+        margin-bottom: 9px;
+    }
+}
+
+.acc-change {
+    font-size: 11px; 
+    text-transform: uppercase; 
+
+    &:last-child {
+        margin-left: 30px;
+    }
+}
+
+.change-detail {
+    .button-wrapper {
+       margin: 10px 0 36px;
+    }
+}
+
+.pass-change {
+    .button-wrapper {
+        margin: 0;
+        width: 100%;
+
+        button {
+            display: inline-block;
+            margin-right: 20px;
+
+            @include until($mobile) {
+                display: block;
+                margin-right: auto;
+            }
+        }
+    }
+}
+
+.edit-wrapper {
+    @extend .label-wrapper;
+    display: block;
+    padding: 20px 25px;
+
+    .button-wrapper {
+        margin: 16px 0 24px;
+        width: 100%;
+
+        button {
+            display: inline-block;
+            margin-right: 20px;
+
+            @include until($mobile) {
+                display: block;
+                margin-right: auto;
+            }
+        }
+    }
+}
+
+.change-title {
+    margin-bottom: 18px;
+}
+
+.order-list {
+    @extend .detail-step;
+
+    .label-wrapper {
+        border: none;
+        border-bottom: 1px solid $lgt-grey;
+        padding-left: 20px;
+        display: block;
+
+        .radio-label {
+            @include at-least($mobile) {
+                float: left;
+                width: 25%;
+            }
+
+            @include until($mobile) {
+                padding-left: 0;
+            }
+        }
+
+        .detail-edit {
+            float: right;
+        }
+    }
+
+    .order-info {
+        font-size: 12px;
+
+        @include at-least($mobile) {
+            float: left;
+            width: 31%;
+        }
+    }
+}
+
+.order-single {
+    @extend .step;
+
+    .step-head .step-title {
+        margin-left: 25px;
+    }
+
+    .order-list {
+        padding-bottom: 0;
+        margin-bottom: 0;
+    }
+
+    .confirmed-summary .order-list .cart-item {
+        padding: 17px 30px;
+    }
+}
+
+.acc-back {
+    @include at-least($med-desk) {
+        float: left;
+    }
+
+    @include until($med-desk) {
+        display: block;
+        margin: 0 auto 26px;
+        width: 69%;
+    }
+
+    @include until($tablet) {
+        width: 100%;
+    }
+}
+
+.order-status {
+    margin-left: 170px;
+
+    @include until($mobile) {
+        margin-left: 0;
+        display: block;
+        margin-top: 10px;
+    }
+
+    .status {
+        color: $dk-gold;
+    }
+}
+
+.order-num {
+    @extend .body-text;
+    margin-top: 5px;
+}
+
+.sign-wrapper {
+    @include at-least($tablet) {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .mob-tabs {
+        @include between($mobile, $tablet) {
+            width: 600px;
+            margin: 0 auto;
+        }
+    }
+
+    .tabs-title {
+        float: left;
+        width: 50%;
+        padding: 17px 30px;
+        font-family: $serif-stack;
+        font-size: 16px;
+        color: $dk-grey;
+
+        &.active {
+            background-color: #ffffff;
+            border-radius: 3px;
+            color: $dk-gold;
+        }
+    }
+
+    .detail-step {
+        width: 46%;
+        height: 100%;
+
+        @include between($mobile, $tablet) {
+            width: 600px;
+            margin: 0 auto;
+        }
+
+        @include until($mobile) {
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .step-head {
+            @include until($tablet) {
+                display: none;
+            }
+        }
+
+        .step-body {
+            padding-bottom: 20px;
+        }
+
+        .button-wrapper {
+            margin: 30px 0;
+            width: 100%;
+
+            button  {
+                margin: 0 auto;
+            }
+        }
+    }
+
+    .social-signin {
+        padding: 0;
+        border: none;
+
+        .custom-button {
+            margin: 28px auto;
+        }
+    }
+
+    .order-text {
+        margin-top: 0;
+    }
+}
+
+.divide {
+    display: flex;
+    justify-content: space-between;
+    flex-flow: row no wrap;
+    hr {
+        border-top: 1px solid $lgt-grey;
+        width: 42%;
+    }
+}
+
+.mob-tabs {
+    @include at-least($tablet) {
+        display: none;
+    }
+}
+
+/*-----------------------------*/
+/* $Customer Care */
+/*-----------------------------*/
+.cc-content {
+    @extend .chkout-content;
+    margin-top: 73px;
+
+    @include between($mobile, $med-desk) {
+        margin-top: 113px;
+    }
+
+    @include until($mobile) {
+        margin-top: 92px;
+
+        .summary-wrapper {
+            display: none;
+        }
+    }
+
+    .page-title {
+         width: 1106px;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 435px;
+
+        @include between($tablet, $med-desk) {
+            width: auto;
+            padding-left: 35.5%;
+        }
+
+        @include between($mobile, $tablet) {
+            width: auto;
+            padding-left: 34%;
+        }
+
+        @include until($mobile) {
+            display: none;
+        }
+    }
+
+    @include until($tablet) {
+        .chkout-wrapper {
+            flex-flow: row nowrap;
+
+            .summary-wrapper {
+                width: 25%;
+            }
+        }
+    }
+
+    .chkout-container {
+        @include between($mobile, $tablet) {
+            width: 72%;
+        }
+
+        @include until($mobile) {
+                width: 100%;
+        }
+    }
+
+    .step-head {
+        padding: 16px 0;
+        margin: 0 50px;
+
+        @include until($mobile) {
+            margin: 0 20px;
+        }
+
+        .step-title {
+            color: $dk-gold;
+            margin-left: 0 !important;
+        }
+    }
+}
+
+.submenu {
+    font-size: 15px;
+    margin-bottom: 14px;
+    display: block;
+}
+
+.cc-section {
+    @extend .detail-step;
+
+    .step-body {
+        padding: 9px 48px;
+
+        @include until($mobile) {
+            padding: 9px 20px;
+        }
+    }
+}
+
+.copy-title {
+    color: $dk-gold;
+    font-size: 15px;
+    margin-top: 36px;
+    margin-bottom: 20px;
+}
+
+.accordian {
+    border-bottom: 1px solid $lgt-grey;
+
+    &:first-child {
+        .cc-question {
+            padding-top: 1px;
+        }
+    }
+}
+
+.cc-question {
+    padding: 11px 0;
+    font-size: 13px;
+    font-family: $sans-med;
+
+    .icon-more {
+        float: right;
+        margin-top: 4px;
+        margin-right: 3px;
+    }
+}
+
+.cc-answer {
+    /*display: none;*/
+    margin: 4px 0 18px;
+}
+
+/*-----------------------------*/
+/* $Contact */
+/*-----------------------------*/
+.cc-container {
+    @extend .chkout-container;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+
+    @include until($tablet) {
+        .cc-faq {
+               order: 3;
+        }
+    }
+}
+
+.cc-half-section {
+    @extend .cc-section;
+    width: 48%;
+    padding: 16px 24px 25px;
+
+    @include until($tablet) {
+        width: 100%;
+    }
+
+    .contact-blk {
+        display: flex;
+        justify-content: space-between;
+
+        .info {
+            width: 75%;
+        }
+
+        .step-title {
+            margin-top: 9px;
+            margin-bottom: 15px;
+            color: $dk-gold;
+        }
+    }
+}
+
+.cc-form {
+    width: 100%;
+
+    form {
+        margin: 20px 30% 0 0;
+
+        @include between($mobile, $tablet) {
+            margin: 20px 15% 0 0;
+        }
+
+        @include until($mobile) {
+            margin: 20px auto;
+        }
+    }
+
+    textarea {
+        width: 100%;
+        border: 1px solid $lgt-grey;
+        height: 130px;
+    }
+
+    .cc-radio {
+        display: inline-block;
+        vertical-align: middle;
+        margin-left: 30px;
+
+        .label-wrapper {
+            padding: 0;
+            border: none;
+        }
+
+        @include until($tablet) {
+            display: block;
+            margin: 15px 71px;
+        }
+    }
+
+    .button-wrapper {
+        margin: 40px 0;
+    }
+}
+
+.mob-subnav {
+    display: none;
+
+    @include until($mobile) {
+        display: block;
+        position: fixed;
+        top: 50px;
+        padding: 0 6.6%;
+        width: 100%;
+        background-color: white;
+        border-top: 1px solid $lgt-grey;
+        border-bottom: 1px solid $lgt-grey;
+
+        .subnav-select {
+            width: 100%;
+            border: none;
+        }
+    }
+}
+
+/*-----------------------------*/
+/* $Designers Page
+/*-----------------------------*/
+
+.dsgn-page {
+    padding-bottom: 80px;
+
+    @include between($tablet, $med-desk) {
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+
+    .page-title {
+        margin-bottom: 20px;
+
+        @include between($mobile, $med-desk) {
+            font-size: 24px;
+            margin-left: 0;
+        }
+
+        @include until($mobile) {
+            font-size: 20px;
+        }
+    }
+}
+
+.dsgn-glossary-list {
+    display: flex;
+    flex-flow: row nowrap;
+    margin-bottom: 20px;
+
+    @include until($mobile) {
+        display: none;
+    }
+
+    li {
+        width: 40px;
+        text-align: center;
+        text-transform: uppercase;
+
+        @include at-least($med-desk) {
+            &:hover {
+                background-color: $gold;
+
+                .glossary-item {
+                    opacity: 1;
+                    color: #fff !important;
+                }
+            }
+        }
+    }
+
+    .glossary-item {
+        padding: 11px 0;
+        display: block;
+    }
+}
+
+.dsgn-list-container {
+    width: 1100px;
+    margin: 0 auto;
+    padding: 30px 0 30px 100px;
+    background-color: #ffffff;
+    border-radius: 3px;
+    display: flex;
+    flex-flow: column wrap;
+    height: 574px;
+
+    @include until($med-desk) {
+        width: 100%;
+        padding: 30px 16px 30px 70px;
+    }
+
+    @include until($mobile) {
+        padding: 20px 10%;
+        height: 780px;
+    }
+}
+
+.glossary-title {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.dsgn-list {
+    margin-bottom: 50px;
+
+    li {
+        padding: 5px 0;
+    }
+}
+
+/*-----------------------------*/
+/* $Misc 
+/*-----------------------------*/
+
+.misc-content {
+    padding: 44px 0;
+    background-color: #f8f8f8;
+}
+
+.misc-title {
+    padding: 0 50px 50px;
+
+    .page-title {
+        font-size: 24px;
+
+        @include until($tablet) {
+            padding: 25px 0 22px 0;
+            margin: 20px 0 0 0;
+        }
+    }
+}
+
+/*-----------------------------*/
+/*  */
+/*-----------------------------*/
+
+/* Hide on desktop */
+@include at-least($tablet) {
+    .nav-trigger, .search-trigger  {
+        display: none;
+    }
+}
+
+@include until($lrg-desk) {
+    .sm-hide {
+        display: none;
+    }
+}
+
+/* Hide on Mobile & Tablet */
+@include until($tablet) {
+    .highlgt-segment {
+        display: none;
+    }
+}
+
+/* Hide on mobile */
+@include until($mobile) {
+    .site-search {
+        display: none;
+    }
+}
+
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+
+
+@include at-least($mobile) {
+    .mob-only {
+        display: none;
+    }
+}
+
+@include until($tablet) {
+    .med-desk-only {
+        display: none;
+    }
+}
+
+@include until($mobile) {
+    .desk-only {
+        display: none;
+    }
+}
+
+
+
+
+/*
+ * Hide visually and from screen readers
+ */
+
+.hidden {
+    display: none !important;
+}
+
+.show {
+    display: block !important;
+}
+
+.fixed {
+    position: fixed;
+}
+
+.red {
+    background-color: red;
+}
+
+/*
+ * Hide only visually, but have it available for screen readers:
+ * https://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+ *
+ * 1. For long content, line feeds are not interpreted as spaces and small width
+ *    causes content to wrap 1 word per line:
+ *    https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe
+ */
+
+.visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    -webkit-clip-path: inset(50%);
+    clip-path: inset(50%);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+    white-space: nowrap; /* 1 */
+}
+
+/*
+ * Extends the .visuallyhidden class to allow the element
+ * to be focusable when navigated to via the keyboard:
+ * https://www.drupal.org/node/897638
+ */
+
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+    clip: auto;
+    -webkit-clip-path: none;
+    clip-path: none;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+    white-space: inherit;
+}
+
+/*
+ * Hide visually and from screen readers, but maintain layout
+ */
+
+.invisible {
+    visibility: hidden;
+}
+
+/*
+ * Clearfix: contain floats
+ *
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    `contenteditable` attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that receive the `clearfix` class.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+
+.clearfix:before,
+.clearfix:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+/* ==========================================================================
+   EXAMPLE Media Queries for Responsive Design.
+   These examples override the primary ('mobile first') styles.
+   Modify as content requires.
+   ========================================================================== */
+
+
+
+@media print,
+       (-webkit-min-device-pixel-ratio: 1.25),
+       (min-resolution: 1.25dppx),
+       (min-resolution: 120dpi) {
+    /* Style adjustments for high resolution devices */
+}
+
+/* ==========================================================================
+   Print styles.
+   Inlined to avoid the additional HTTP request:
+   http://www.phpied.com/delay-loading-your-print-css/
+   ========================================================================== */
+
+@media print {
+    *,
+    *:before,
+    *:after {
+        background: transparent !important;
+        color: #000 !important; /* Black prints faster:
+                                   http://www.sanbeiji.com/archives/953 */
+         -shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    a,
+    a:visited {
+        text-decoration: underline;
+    }
+
+    a[href]:after {
+        content: " (" attr(href) ")";
+    }
+
+    abbr[title]:after {
+        content: " (" attr(title) ")";
+    }
+
+    /*
+     * Don't show links that are fragment identifiers,
+     * or use the `javascript:` pseudo protocol
+     */
+
+    a[href^="#"]:after,
+    a[href^="javascript:"]:after {
+        content: "";
+    }
+
+    pre {
+        white-space: pre-wrap !important;
+    }
+    pre,
+    blockquote {
+        border: 1px solid #999;
+        page-break-inside: avoid;
+    }
+
+    /*
+     * Printing Tables:
+     * http://css-discuss.incutio.com/wiki/Printing_Tables
+     */
+
+    thead {
+        display: table-header-group;
+    }
+
+    tr,
+    img {
+        page-break-inside: avoid;
+    }
+
+    p,
+    h2,
+    h3 {
+        orphans: 3;
+        widows: 3;
+    }
+
+    h2,
+    h3 {
+        page-break-after: avoid;
+    }
+}
