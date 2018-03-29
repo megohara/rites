@@ -576,7 +576,7 @@ input[type="radio"], input[type="checkbox"] {
       top: 0;
       width: 100%;
       background-color: #ffffff;
-      z-index: 999; } }
+      z-index: 9999; } }
 
 .top-bar {
   display: flex;
@@ -2920,7 +2920,8 @@ input[type="radio"], input[type="checkbox"] {
       top: 0px; } }
 @media screen and (max-width: 1023px) {
   .listing-info {
-    width: 100%; } }
+    width: 100%;
+    z-index: 1999; } }
 
 .list-header {
   width: 31.3%;

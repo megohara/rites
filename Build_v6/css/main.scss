@@ -806,7 +806,7 @@ input[type="radio"], input[type="checkbox"] {
         top: 0;
         width: 100%;
         background-color: #ffffff;
-        z-index: 999;
+        z-index: 9999;
     }
 }
 
@@ -4090,6 +4090,7 @@ input[type="radio"], input[type="checkbox"] {
 
     @include until($tablet) {
         width: 100%;
+        z-index: 1999;
     }
 }
 

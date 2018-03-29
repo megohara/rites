@@ -1,4 +1,42 @@
+var filterOffset;
+
+function initDesktopScroll() {
+    var scrollTop = $(window).scrollTop();
+         
+    var shouldFix = scrollTop >= filterOffset;
+    $('.listing-info, .filter-fix').toggleClass('fixed', shouldFix);   
+}
+
+function initMobileScroll() {
+    var scrollTop = $(window).scrollTop();
+
+    var shouldFix = scrollTop >= filterOffset;
+    $('.filters-wrapper').toggleClass('fixed', shouldFix);  
+}
+
+function initFixedFilters() {
+    //Fixing filter bar after scroll- Desktop only
+    if (matchMedia('screen and (min-width: 768px)').matches) {
+        filterOffset = $('.listing-info').offset().top;
+
+        $(window).off('scroll', initDesktopScroll);
+        $(window).scroll(initDesktopScroll);
+    }
+
+    //Fixing filter bar after scroll- Desktop only
+    if (matchMedia('screen and (max-width: 767px)').matches) {   
+        //var amountToScroll = $('.filters-wrapper').offset().top - $('.main-head').height();
+        filterOffset = $('.filters-wrapper').offset().top - $('.main-head').height();
+        
+        $(window).off('scroll', initMobileScroll);
+        $(window).scroll(initMobileScroll);
+    }
+}
+
 $(document).ready(function() {
+
+    initFixedFilters();
+
 
 // ---------------------------//
 // Main Navigation
@@ -55,31 +93,6 @@ $(document).ready(function() {
     // ---------------------------//
     // Product Listing Page
     // ---------------------------//
-
-    //Fixing filter bar after scroll- Desktop only
-    if (matchMedia('screen and (min-width: 768px)').matches) {
-        var filterOffset = $('.listing-info').offset().top;
-
-        $(window).scroll(function () {
-          var scrollTop = $(window).scrollTop();
-         
-          var shouldFix = scrollTop >= filterOffset;
-          $('.listing-info, .filter-fix').toggleClass('fixed', shouldFix);
-        });
-    }
-
-    //Fixing filter bar after scroll- Desktop only
-    if (matchMedia('screen and (max-width: 767px)').matches) {   var amountToScroll = $('.filters-wrapper').offset().top - $('.main-head').height();
-        
-        $(window).scroll(function () {
-            var scrollTop = $(window).scrollTop();
-            var filterOffset = $('.filters-wrapper').offset().top - $('.main-head').height();
-
-            var shouldFix = scrollTop >= filterOffset;
-           // console.log($('.filters-wrapper').offset().top);
-            $('.filters-wrapper').toggleClass('fixed', shouldFix);
-        });
-    }
 
     // Facet Selection 
     $('.filter-menu .chkbox-link').click(function(e) {
@@ -197,3 +210,6 @@ $(document).ready(function() {
         // }
 });
 
+$(window).resize(function(){
+    initFixedFilters();
+});
