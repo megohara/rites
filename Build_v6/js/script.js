@@ -143,19 +143,6 @@ $(document).ready(function() {
 
     });
 
-    $('#sort-menu .chkbox-item').click(function(e) {
-        e.preventDefault();
-        $(this).toggleClass('active');
-        $(this).siblings().removeClass('active');
-    });
-
-    // Sort by - only one selected at a time
-    $('#sort-menu .chkbox-item').click(function(e){
-        e.preventDefault();
-        $(this).find('.rts-chkbox').addClass('active');
-        $(this).siblings().find('.rts-chkbox').removeClass('active');
-    });
-
     // Mobile open/close filter menu
     $('.nav-filter .mob-only').click(function(){
         $(this).parent('.nav-filter').addClass('active');
@@ -182,6 +169,32 @@ $(document).ready(function() {
         e.preventDefault();
         $(this).closest('.filter').removeClass('show');;
     });
+
+    // Sort by - changing dropdown text once selection made
+
+    $('#sort-menu').click('.chkbox-item', function (e) {
+        e.preventDefault();
+        var currentTarget = $(e.target);
+        var name = currentTarget.attr('data-name');
+        var description = currentTarget.attr('data-description');
+        
+        $(this).siblings('.btn-dropdown').html(description);
+        currentTarget.toggleClass('active');
+        currentTarget.siblings().removeClass('active');
+    });
+
+    // $('#sort-menu .chkbox-item').click(function(e) {
+    //     e.preventDefault();
+    //     $(this).toggleClass('active');
+    //     $(this).siblings().removeClass('active');
+    // });
+
+    // // Sort by - only one selected at a time
+    // $('#sort-menu .chkbox-item').click(function(e){
+    //     e.preventDefault();
+    //     $(this).find('.rts-chkbox').addClass('active');
+    //     $(this).siblings().find('.rts-chkbox').removeClass('active');
+    // });
 
 //     // ---------------------------//
 // // Product Detail Page
