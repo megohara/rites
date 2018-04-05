@@ -131,6 +131,7 @@ $lrg-desk: 1366px;
 $med-desk: 1280px;
 $sm-desk: 1140px;
 $tablet: 1024px;
+$sm-tab: 960px;
 $mobile: 768px;
 $sm-mobile: 450px;
 $x-sm-mobile: 350px;
@@ -173,6 +174,8 @@ $dk-grey: #999999;
 $x-dk-grey: #666666;
 $gold: #C1B497;
 $dk-gold: #9B885F;
+$purp: #C5BCCF;
+$dk-purp: #9684AA;
 $hot-pink: #ff2e63;
 
 /*Colours*/
@@ -229,7 +232,7 @@ a, .a {
     font-family: $site-font-stack;
     text-decoration: none;
     font-weight: normal !important;
-    color: $dk-gold;
+    color: $dk-purp;
     letter-spacing: $body-tracking;
 }
 
@@ -367,6 +370,7 @@ label {
     font-weight: normal;
     line-height: 25px;
     letter-spacing: 0;
+    margin: 0;
 
     @include until($med-desk) {
         font-size: 18px;
@@ -611,7 +615,7 @@ button:focus {
     height: 45px;
     line-height: 45px;
     width: 100%;
-    background-color: $near-black;
+    background-color: $dk-purp;
     color: #fff;
 
     &:hover {
@@ -743,8 +747,8 @@ input[type="radio"], input[type="checkbox"] {
 
 .btn-mob-circle {
     display: inline-block !important;
-        margin-right: 4px;
-        border: $secondary-border;
+        margin-right: 17px;
+        border: 1px solid $purp;
         border-radius: 50%;
         text-indent: 100%;
         overflow: hidden;
@@ -3406,80 +3410,123 @@ input[type="radio"], input[type="checkbox"] {
 /*-----------------------------*/
 /* $PRODUCT DETAIL PAGE (PDP) */
 /*-----------------------------*/
-
-.crumb-container {
-    float: left;
-    width: 14%;
-    margin-top: 90px;
-
-    @include until($med-desk) {
-        width: 15.5%;
-        margin-top: 68px;
-    }
-
-    @include until($tablet) {
-        display: none;
-    } 
-
-    .crumb {
-        line-height: 25px;
-
-        &:before {
-            content: "/ ";
-            color: $dk-gold;
-        }
-
-        &:first-child:before{
-            content: none;
-        }
-    }
+.pdp-content {
+    background-color: $x-lgt-grey;
 }
 
 .product-container {
     display: flex;
-    flex-flow: row nowrap;
-    margin: 0 0 50px 2.5%;
+    flex-flow: column wrap;
+    padding: 30px 0 0 30px;
+    max-height: 600px;
 
-    @include between($mobile,$tablet) {
-        display: block;
-        margin: 0;
+    @include at-least($lrg-desk) {
+        padding-right: 30px;
+    }
+
+    @include between($med-desk,$lrg-desk) {
+        max-height: 580px;
+    }
+
+    @include between($tablet,$med-desk) {
+        max-height: 532px;
+    }
+
+   /* @include between($mobile,$tablet) {
+        max-height: 490px;
+    }*/
+
+    @include until($tablet) {
+        margin-top: 50px;
+        padding-top: 0;
     }
 
     @include until($mobile) {
-        display: block;
-        margin-left: 0;
+        flex-flow: column nowrap;
+        padding: 0;
+        max-height: unset;
     }
 }
 
-.product-header {
-    width: 44.5%;
-
-    @include between($lrg-desk, $x-lrg-desk) {
-        width: 43%;
-    } 
+.pdp-slider {
+    display: flex;
+    justify-content: space-between;
+    width: 64.7%;
 
     @include between($med-desk, $lrg-desk) {
-        width: 49%;
+        width: 61%;
     } 
 
-    @include between($tablet, $med-desk) {
-        width: 46%;
+    @include between($sm-tab, $tablet) {
+        width: 58%;
+    } 
+
+    @include between($mobile, $sm-tab) {
+        width: 39%;
+        margin-left: 50px;
+    }
+
+    @include until($mobile) {
+        width: 100%;
+        order: 2;
+    } 
+
+    .img-container {
+        width: 45%;
+        padding-bottom: 63%;
+
+        @include between($sm-tab, $tablet) {
+            width: 60%;
+            padding-bottom: 83%;
+            margin: 0 auto;
+        }
+
+        @include until($tablet) {
+            &:nth-child(2) {
+                display: none;
+            }
+        }
+        @include until($sm-tab) {
+            width: 100%;
+            padding-bottom: 139%;
+        }
+
+        a:hover {
+            opacity: 1;
+        }
+    } 
+}
+
+.product-header {
+    width: 35%;
+    padding: 47px 0 0;  
+
+    @include between($med-desk, $lrg-desk) {
+        width: 39%;
     } 
 
     @include between($mobile, $tablet) {
-        float: left;
-        width: 50%;
+        width: 40%;
+        padding-top: 70px;
     } 
 
     @include until($mobile) {
         width: 100%;
+        order: 1;
+        padding: 21px 0;
     } 
 
-    .img-container {
-        padding-bottom: 139.5%;
+    .product-title {
+        @extend .page-title-a;
+        width: 290px;
+        margin: 0 auto;
 
-        a:hover {
-            opacity: 1;
+        @include between($mobile, $tablet) {
+            margin: 0;
+        } 
+
+        @include until($mobile) {
+            margin-left: 6.6%;
         }
     }
 }
@@ -3504,57 +3551,53 @@ input[type="radio"], input[type="checkbox"] {
     }
 }
 
-.product-info {
-    width: 55.5%;
-    margin: 90px 0 0 0;
-    padding-left: 72px;
-
-    @include between($med-desk, $lrg-desk) {
-        width: 51%;
-        padding-left: 80px;
-    }
-
-    @include between($tablet, $med-desk) {
-        margin-top: 70px;
-    }
+.product-purchase {
+    margin: 0 auto;
+    width: 290px;
 
     @include between($mobile, $tablet) {
-        float: right;
-        margin: 68px 3.5% 200px 0;
-        padding-left: 0;
-        width: 40%;
+        margin:0;
     }
 
     @include until($mobile) {
-        position: relative;
-        margin: 38px 0;
+        order: 3;
         width: 100%;
-        padding: 0;
-    } 
+        margin: 0;
+        padding: 30px 10% 0;
+        background-color: #fff;
+    }
 
     .price-container {
         font-size: 16px;
+        margin: 13px auto 0;
+        width: 290px;
+
+        @include between($tablet, $med-desk) {
+            margin-top: 6px;
+        }
 
         @include between($mobile, $tablet) {
             font-size: 14px;
         }
 
         @include until($mobile) {
-            margin: 0 10%;
+            margin: 0;
         }
     }
 
     .product-transaction {
-        width: 290px;
-        margin-top: 30px;
+        margin-top: 88px;
+
+        @include between($med-desk, $lrg-desk) {
+            margin-top: 74px;
+        }
 
         @include between($mobile, $med-desk) {
-            margin-top: 24px;
+            margin-top: 56px;
         }
 
         @include until($mobile) {
-            width: 80%;
-            margin: 32px 10% 0;
+            margin: 32px 0 14px;
             max-width: 375px;
         }
     }
@@ -3662,7 +3705,7 @@ input[type="radio"], input[type="checkbox"] {
         top: -23px;
     }
 
-    @include at-least($tablet) {
+    @include at-least($mobile) {
         right: 0;
         top: -27px;
     }
@@ -3676,7 +3719,7 @@ input[type="radio"], input[type="checkbox"] {
 }
 
 .product-actions {
-    margin-top: 32px;
+    margin-top: 28px;
     display: flex;
     justify-content: space-between;
 
@@ -3689,68 +3732,99 @@ input[type="radio"], input[type="checkbox"] {
     }
 
     .moodboard {
-        background: $fav-white 14px 16px/23px 12px no-repeat;
-        background-color: #C1B497;
-        padding: 0 0 0 17px;
+       /* background: $fav-white 14px 16px/23px 12px no-repeat;*/
+       background-color: transparent;
+        border: 1px solid $purp;
+        border-radius: 3px;
+        color: $dk-purp;
+       /* padding: 0 0 0 17px;*/
     }
 }
 
 .help-wrapper {
-    @include until($lrg-desk) {
-        display: flex;
+    width: 20%;
+
+    @include between($tablet, $med-desk) {
+        width: 22%;
     }
 
-    @include between($mobile, $tablet) {
-        margin-top: 46px;
+    @include until($tablet) {
+        width: 80%;
+        margin: 0 10% 18px;
     }
-
 
     @include until($mobile) {
-        margin: 0 10%;
+        display: flex;
+        order: 1;
+
+        .mob-care-title {
+            display: block;
+            width: 42%;
+            margin: 15px 36px 0 0;
+        }
+    }
+
+    .mob-care-title {
+        display: none;
     }
 }
 
 .care-title {
-    @include until($lrg-desk) {
-        display: none;
-    }
-}
+    font-size: 17px;
+    color: $dk-purp;
 
-.care-title2 {
-    @include at-least($lrg-desk) {
-        display: none;
-    }
-
-    @include until($lrg-desk) {
-        margin: 16px 24px 0 0;
-    }
-    
     @include until($mobile) {
-        width: 42%;
+        display: none;
     }
 }
 
 .care-links {
-    margin-top: 24px;
-
-    @include until($lrg-desk) {
-        margin-top: 0;
-    }
+    margin-top: 38px;
 
     @include until($mobile) {
-        width: 47%;
+        width: 51%;
+        margin-top: 0;
+    }
+}
+
+.help-link {
+    display: block;
+    color: $near-black;
+    margin-bottom: 11px;
+
+    @include until($mobile) {
+        display: inline-block;
+    }
+
+    .care-text {
+        display: inline-block;
+        vertical-align: middle;
+        margin-top: -24px;
+
+        @include until($mobile) {
+            display: none;
+        }
+    }
+
+    .care-email-text {
+        display: inline-block;
+        vertical-align: middle;
+        margin-top: -42px;
+
+        @include until($mobile) {
+            display: none;
+        }
+    }
+
+    .phone-num {
+        color: $dk-purp;
+        margin-top: 3px;
     }
 }
 
 .care-link {
     display: block;
-    margin-bottom: 11px;
     padding-left: 26px;
-
-    @include until($lrg-desk) {
-        margin: 0 0 0 8px;
-        vertical-align: middle;
-    }
 
     @include until($med-desk) {
         padding-left: 0;
@@ -3781,203 +3855,174 @@ input[type="radio"], input[type="checkbox"] {
     line-height: 50px;
 }
 
-.related-wrapper {
-    display: none;
+.crumb-container {
+    margin: 24px 50px;
+
+    @include until($tablet) {
+        display: none;
+    } 
+
+    .crumb {
+ 
+            display: inline-block;
+    margin-right: 14px;
+
+        &:before {
+            content: "/ ";
+            color: $dk-gold;
+        }
+
+        &:first-child:before{
+            content: none;
+        }
+    }
 }
 
-.expand-info {
-    display: none;
-    margin-top: -63px;
-    background: white;
-    padding: 69px 50px 40px;
-    margin-left: -50px;
-    width: 624px;
-    border-radius: 4px;
-    
-    @include between($lrg-desk, $x-lrg-desk) {
-        width: 596px;
-    }
+.product-detail-block {
+    display: flex;
+    justify-content: space-between;
+    background-color: #fff;
+    padding: 48px 50px;
 
-    @include between($med-desk, $lrg-desk) {
-        padding: 69px 40px 40px;
-        margin-left: -40px;
-        width: 526px;
-    }
-
-    @include until($med-desk) {
-        margin: 30px 0;
-        background: none;
+    @include until($tablet) {
+        flex-flow: column nowrap;
         padding: 0;
-        width: 290px;
-    }
-
-    .section-title {
-        margin-top: 20px; 
-        font-size: 14px;
-        font-family: $sans-med;
     }
 }
 
-.product-description {
-    font-size: 17px;
-    width: 350px;
+.pdp-tabinfo {
+    width: 61.5%;
 
-    @include between($med-desk, $lrg-desk) {
-        order: 2;
-        margin-top: 95px;
-    }  
-
-    @include between($mobile, $med-desk) {
-        order: 2;
-        margin-top: 78px;
-        font-size: 13px;
-        width: 290px;
-    }    
-
-    @include until($mobile) {
+    @include until($tablet) {
         order: 2;
         width: 100%;
-        font-size: 17px;
-        line-height: 25px;
-        background: $x-lgt-grey;
-        margin-top: 32px;
-        padding: 60px 29% 10px 10%;
-    }  
+        background-color: $x-lgt-grey;
+        padding: 30px 10% 0;
 
-    p {
-        line-height: 24px;
-        margin-top: 0;
-
-        @include between($mobile, $med-desk) {
-            line-height: 21px;
-        }    
+        .tab-controls {
+            display: none;
+        }
     }
-}
 
-.product-details {
-    .more-details-a {
-        display: flex;
-        justify-content: space-between;
-        width: 80%;
-        margin-top: 64px;
-        font-size: 15px;
+    .control {
+        display: inline-block;
+        margin-right: 46px;
+        font-size: 17px;
 
-        @include between($mobile, $med-desk) {
-            margin-top: 18px;
-            width: 290px;
+        .tab-title {
+            color: $dk-grey;
+        }
+
+        &.active {
+            border-bottom: 3px solid $purp;
+
+            .tab-title {
+                color: $dk-purp;
+            }
         }
 
         @include until($mobile) {
             margin-top: 0px;
             width: 70%;
         }
+    }
+}
 
-        .plus-more {
-            background: $plus-gold 9px 9px/15px no-repeat;
-            height: 35px;
-            width: 35px;
+.tab-info-items {
+    margin-top: 58px;
+
+    @include until($tablet) {
+        margin-top: 0;
+        max-width: 375px;
+    }
+
+    .tab-item {
+        display: none;
+        flex-flow: row nowrap;
+
+        @include until($tablet) {
             display: block;
-            border: 1px solid $gold;
-            border-radius: 50%;
-            margin-top: -7px;
+        }
+
+        &.active {
+            display: flex;
+        }
+
+        .more-details-a {
+            display: none;
+
+            @include until($tablet) {
+                display: flex;
+                justify-content: space-between;
+                font-size: 15px;
+                color: $dk-purp;
+                padding: 17px 0 10px;
+                border-top: 1px solid $lgt-grey;
+                border-bottom: 1px solid $lgt-grey;
+                margin-top: 40px;
+
+                .plus-more {
+                    background: $plus-gold 9px 9px/15px no-repeat;
+                    height: 35px;
+                    width: 35px;
+                    display: block;
+                    margin-top: -7px;
+                }
+
+                &.active {
+                    border-bottom: none;
+
+                    .plus-more {
+                         transform: rotate(45deg);
+                    }
+                }
+            }
         }
     }
 
-    .item-details {
-        margin: 43px 0 0;
-        font-size: 15px;
+    .tab-item-sub {
+        width: 46%;
+        padding-right: 70px;
 
-        @include between($mobile, $lrg-desk) {
-            margin-top: 25px;
+        @include between($tablet, $med-desk) {
+            padding-right: 30px;
         }
 
-        @include between($mobile, $tablet) {
-            padding-bottom: 20px;
+        @include until($tablet) {
+            width: 100%;
+            padding-right: 0;
+
+            .product-description {
+                width: 80%;
+                font-size: 17px;
+                line-height: 25px;
+                margin-top: 32px;
+            }
         }
 
-        @include until($med-desk) {
-            display: none;
-            font-size: 13px;
-            width: 290px;
-        }
-
-        @include until($mobile) {
-            margin: 0;
-            padding: 6px 0 0;
+        p {
+            line-height: 21px;
         }
 
         li {
-           /* background: $bullet-body;
-            padding-left: 24px;*/
-        }
-    }
+            background: $bullet-body;
+            padding-left: 24px;
 
-    .pdp-accordian {
-        position: relative;
-        width: 350px;
-
-        @include until($mobile) {
-            width: unset;
-            padding: 0 10%;
-        }
-
-        &:first-child {
-            @include until($mobile) {
-                padding-bottom: 21px;
-                background-color: $x-lgt-grey;
-            }
-
-            .more-details-a {
-                @include at-least($med-desk) {
-                    display: none;
-                }
-            }
-
-            &.active {
-                .more-details-a {
-                    display: none;
-                }
-
-                .item-details {
-                    display: block;
-                    width: 290px;
-                    margin-top: 18px;
-                    padding-bottom: 10px;
-                }
+            @include between($tablet, $med-desk) {
+                padding-left: 15px;
             }
         }
 
-        &:last-child {
-            @include until($mobile) {
-                padding-top: 26px;
-            }
+        .section-title {
+            font-size: 14px;
+            font-family: $sans-med;
+        }
 
-            .more-details-a {
-                @include between($mobile, $med-desk) {
-                    margin-top: 30px;
-                }
-            }
+        &.detail-list {
+            margin-top: 1em;
 
-            &.active {
-                .more-details-a {
-                    width: 528px;
-
-                    @include between($med-desk, $lrg-desk) {
-                        width: 452px;
-                    }
-
-                    @include between($mobile, $med-desk) {
-                        width: 290px;
-                    }
-
-                    @include until($mobile) {
-                        width: 70%;
-                    }
-                }
-
-                .plus-more {
-                     transform: rotate(45deg);
-                }
+            @include until($tablet) {
+                margin-top: 30px;
             }
         }
     }
@@ -3986,19 +4031,45 @@ input[type="radio"], input[type="checkbox"] {
 .pdp-bullet {
     display: flex;
     width: 100%;
-    margin-bottom: 8px;
+    margin-bottom: 13px;
     line-height: 21px;
 
-    @include between($mobile, $med-desk) {
-        line-height: 19px;
-    }
-
     .detail-type {
-        width: 30%;
+        padding-right: 5px;
     }
 
-    .detail-info {
-        width: 70%;
+    @include until($tablet) {
+        margin-bottom: 8px;
+    }
+}
+
+.social-wrapper {
+    width: 15%;
+
+    @include between($tablet, $med-desk) {
+        width: 12%;
+    }
+
+    @include until($tablet) {
+        width: 100%;
+        order: 3;
+        padding: 20px 10%;
+        background-color: #f8f8f8;
+    }
+
+    .social-share {
+        display: inline-block !important;
+    }
+
+    .share-fb {
+        display: inline-block !important;
+        background: $fb-gold 0 0/18px 23px no-repeat;
+        line-height: 50px;
+        margin-right: 9px;
+        text-indent: 100%;
+        overflow: hidden;
+        width: 15px;
+        height: 23px;
     }
 }
 
