@@ -15,8 +15,12 @@
         <link rel="apple-touch-icon" href="icon.png">
         <!-- Place favicon.ico in the root directory -->
 
+        <link rel="stylesheet" type="text/css" href="../js/plugins/slick/slick.css"/>
+        <link rel="stylesheet" type="text/css" href="../js/plugins/slick/slick-theme.css"/>
+                
         <link href="../css/normalize.css" rel="stylesheet">
         <link href="../css/main.css" rel="stylesheet">
+
     </head>
 
     <body>
@@ -168,16 +172,23 @@
         <section class="pdp-content">
             <div class="product-container clearfix">
                 <div class="pdp-slider">
-                    <div class="img-container"> 
+                    <div class="img-wrap"> 
                         <a href="">
                             <img src="../css/images/pdp_1.jpg" />
                         </a>
                     </div>
-                    <div class="img-container"> 
+                    <div class="img-wrap"> 
                         <a href="">
                             <img src="../css/images/pdp_1.jpg" />
                         </a>
                     </div>
+                    <div class="img-wrap"> 
+                        <a href="">
+                            <img src="../css/images/pdp_1.jpg" />
+                        </a>  
+                    </div>
+                   
+                    
                 </div>
 
                 <div class="product-header">
@@ -246,11 +257,25 @@
                                 </div>
                             </div>
 
+                            <div class="one-size" style="display: none;">One Size</div>
+
+                            <div class="options-wrapper">
+                                <div class="sizes-title">Select Metal</div>
+
+                                <select name="pdp-options" class="pdp-select">
+                                    <option selected>Silver</option>
+                                    <option>14k White Gold</option>
+                                    <option>14k Yellow Gold</option>
+                                    <option>14k Rose Gold</option>
+                                </select>
+                            </div>
+
                             <div class="product-actions">
                                 <button type="submit" class="btn-primary">Add to Bag</button>
                                 <span class="btn-sec moodboard">Moodboard</span>
                             </div>
                             
+                            <div class="preorder-msg">This piece is handmade to order, so please allow 4-6 weeks for delivery. Good things take time!</div>
                         </form>
                     </div>
                 </div>
@@ -274,11 +299,11 @@
             <div class="product-detail-block">
                 <div class="pdp-tabinfo">
                     <div class="tab-controls">
-                        <div class="control">
+                        <div class="control active">
                             <a href="/" class="tab-title" data-product-tab="product-details">Product Details</a>
                         </div>
 
-                        <div class="control active">
+                        <div class="control">
                             <a href="/" class="tab-title" data-product-tab="shipping-returns">Shipping & Returns</a>
                         </div>
                     </div>
@@ -314,13 +339,13 @@
                         </div>
                         
                         <div class="tab-item" data-product-tab="shipping-returns">
-                            <div class="more-details-a active">Shipping & Returns<span class="plus-more"></span></div>
+                            <div class="more-details-a">Shipping & Returns<span class="plus-more"></span></div>
                             <div class="tab-item-sub">
                                 <div class="section-title">Shipping</div>
                                 <p><a href="/">Click here</a> to find out more about our shipping options, including Click & Collect.</p>
                             </div> 
                        
-                            <div class="tab-item-sub">
+                            <div class="tab-item-sub ship-tab">
                                 <div class="section-title">Returns</div>
                                 <div>
                                     <p>You have 14 days from receiving your order to return the item.</p>
@@ -347,31 +372,28 @@
                 <div class="social-wrapper">
                     <div class="care-title">Share</div>
 
-                    <ul class="care-links">
+                    <ul class="soc-links">
                         <li class="social-share"><a href="/" class="share-fb">Facebook Share Item</a></li>
-                        <li class="social-share"><a href="/" class="share-fb">Facebook Share Item</a></li>
-                        <li class="social-share"><a href="/" class="share-fb">Facebook Share Item</a></li>
-                        <li class="social-share"><a href="/" class="share-fb">Facebook Share Item</a></li>
+                        <li class="social-share"><a href="/" class="share-pint">Pinterest Share Item</a></li>
+                        <li class="social-share"><a href="/" class="share-twitter">Twitter Share Item</a></li>
+                        <li class="social-share"><a href="/" class="share-google">Google Share Item</a></li>
                     </ul>
                     
                 </div>           
             </div>
         </section>
 
-        <script src="../js/vendor/modernizr-3.5.0.min.js"></script>
+      <script src="../js/vendor/modernizr-3.5.0.min.js"></script>
         <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
         <script>window.jQuery || document.write('<script src="../js/vendor/jquery-3.2.1.min.js"><\/script>')</script>
         <script src="../js/plugins.js"></script>
-       <!-- <script src="../js/script.js"></script>-->
+        <script src="../js/script.js"></script>
 
-        <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
-        <script>
-            window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;
-            ga('create','UA-XXXXX-Y','auto');ga('send','pageview')
-        </script>
-        <script src="https://www.google-analytics.com/analytics.js" async defer></script>
+        <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+        <script type="text/javascript" src="../js/plugins/slick/slick.min.js"></script>
+
+    
     </body>
 </html>
-
-
 

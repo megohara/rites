@@ -25,7 +25,6 @@ function initFixedFilters() {
 
     //Fixing filter bar after scroll- Desktop only
     if (matchMedia('screen and (max-width: 767px)').matches) {   
-        //var amountToScroll = $('.filters-wrapper').offset().top - $('.main-head').height();
         filterOffset = $('.filters-wrapper').offset().top - $('.main-head').height();
         
         $(window).off('scroll', initMobileScroll);
@@ -33,9 +32,60 @@ function initFixedFilters() {
     }
 }
 
+
 $(document).ready(function() {
+    $('.pdp-slider').slick({
+        infinite: true,
+        slidesToShow: 2,
+        slidesToScroll: 1,
+        dots: true,
+        responsive: [
+            {
+              breakpoint: 960,
+              settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                infinite: true,
+                dots: true
+              }
+            }
+        ]
+    });
+
+    $('.control').click(function (e) {
+        e.preventDefault();
+        $('.control').toggleClass('active');
+        $('.tab-item').toggleClass('active');
+    });
+
+    $('.size-item').click(function(e) {
+         e.preventDefault();
+         $(this).toggleClass('active');
+
+         // on PDP oage only want one size selected at a time
+         if ($(this).parent('.size-picker')) {
+            $(this).siblings().removeClass('active');
+        }
+    });
+
+    // Mobile - Show shipping details on click
+    $('.more-details-a').click(function() {
+        $(this).toggleClass('active');
+        $(this).parent('.tab-item').find('.tab-item-sub').toggleClass('show');
+    });
+
+
+    //     // Show more product details
+//     $('.more-details-a').click(function(e) {
+//         e.preventDefault();
+//         $(this).css('display', 'none');
+//         $('.item-details').toggleClass('show');;
+//     });
+
 
     initFixedFilters();
+
+
 
 
 // ---------------------------//
@@ -155,9 +205,6 @@ $(document).ready(function() {
     });
 
 
-
-
-
     // // Clear all filters
     $('.facet-footer').on('click', '#clear', function(e) {
         e.preventDefault();
@@ -196,31 +243,9 @@ $(document).ready(function() {
     //     $(this).siblings().find('.rts-chkbox').removeClass('active');
     // });
 
-//     // ---------------------------//
-// // Product Detail Page
-// // ---------------------------//
-//     // Show customer service blocks
-//     $('.care-link').click(function(e) {
-//         e.preventDefault();
-//         $(this).next().toggleClass('show');;
-//     });
 
-//     // Show more product details
-//     $('.more-details-a').click(function(e) {
-//         e.preventDefault();
-//         $(this).css('display', 'none');
-//         $('.item-details').toggleClass('show');;
-//     });
 
-    // $('.size-item').click(function(e) {
-    //     e.preventDefault();
-    //     $(this).toggleClass('active');
-    // });
 
-    // // on PDpage only want one size selected at a time
-        // if ($(this).parent('.size-picker')) {
-        //     $(this).siblings().removeClass('active');
-        // }
 });
 
 $(window).resize(function(){
