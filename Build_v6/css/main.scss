@@ -190,8 +190,10 @@ $bullet: url(images/icons/bullet.svg);
 $bullet-body: $bullet top 7px left / 3px no-repeat;
 $email: url(../css/images/icons/icon-email.svg);
 $email-gold: url(../css/images/icons/icon-email-gold.svg);
+$email-white: url(../css/images/icons/icon-email-white.svg);
 $email-purp: url(../css/images/icons/icon-email-purp.svg);
 $phone-gold: url(../css/images/icons/icon-phone-gold.svg);
+$phone-white: url(../css/images/icons/icon-phone-white.svg);
 $phone-purp: url(../css/images/icons/icon-phone-purp.svg);
 $dropdown: url(../css/images/icons/icon-dropdown.svg);
 $tick: url(../css/images/icons/icon-tick-white.png) no-repeat center center/ 12px $gold;
@@ -202,8 +204,11 @@ $plus: url(../css/images/icons/icon-plus.svg);
 $plus-gold: url(../css/images/icons/icon-plus-gold.svg);
 $plus-purp: url(../css/images/icons/icon-plus-purp.svg);
 $fb-purp: url(../css/images/icons/logo-fb-purp.svg);
-$insta-gold: url(../css/images/icons/logo-insta-gold.svg);
+$fb-white: url(../css/images/icons/logo-fb.svg);
+$insta-purp: url(../css/images/icons/logo-insta-purp.svg);
+$insta-white: url(../css/images/icons/logo-insta-white.svg);
 $pint-purp: url(../css/images/icons/logo-pint-purp.svg);
+$pint-white: url(../css/images/icons/logo-pint-white.svg);
 $twitter-purp: url(../css/images/icons/logo-twitter.svg);
 $google-purp: url(../css/images/icons/logo-google.svg);
 $fav-white:  url(../css/images/icons/icon-fav-white.svg);
@@ -950,29 +955,13 @@ input[type="radio"], input[type="checkbox"] {
         vertical-align: middle;
     }
 }
-
-
-.info-currency:hover, 
+ 
 .head-hover:hover,
 .info-wish:hover,
 .info-bag:hover,
 .cust-serv-link:hover,
 .cust-link:hover {
     opacity: 0.6;
-}
-
-.info-currency {
-    @extend .info-item;
-    padding-left: 35px;
-    
-    @include until($tablet) {
-        display: none;
-    }
-
-    select {
-        border: none;
-        height: unset;
-    }
 }
 
 .info-user{
@@ -1981,7 +1970,7 @@ input[type="radio"], input[type="checkbox"] {
         padding-left: 29px;
         padding-top: 4px;
         padding-bottom: 4px;
-        background: $insta-gold -1px -1px/25px 27px no-repeat;
+        background: $insta-purp -1px -1px/25px 27px no-repeat;
         letter-spacing: 0.2px;
 
         @include until($med-desk) {
@@ -3100,17 +3089,16 @@ input[type="radio"], input[type="checkbox"] {
 
 
 .cc-footer {
-    display: flex;
-    padding: 24px 50px 32px;
+    padding: 62px 50px 32px;
 
     @include until($tablet) {
         display: block;
-        padding-bottom: 8px;
+        padding: 40px 50px 8px;
     }
 
     @include until($mobile) {
         padding: 24px 6.6% 26px;
-        display: flex;
+        max-width: 470px;
     }
 
     h3 {
@@ -3122,38 +3110,42 @@ input[type="radio"], input[type="checkbox"] {
             width: 100%;
             font-size: 18px;
         }
-
-        @include until($mobile) {
-            font-size: 16px;
-            width: 50%;
-        }
     }
 }
 
 .cc-contact-wrapper {
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-between;
-    margin-left: 72px;
-    width: 690px;
+    padding-left: 120px;
+    width: 30%;
 
-    @include between($mobile, $tablet) {
-        margin: 22px 0;
-        width: 96%;
+    @include between($mobile, $med-desk) {
+        width: 30%;
+        margin-top: -16px;
+        padding-left: 0;
     }
 
     @include until($mobile) {
-        margin-left: 0;
-        width: 50%;
+        padding-left: 50%;
+        width: 100%;
+        order: 1;
+        margin-top: -45px;
     }
 
     .contact-blk {
         width: 100%;
-        margin-bottom: 22px;
+        margin-bottom: 32px;
+
+         @include until($mobile) {
+            width: 48%;
+            display: inline-block;
+        }
 
         .care-a {
             display: block;
             margin-bottom: -51px;
+
+            @include until($mobile) {
+                margin-bottom: 0;
+            }
 
             .care-email, .care-call, .care-faq {
                 @include until($lrg-desk) {
@@ -3163,11 +3155,7 @@ input[type="radio"], input[type="checkbox"] {
         }
 
         h6 {
-           padding: 3px 0 13px 64px;
-
-           @include until($lrg-desk) {
-                padding-top: 19px;
-            }
+           padding: 11px 0 3px 64px;
 
             @include until($mobile) {
                 display: none;
@@ -3175,12 +3163,12 @@ input[type="radio"], input[type="checkbox"] {
         }
     }
 
-    .call {
-        background: $phone-gold 12px 3px/18px no-repeat;
+    .care-call {
+        background: $phone-purp 18px 16px/14px no-repeat;
     }
 
-    .email {
-        background: $email-gold 0px 4px/23px no-repeat;
+    .care-email {
+        background: $email-purp 17px 17px/16px no-repeat;
     }
 
     .call, .email {
@@ -3196,48 +3184,130 @@ input[type="radio"], input[type="checkbox"] {
             display: none;
         }
     }
-
-    .faq-blk {
-        @include until($mobile) {
-            display: none;
-        }
-    }
 }
 
 .ritesfooter {
-    border-top: 1px solid $gold;
+    .follow-block {
+        display: flex;
+        justify-content: space-between;
+        background-color: $purp;
+        padding: 62px 50px 60px;
 
-    @include until($mobile) {
-        border: none;
+        @include until($tablet) {
+            padding: 40px 50px;
+        }
+
+        @include until($mobile) {
+            flex-flow: column nowrap;
+            padding: 30px 6.6%;
+        }
+    }
+
+    .sans-head {
+        font-size: 20px;
+        line-height: 26px;
+
+        @include until($tablet) {
+            font-size: 18px;
+        }
+
+        @include until($mobile) {
+            font-size: 16px;
+            line-height: 24px;
+        }
     }
 
     .subscribe {
-        width: 50%;
-        margin: 66px 0 60px 50%;
-        padding-left: 62px;
+        width: 55%;
 
-        @include until($tablet) {
-            margin: 50px;
-            padding-left: 0;
+        @include between($med-desk, $lrg-desk) {
+            width: 60%;
+        }
+
+        @include between($tablet, $med-desk) {
+            width: 67%;
         }
 
         @include until($mobile) {
             width: 100%;
             margin: 0;
-            padding: 50px 6.6%;
+            padding: 0;
+            max-width: 375px;
         }
 
         .sans-head {
-            font-size: 20px;
-            line-height: 26px;
+            display: inline-block;
+            vertical-align: middle;
+            padding-right: 40px;
+
+            @include between($tablet, $med-desk) {
+                padding-right: 28px;
+            }
+        }
+
+        .subscribe-form {
+            display: flex;
+            justify-content: space-between;
+            flex-flow: row wrap;
+
+            @include between($tablet, $med-desk) {
+                justify-content: flex-start;
+            }
+        }
+    }
+
+    .social {
+        padding-left: 62px;
+
+        @include until($tablet) {
+            padding-left: 0;
+            margin-top: 73px;
+        }
+
+        @include until($tablet) {
+            margin-top: 30px;
+        }
+
+        .sans-head {
+            @include at-least($tablet) {
+                display: none;
+            }
 
             @include until($tablet) {
-                font-size: 18px;
+                display: none;
+            }
+        }
+
+        .contact-blk {
+            display: inline-block;
+            margin-right: 32px;
+
+            @include between($tablet, $med-desk) {
+                margin-right: 24px;
             }
 
             @include until($mobile) {
-                font-size: 16px;
-                line-height: 24px;
+                margin-right: 12px;
+            }
+        }
+
+        .care-a {
+            display: block;
+            border: 1px solid #fff;
+            border-radius: 50%;
+            height: 51px;
+            width: 51px;
+
+            &.care-fb {
+                background: $fb-white 14px 14px/20px 21px no-repeat
+            }
+
+            &.care-insta {
+                background: $insta-white 15px 14px/20px 20px no-repeat;
+            }
+
+            &.care-pint {
+                background: $pint-white 15px 14px/20px 22px no-repeat;
             }
         }
     }
@@ -3246,7 +3316,6 @@ input[type="radio"], input[type="checkbox"] {
 .subscribe-input {
     display: flex;
     justify-content: flex-start;
-    margin-top: 31px;
 
     @include until($tablet) {
         margin-top: 24px;
@@ -3254,18 +3323,28 @@ input[type="radio"], input[type="checkbox"] {
 
     @include until($mobile) {
         margin-top: 19px;
+        width: 100%;
+        max-width: 375px;
     }
 
     .nl-input {
         height: 58px;
-        border: 1px solid #C1B497;
+        border: 1px solid #fff;
         padding-left: 24px;
         width: 262px;
         border-radius: 3px 0 0 3px; 
         font-size: 14px;
+        background: none;
+
+        @include until($med-desk) {
+            width: 200px;
+        }
+
+        @include until($tablet) {
+             height: 50px;
+        }
 
         @include until($mobile) {
-            height: 50px;
             width: 80%;
             font-size: 13px;
             padding-left: 14px;
@@ -3274,15 +3353,20 @@ input[type="radio"], input[type="checkbox"] {
 
     .nl-btn {
         padding: 0 34px;
-        background-color: $gold;
-        border: $gold;
-        color: white;
+        background-color: #fff;
+        border: #fff;
+        color: $dk-purp;
+        border: 1px solid #fff;
         border-radius: 0px 3px 3px 0;
         letter-spacing: 0.7px;
         cursor: pointer;
+        height: 58px;
+        line-height: 56px;
 
         &:hover {
-            opacity: 0.8;
+            background-color: transparent;
+            border-left: 1px solid $purp;
+            color: #fff;
         }
 
         @include until($mobile) {
@@ -3294,77 +3378,38 @@ input[type="radio"], input[type="checkbox"] {
 }
 
 .footer-row {
-    padding: 0 50px;
+    padding: 60px 0 30px;
     display: flex;
-    margin-bottom: 100px;
+    justify-content: space-between;
 
-    @include until($tablet) {
-        display: block;
+    @include between($mobile, $med-desk) {
+        flex-flow: row wrap;
+        justify-content: flex-start;
+    }
+
+    @include between($mobile, $tablet) {
+        padding: 40px 0 30px;
     }
 
     @include until($mobile) {
-        padding: 6px 6.6%;
-    }
-
-    .social {
-        order: 2;
-        padding-left: 62px;
-
-        @include until($tablet) {
-            padding-left: 0;
-            margin-bottom: 50px;
-        }
-
-        .sans-head {
-            @include at-least($tablet) {
-                display: none;
-            }
-
-            @include until($tablet) {
-                margin-bottom: 20px;
-            }
-        }
-
-        .contact-blk {
-            display: inline-block;
-            margin-right: 32px;
-
-            @include until($mobile) {
-                margin-right: 12px;
-            }
-        }
-
-        .care-a {
-            display: block;
-            border: 1px solid $gold;
-            border-radius: 50%;
-            height: 51px;
-            width: 51px;
-
-            &.care-fb {
-                background: $fb-purp 16px 13px/18px 23px no-repeat;
-            }
-
-            &.care-insta {
-                background: $insta-gold 15px 14px/20px 20px no-repeat;
-            }
-
-            &.care-pint {
-                background: $pint-purp 15px 14px/20px 22px no-repeat;
-            }
-        }
+        padding: 12px 0;
+        display: flex;
+        flex-flow: column nowrap;
     }
 
     .footer-menu {
         width: 50%;
         display: flex;
 
-        @include until($tablet) {
-             width: 100%;
+        @include between($mobile, $tablet) {
+            width: 70%;
+            padding-right: 62px;
         }
 
         @include until($mobile) {
+            width: 100%;
             flex-flow: row wrap;
+            order: 2;
         }
 
         .footer-list {
@@ -3378,14 +3423,27 @@ input[type="radio"], input[type="checkbox"] {
                 }
             }
 
+            @include between($mobile, $tablet) {
+                padding-right: 62px;
+            }
+
             @include until($mobile) {
                 width: 50%;
                 padding: 0;
+                margin-bottom: 20px;
 
                 .nav-a {
                     border: none;
                     background: none;
                     padding: 4px 0;
+                }
+            }
+
+            .nav-a {
+                @include between($mobile, $tablet) {
+                    border: none;
+                    background: none;
+                    padding: 0 0 6px 0;
                 }
             }
         }
@@ -3394,9 +3452,34 @@ input[type="radio"], input[type="checkbox"] {
     .sec-title {
         font-family: $site-font-stack;
 
-        @include until($mobile) {
+        @include until($tablet) {
             margin-bottom: 16px;
         }
+    }
+}
+
+.info-currency {
+    width: 20%;
+
+    @include between($tablet, $med-desk) {
+        order: 3;
+        width: 25%;
+    }
+
+    @include between($mobile, $tablet) {
+        order: 3;
+        width: 30%;
+    }
+
+    @include until($mobile) {
+        order: 3;
+        width: 100%;
+        margin: 20px 0 30px;
+    }
+
+    .currency-select {
+        width: 100%;
+        padding-left: 24px;
     }
 }
 
