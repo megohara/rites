@@ -279,11 +279,11 @@ ul, ol {
     height: 36px;
 
     &:focus + .search-btn {
-        border: 1px solid $gold;
+        border: 1px solid $purp;
         background: url(../css/images/icons/icon-search-white.svg) 7px 1px/16px 11px no-repeat;
-        background-color: $gold;
+        background-color: $purp;
         background-position: 11px 11px;
-        background-size: 13px 13.5px;
+        background-size: 12px 12.5px;
 
         @include until($tablet) {
            border-radius: 0;
@@ -320,7 +320,7 @@ input {
 
 input:focus {
     outline: none;
-    border-color: $gold;
+    border-color: $purp;
     color: $near-black;
 }
 
@@ -577,7 +577,8 @@ h6 {
 .bag-count {
     font-size: 15px;
     vertical-align: middle;
-    margin-left: 3px;
+    color: #fff;
+    /*margin-left: 3px;*/
 }
 
 /* ____Buttons and Links_____*/
@@ -891,7 +892,7 @@ input[type="radio"], input[type="checkbox"] {
 .top-search {
     display: flex;
     justify-content: space-between;
-    width: 360px;
+    /*width: 360px;*/
     height: 36px;
     margin-top: 14px;
     margin-left: 27px;
@@ -919,6 +920,7 @@ input[type="radio"], input[type="checkbox"] {
 .search-btn {
     background-color: #fff;
     border: 1px solid $lgt-grey;
+    border-left: none;
     border-radius: 0 3px 3px 0;
     height: 36px;
     width: 37px;
@@ -1044,11 +1046,11 @@ input[type="radio"], input[type="checkbox"] {
     }
 
     &.active {
-        padding: 14px 18px;
+        /*padding: 14px 18px;
         height: 44px;
         border-radius: 22px;
-        border: 1px solid $gold;
-        margin: 9px 12px 0 0;
+        border: 1px solid $purp;
+        margin: 9px 12px 0 0;*/
 
         /*.wish-count {
             display: block;
@@ -1061,9 +1063,9 @@ input[type="radio"], input[type="checkbox"] {
             font-size: 12px;
             text-align: center;
             color: #fff;
-            background-color: $gold;
+            background-color: $purp;
             line-height: 21px;  
-        }*/
+        }
 
         @include until($tablet) {
             width: auto;
@@ -1072,7 +1074,7 @@ input[type="radio"], input[type="checkbox"] {
                 top: 7px;
                 right: -17px;
             }
-        }
+        }*/
     }
 
     .info-btn {
@@ -1102,14 +1104,16 @@ input[type="radio"], input[type="checkbox"] {
 
     &.active {
         @include at-least($tablet) {
-            border: 1px solid $gold;
+            background: $purp;
             margin-top: 9px;
 
             .icon-bag {
-                /*background: url(../css/images/icons/icon-bag-white.svg) 7px 1px/17px 14px no-repeat;*/
+                display: none;
+                /*background: url(../css/images/icons/icon-bag-white.svg) 7px 1px/17px 14px no-repeat;
+                background: none;
                 width: 16px;
                 height: 16px;
-                background-position: 0px 0px;
+                background-position: 0px 0px;*/
             }
 
             .bag-count {
@@ -1129,7 +1133,7 @@ input[type="radio"], input[type="checkbox"] {
                 font-size: 12px;
                 text-align: center;
                 color: #FFFFFF;
-                background: #C1B497;
+                background: $dk-purp;
                 line-height: 21px;   
             }
         }
@@ -1138,14 +1142,13 @@ input[type="radio"], input[type="checkbox"] {
 
 .customer-serv-dropdown {
     display: none;
-    background-color: white;
-    border: 1px solid #EAE9E9;
+ 
     position: absolute;
     width: 250px;
     top: 61px;
     left: 0;
-    padding: 20px 33px;
     z-index: 999;
+    box-shadow: 0px 3px 14px 2px rgba(0, 0, 0, 0.05);
 
     @include between($mobile, $tablet) {
         left: -1px;
@@ -1155,8 +1158,29 @@ input[type="radio"], input[type="checkbox"] {
         display: none;
     }
 
+    &:before {
+        content: "";
+    bottom: auto;
+    left: 40px;
+    top: -9px;
+    right: auto;
+    margin-left: 0;
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    background: #fff;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    z-index: -1;
+    -webkit-box-shadow: 0 4px 16px 0 rgba(0,0,0,.12);
+    box-shadow: 0 4px 16px 0 rgba(0,0,0,.12);
+    }
+
     .bodycopy {
         margin-bottom: 12px;
+        background-color: white;
+        padding: 20px 33px;
+        z-index: 999;
 
         &:nth-child(3) {
             margin-top: 20px;
@@ -1292,10 +1316,9 @@ input[type="radio"], input[type="checkbox"] {
 }
 
 .nav-item {
-    margin: 0 4px;
 
     &:first-child .prime-title {
-        padding-left: 0;
+        padding-left: 2px;
     }
 
     @include at-least($tablet) {
@@ -1313,9 +1336,9 @@ input[type="radio"], input[type="checkbox"] {
 
 .prime-title {
    /* display: none;*/
-    font-size: 15px;
+    font-size: 14px;
     display: block;
-    padding: 0px 20px 11px;
+    padding: 2px 20px 13px;
 
     &:hover {
         color: $near-black;
@@ -5090,12 +5113,12 @@ input[type="radio"], input[type="checkbox"] {
         width: 196px;
 
         &:focus {
-            border: 1px solid $gold;
+            border: 1px solid $purp;
 
             + .search-btn {
-                border: 1px solid $gold;
+                border: 1px solid $purp;
                 background: url(../css/images/icons/icon-search-white.svg) 7px 1px/16px 11px no-repeat;
-                background-color: $gold;
+                background-color: $purp;
                 background-position: 13px 13px;
                 background-size: 12px 12.5px;
             }   
@@ -5111,6 +5134,7 @@ input[type="radio"], input[type="checkbox"] {
         margin: 0;
         border-radius: 0 3px 3px 0;
         border: 1px solid $lgt-grey;
+        border-left: none;
         height: 40px;
         width: 40px;
         background: url(../css/images/icons/icon-search.svg) no-repeat;
