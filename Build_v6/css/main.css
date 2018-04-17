@@ -318,6 +318,8 @@ h6 {
       font-size: 28px;
       line-height: 28px;
       margin-top: 13px; } }
+  .riteslogo:hover {
+    color: #9684AA; }
 
 .icon, .icon-search, .icon-close-gld, .icon-more, .icon-info-block, .icon-user, .icon-assist, .icon-wish, .icon-bag, .nav-trigger, .nav-trigger.close {
   display: inline-block;
@@ -682,7 +684,6 @@ input[type="radio"], input[type="checkbox"] {
 
 .head-hover:hover,
 .info-wish:hover,
-.info-bag:hover,
 .cust-serv-link:hover,
 .cust-link:hover {
   opacity: 0.6; }
@@ -701,6 +702,8 @@ input[type="radio"], input[type="checkbox"] {
   .info-user.active .signin-acc-name {
     display: inline-block;
     color: #333333; }
+  .info-user.active .help-list {
+    padding-top: 28px; }
   .info-user .customer-serv-dropdown {
     width: 190px;
     font-size: 13px; }
@@ -790,7 +793,9 @@ input[type="radio"], input[type="checkbox"] {
         height: 16px;
         background-position: 0px 0px;*/ }
       .info-bag.active .bag-count {
-        display: inline-block; } }
+        display: inline-block; }
+      .info-bag.active:hover {
+        background-color: #9684AA; } }
   @media screen and (max-width: 1023px) {
     .info-bag.active .bag-count {
       display: block;
@@ -837,32 +842,39 @@ input[type="radio"], input[type="checkbox"] {
     -webkit-box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.12);
     box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.12); }
   .customer-serv-dropdown .bodycopy {
-    margin-bottom: 12px;
-    background-color: white;
-    padding: 20px 33px;
-    z-index: 999; }
+    background-color: #ffffff;
+    padding: 28px 33px 20px;
+    z-index: 999;
+    font-size: 14px;
+    letter-spacing: 0.4px; }
     .customer-serv-dropdown .bodycopy:nth-child(3) {
-      margin-top: 20px; }
+      padding-top: 20px; }
   .customer-serv-dropdown .cust-serv-link {
     display: block;
-    margin-bottom: 12px; }
+    padding-bottom: 14px;
+    font-size: 13px; }
   .customer-serv-dropdown .cust-link {
     display: block;
-    margin-bottom: 10px;
     background-repeat: no-repeat;
-    padding-left: 23px; }
+    padding: 0 0 14px 23px;
+    font-size: 13px; }
     .customer-serv-dropdown .cust-link.email {
-      background-image: url(../css/images/icons/icon-email-gold.svg);
+      background-image: url(../css/images/icons/icon-email-purp.svg);
       background-size: 13px;
-      background-position: 0 2px; }
+      background-position: 0 4px; }
     .customer-serv-dropdown .cust-link.phone {
-      background-image: url(../css/images/icons/icon-phone-gold.svg);
+      background-image: url(../css/images/icons/icon-phone-purp.svg);
       background-size: 12px;
-      background-position: 2px 1px; }
+      background-position: 2px 2px; }
     .customer-serv-dropdown .cust-link.chat {
-      background-image: url(../css/images/icons/icon-chat-gold.svg);
+      background-image: url(../css/images/icons/icon-chat-purp.svg);
       background-size: 13px;
-      background-position: 1px 1px; }
+      background-position: 1px 2px; }
+  .customer-serv-dropdown .help-list {
+    padding: 0 33px 0;
+    background-color: #ffffff; }
+    .customer-serv-dropdown .help-list:last-child {
+      padding-bottom: 20px; }
 
 @media screen and (min-width: 768px) {
   .mob-cust-serv {

@@ -199,7 +199,7 @@ $dropdown: url(../css/images/icons/icon-dropdown.svg);
 $tick: url(../css/images/icons/icon-tick-white.png) no-repeat center center/ 12px $gold;
 $question: url(../css/images/icons/icon-question.svg);
 $question-gold: url(../css/images/icons/icon-question-gold.svg);
-$chat-gold: url(../css/images/icons/icon-chat-gold.svg);
+$chat-purp: url(../css/images/icons/icon-chat-purp.svg);
 $plus: url(../css/images/icons/icon-plus.svg);
 $plus-gold: url(../css/images/icons/icon-plus-gold.svg);
 $plus-purp: url(../css/images/icons/icon-plus-purp.svg);
@@ -489,6 +489,10 @@ h6 {
         font-size: 28px;
         line-height: 28px;
         margin-top: 13px;
+    }
+
+    &:hover {
+        color: $dk-purp;
     }
 }
 
@@ -960,7 +964,6 @@ input[type="radio"], input[type="checkbox"] {
  
 .head-hover:hover,
 .info-wish:hover,
-.info-bag:hover,
 .cust-serv-link:hover,
 .cust-link:hover {
     opacity: 0.6;
@@ -993,6 +996,10 @@ input[type="radio"], input[type="checkbox"] {
             display: inline-block;
             color: $near-black;
 
+        }
+
+        .help-list {
+            padding-top: 28px;
         }
     }
 
@@ -1119,6 +1126,10 @@ input[type="radio"], input[type="checkbox"] {
             .bag-count {
                 display: inline-block;
             }
+
+            &:hover {
+                background-color: $dk-purp;
+            }
         }
 
         @include until($tablet) {
@@ -1142,7 +1153,6 @@ input[type="radio"], input[type="checkbox"] {
 
 .customer-serv-dropdown {
     display: none;
- 
     position: absolute;
     width: 250px;
     top: 61px;
@@ -1177,44 +1187,55 @@ input[type="radio"], input[type="checkbox"] {
     }
 
     .bodycopy {
-        margin-bottom: 12px;
-        background-color: white;
-        padding: 20px 33px;
+        background-color: #ffffff;
+        padding: 28px 33px 20px;
         z-index: 999;
+        font-size: 14px;
+        letter-spacing: 0.4px;
 
         &:nth-child(3) {
-            margin-top: 20px;
+            padding-top: 20px;
         }
     }
 
     .cust-serv-link {
         display: block;
-        margin-bottom: 12px;
+        padding-bottom: 14px;
+        font-size: 13px;
     }
 
     .cust-link {
         display: block;
-        margin-bottom: 10px;
         background-repeat: no-repeat;
-        padding-left: 23px;
+        padding: 0 0 14px 23px;
+        font-size: 13px;
 
 
         &.email {
-            background-image: $email-gold;
+            background-image: $email-purp;
             background-size: 13px;
-            background-position: 0 2px;
+            background-position: 0 4px;
         }
 
         &.phone {
-            background-image: $phone-gold;
+            background-image: $phone-purp;
             background-size: 12px;
-            background-position: 2px 1px;
+            background-position: 2px 2px;
         }
 
         &.chat {
-            background-image: $chat-gold;
+            background-image: $chat-purp;
             background-size: 13px;
-            background-position: 1px 1px;
+            background-position: 1px 2px;
+        }
+    }
+
+    .help-list {
+        padding: 0 33px 0;
+        background-color: #ffffff;
+
+        &:last-child {
+            padding-bottom: 20px;
         }
     }
 }
