@@ -213,6 +213,7 @@ $twitter-purp: url(../css/images/icons/logo-twitter.svg);
 $google-purp: url(../css/images/icons/logo-google.svg);
 $fav-white:  url(../css/images/icons/icon-fav-white.svg);
 $fav-purp:  url(../css/images/icons/icon-fav-purp.svg);
+$payp:  url(../css/images/icons/logo-paypal.svg);
 
 /*setout variables*/
 $mob-menu-item-pad: 14px 26px; 
@@ -591,6 +592,10 @@ button:focus {
     outline: none;
 }
 
+button:hover {
+    opacity : 0.7;
+}
+
 .link-a {
     color: #ffffff;
 }
@@ -601,12 +606,13 @@ button:focus {
 }
 
 .btn-link {
-    color: $dk-gold;
+    color: $dk-purp;
     background: none;
     font-size: 12px;
     border: none;
     padding: 0;
     letter-spacing: $body-tracking;
+    cursor: pointer;
 }
 
 .btn-container {
@@ -642,6 +648,7 @@ button:focus {
     width: 100%;
     background-color: $dk-purp;
     color: #fff;
+    font-family: $sans-med;
 
     &:hover {
         opacity: 0.8;
@@ -2220,7 +2227,7 @@ input[type="radio"], input[type="checkbox"] {
 .bag-item-head {
     .brand-title {
         font-size: 15px;
-        color: $dk-gold;
+        color: $dk-purp;
         line-height: 18px;
     }
 }
@@ -2329,7 +2336,28 @@ input[type="radio"], input[type="checkbox"] {
 
     .subtitle {
         margin-bottom: 23px;
-        color: $dk-gold;
+        color: $dk-purp;
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+
+    .btn-primary {
+        width: 210px;
+        margin: 14px auto;
+    }
+
+    .or-spacer {
+        text-align: center;
+        padding-bottom: 4px;
+    }
+
+    .payp-btn {
+        background: $payp 20px 9px/80px 25px no-repeat;
+        background-color: #ffc439;
+        color: #333333;
+        padding-left: 83px;
     }
 }
 
@@ -2341,10 +2369,12 @@ input[type="radio"], input[type="checkbox"] {
         border: none;
     }
 
-    .btn-link {
+    .remove {
         position: absolute;
         right: 46px;
         bottom: 22px;
+        background: $close-purp 0 2px/8px 8px no-repeat;
+        padding-left: 16px;
 
         @include until($tablet) {
             right: 20px;
@@ -2395,12 +2425,20 @@ input[type="radio"], input[type="checkbox"] {
         display: block;
         font-size: 16px;
         font-family: $serif-stack;
+
+        &:hover {
+            opacity: 0.7;
+        }
     }
 
     .product-name {
         margin-top: 5px;
         display: block;
         color: $near-black;
+
+        &:hover {
+            opacity: 0.7;
+        }
 
         @include until($mobile) {
             margin-top: 3px;
@@ -2504,7 +2542,7 @@ input[type="radio"], input[type="checkbox"] {
     @extend .summary-item;
     border-top: 1px solid $lgt-grey;
     margin-top: 25px;
-    margin-bottom: 30px;
+    margin-bottom: 38px;
     padding-top: 19px;
     font-family: $sans-med;
 }
@@ -2514,7 +2552,7 @@ input[type="radio"], input[type="checkbox"] {
 
     h4 {
         margin-bottom: 6px;
-        color: $dk-gold;
+        color: $dk-purp;
 
         @include until($mobile) {
             color: $near-black;
