@@ -184,7 +184,7 @@ $secondary-border: 1px solid $med-grey;
 
 /*icons*/
 $close-white: url(../css/images/icons/icon-close.svg) no-repeat center center;
-$close-gld: url(../css/images/icons/icon-close-gld.svg);
+$close-purp: url(../css/images/icons/icon-close-purp.svg);
 $close: url(../css/images/icons/icon-close-blk.svg);
 $bullet: url(images/icons/bullet.svg);
 $bullet-body: $bullet top 7px left / 3px no-repeat;
@@ -196,7 +196,7 @@ $phone-gold: url(../css/images/icons/icon-phone-gold.svg);
 $phone-white: url(../css/images/icons/icon-phone-white.svg);
 $phone-purp: url(../css/images/icons/icon-phone-purp.svg);
 $dropdown: url(../css/images/icons/icon-dropdown.svg);
-$tick: url(../css/images/icons/icon-tick-white.png) no-repeat center center/ 12px $gold;
+$tick: url(../css/images/icons/icon-tick-white.png) no-repeat center center/ 12px $purp;
 $question: url(../css/images/icons/icon-question.svg);
 $question-gold: url(../css/images/icons/icon-question-gold.svg);
 $chat-purp: url(../css/images/icons/icon-chat-purp.svg);
@@ -514,9 +514,9 @@ h6 {
     width: 20px;
 }
 
-.icon-close-gld {
+.icon-close-purp {
     @extend .icon;
-    background: url(../css/images/icons/icon-close-gld.svg) no-repeat center center;
+    background: url(../css/images/icons/icon-close-purp.svg) no-repeat center center;
     height: 10px;
     width: 16px;
 }
@@ -664,7 +664,7 @@ button:focus {
     line-height: 40px;
 
     @include until($mobile) {
-        border: 1px solid $gold;
+        border: 1px solid $purp;
         background: none;
     }
 }
@@ -674,9 +674,9 @@ button:focus {
     display: inline-block;
     padding: 0 35px;
     height: 40px;
-    border: 1px solid $lgt-grey;    
+    border: 1px solid $purp;    
     line-height: 40px;
-    color: $dk-gold;
+    color: $dk-purp;
 
     @include until($mobile) {
         width: 100%;
@@ -712,14 +712,14 @@ button:focus {
 
 .btn-round-primary {
     @extend .btn-round;
-    background-color: $gold;
+    background-color: $purp;
     color: #ffffff;
 }
 
 .btn-round-sec {
     @extend .btn-round;
     background-color: transparent;
-    color: $dk-gold;
+    color: $dk-purp;
 }
 
 .btn-round-pink {
@@ -796,7 +796,7 @@ input[type="radio"], input[type="checkbox"] {
 }
 
 .chkbox-item input[type=checkbox]:checked+.rts-chkbox {
-    border: 1px solid $gold;
+    border: 1px solid $purp;
     background: $tick;
 }
 
@@ -822,7 +822,7 @@ input[type="radio"], input[type="checkbox"] {
 
     &.active {
         background: $tick;
-        border: 1px solid $gold;
+        border: 1px solid $purp;
     }
 }
 
@@ -1506,6 +1506,7 @@ input[type="radio"], input[type="checkbox"] {
         width: 100%;
         padding: 70px 17% 72px 55px;
         border-top: 5px solid $x-lgt-grey;
+        z-index: 9999;
     }
 
     @include between($tablet, $med-desk) {
@@ -4629,7 +4630,7 @@ input[type="radio"], input[type="checkbox"] {
     flex-flow: row wrap;
     background-color: #ffffff;
     padding-top: 18px;
-    border-top: 1px solid $gold;
+    border-top: 1px solid $purp;
 
     @include between($mobile, $med-desk) {
         padding: 18px 50px 0;
@@ -4756,10 +4757,10 @@ input[type="radio"], input[type="checkbox"] {
     line-height: 38px;
     border-radius: 20px;
     border: 1px solid #EAE9E9;
-    background: $close-gld right 14px top 14px/9px no-repeat;
+    background: $close-purp right 14px top 14px/9px no-repeat;
 
     &:hover {
-        border-color: $gold;
+        border-color: $purp;
     }
 }
 
@@ -4898,7 +4899,7 @@ input[type="radio"], input[type="checkbox"] {
             }
 
             .btn-dropdown {
-                border: 1px solid $gold;
+                border: 1px solid $purp;
             }
         }
     }
@@ -4920,7 +4921,7 @@ input[type="radio"], input[type="checkbox"] {
         @include until ($mobile) {
             min-width: 0;
             width: 48%;
-            border: 1px solid $gold;
+            border: 1px solid $purp;
             border-radius: 3px;
 
             .sort-selected {
@@ -4982,7 +4983,7 @@ input[type="radio"], input[type="checkbox"] {
         }
 
         &.selected {
-            border: 1px solid $gold;
+            border: 1px solid $purp;
         }
     }
 
@@ -5105,10 +5106,10 @@ input[type="radio"], input[type="checkbox"] {
     padding-left: 1px;
 
     .chkbox-item:hover .chkbox-link {
-        color: $dk-gold;
+        color: $dk-purp;
 
         .rts-chkbox {
-            border: 1px solid $gold;
+            border: 1px solid $purp;
         }   
     }
 }

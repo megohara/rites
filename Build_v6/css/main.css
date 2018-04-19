@@ -321,7 +321,7 @@ h6 {
   .riteslogo:hover {
     color: #9684AA; }
 
-.icon, .icon-search, .icon-close-gld, .icon-more, .icon-info-block, .icon-user, .icon-assist, .icon-wish, .icon-bag, .nav-trigger, .nav-trigger.close {
+.icon, .icon-search, .icon-close-purp, .icon-more, .icon-info-block, .icon-user, .icon-assist, .icon-wish, .icon-bag, .nav-trigger, .nav-trigger.close {
   display: inline-block;
   vertical-align: middle; }
 
@@ -332,8 +332,8 @@ h6 {
   height: 19px;
   width: 20px; }
 
-.icon-close-gld {
-  background: url(../css/images/icons/icon-close-gld.svg) no-repeat center center;
+.icon-close-purp {
+  background: url(../css/images/icons/icon-close-purp.svg) no-repeat center center;
   height: 10px;
   width: 16px; }
 
@@ -448,16 +448,16 @@ button:focus {
   line-height: 40px; }
   @media screen and (max-width: 767px) {
     .btn-dropdown {
-      border: 1px solid #C1B497;
+      border: 1px solid #C5BCCF;
       background: none; } }
 
 .btn-add {
   display: inline-block;
   padding: 0 35px;
   height: 40px;
-  border: 1px solid #EAE9E9;
+  border: 1px solid #C5BCCF;
   line-height: 40px;
-  color: #9B885F; }
+  color: #9684AA; }
   @media screen and (max-width: 767px) {
     .btn-add {
       width: 100%; } }
@@ -483,12 +483,12 @@ button:focus {
     color: #ffffff; }
 
 .btn-round-primary, .load-more {
-  background-color: #C1B497;
+  background-color: #C5BCCF;
   color: #ffffff; }
 
 .btn-round-sec {
   background-color: transparent;
-  color: #9B885F; }
+  color: #9684AA; }
 
 .btn-round-pink {
   background-color: #ff2e63;
@@ -520,11 +520,11 @@ input[type="radio"], input[type="checkbox"] {
 
 .select-option input[type=radio]:checked + .label-wrapper .radio-btn, .select-option input[type=radio]:checked + .edit-wrapper .radio-btn {
   border: 1px solid #C1B497;
-  background: url(../css/images/icons/icon-tick-white.png) no-repeat center center/12px #C1B497; }
+  background: url(../css/images/icons/icon-tick-white.png) no-repeat center center/12px #C5BCCF; }
 
 .select-option input[type=checkbox]:checked + .radio-wrapper .radio-btn {
   border: 1px solid #C1B497;
-  background: url(../css/images/icons/icon-tick-white.png) no-repeat center center/12px #C1B497; }
+  background: url(../css/images/icons/icon-tick-white.png) no-repeat center center/12px #C5BCCF; }
 
 .mob-radio, .size-item {
   display: inline-block;
@@ -548,8 +548,8 @@ input[type="radio"], input[type="checkbox"] {
       margin-right: 10px; } }
 
 .chkbox-item input[type=checkbox]:checked + .rts-chkbox {
-  border: 1px solid #C1B497;
-  background: url(../css/images/icons/icon-tick-white.png) no-repeat center center/12px #C1B497; }
+  border: 1px solid #C5BCCF;
+  background: url(../css/images/icons/icon-tick-white.png) no-repeat center center/12px #C5BCCF; }
 
 .chkbox-item {
   padding: 8px 0; }
@@ -569,8 +569,8 @@ input[type="radio"], input[type="checkbox"] {
   border-radius: 50%;
   border: 1px solid #DFDFDF; }
   .rts-chkbox.active {
-    background: url(../css/images/icons/icon-tick-white.png) no-repeat center center/12px #C1B497;
-    border: 1px solid #C1B497; }
+    background: url(../css/images/icons/icon-tick-white.png) no-repeat center center/12px #C5BCCF;
+    border: 1px solid #C5BCCF; }
 
 /*----------------------------*/
 /* $Header
@@ -1064,7 +1064,8 @@ input[type="radio"], input[type="checkbox"] {
       left: 0;
       width: 100%;
       padding: 70px 17% 72px 55px;
-      border-top: 5px solid #f8f8f8; } }
+      border-top: 5px solid #f8f8f8;
+      z-index: 9999; } }
   @media screen and (min-width: 1024px) and (max-width: 1279px) {
     .sec-nav {
       top: 96px;
@@ -3298,7 +3299,7 @@ input[type="radio"], input[type="checkbox"] {
   flex-flow: row wrap;
   background-color: #ffffff;
   padding-top: 18px;
-  border-top: 1px solid #C1B497; }
+  border-top: 1px solid #C5BCCF; }
   @media screen and (min-width: 768px) and (max-width: 1279px) {
     .plp-content {
       padding: 18px 50px 0; } }
@@ -3393,9 +3394,9 @@ input[type="radio"], input[type="checkbox"] {
   line-height: 38px;
   border-radius: 20px;
   border: 1px solid #EAE9E9;
-  background: url(../css/images/icons/icon-close-gld.svg) right 14px top 14px/9px no-repeat; }
+  background: url(../css/images/icons/icon-close-purp.svg) right 14px top 14px/9px no-repeat; }
   .filter-tag:hover {
-    border-color: #C1B497; }
+    border-color: #C5BCCF; }
 
 .filters-wrapper {
   display: flex;
@@ -3499,7 +3500,7 @@ input[type="radio"], input[type="checkbox"] {
     .filter-container:hover .filter-menu, .filter-container:hover #sort-menu {
       display: block; }
     .filter-container:hover .btn-dropdown {
-      border: 1px solid #C1B497; } }
+      border: 1px solid #C5BCCF; } }
   @media screen and (max-width: 767px) {
     .filter-container {
       width: 100%; } }
@@ -3515,7 +3516,7 @@ input[type="radio"], input[type="checkbox"] {
       .filter-container.sort-filter {
         min-width: 0;
         width: 48%;
-        border: 1px solid #C1B497;
+        border: 1px solid #C5BCCF;
         border-radius: 3px; }
         .filter-container.sort-filter .sort-selected {
           display: none; } }
@@ -3560,7 +3561,7 @@ input[type="radio"], input[type="checkbox"] {
         line-height: 44px;
         border-radius: 3px; } }
     .filter-container .btn-dropdown.selected {
-      border: 1px solid #C1B497; }
+      border: 1px solid #C5BCCF; }
   .filter-container .filter-active {
     display: none; }
 
@@ -3644,9 +3645,9 @@ input[type="radio"], input[type="checkbox"] {
 .facet-content, .size-facet, .dsgn-facet, .color-facet {
   padding-left: 1px; }
   .facet-content .chkbox-item:hover .chkbox-link, .size-facet .chkbox-item:hover .chkbox-link, .dsgn-facet .chkbox-item:hover .chkbox-link, .color-facet .chkbox-item:hover .chkbox-link {
-    color: #9B885F; }
+    color: #9684AA; }
     .facet-content .chkbox-item:hover .chkbox-link .rts-chkbox, .size-facet .chkbox-item:hover .chkbox-link .rts-chkbox, .dsgn-facet .chkbox-item:hover .chkbox-link .rts-chkbox, .color-facet .chkbox-item:hover .chkbox-link .rts-chkbox {
-      border: 1px solid #C1B497; }
+      border: 1px solid #C5BCCF; }
 
 .size-facet {
   display: flex;
