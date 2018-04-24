@@ -178,11 +178,12 @@ ul, ol {
 input {
   font-family: "basisgrot-reg", Helvetica, sans-serif;
   font-size: 12px;
-  letter-spacing: 0.4px; }
+  letter-spacing: 0.4px;
+  padding-left: 18px; }
 
 input:focus {
   outline: none;
-  border-color: #C5BCCF;
+  border: 1px solid #C5BCCF;
   color: #333333; }
 
 ::-webkit-input-placeholder {
@@ -267,7 +268,7 @@ label {
 
 .sub-serif {
   font-size: 15px;
-  color: #9B885F; }
+  color: #9684AA; }
 
 .htitle, h3, h4, .order-num-wrapper .order-num, h5 {
   margin: 0;
@@ -278,13 +279,13 @@ h3 {
   font-size: 18px; }
 
 .h3-gold {
-  color: #9B885F; }
+  color: #9684AA; }
 
 h4, .order-num-wrapper .order-num {
   font-size: 16px; }
 
 .h4-gold {
-  color: #9B885F; }
+  color: #9684AA; }
 
 h5 {
   font-size: 14px; }
@@ -397,7 +398,7 @@ button:hover {
   color: #ffffff; }
 
 .sm-a {
-  color: #9B885F;
+  color: #9684AA;
   font-size: 12px; }
 
 .btn-link {
@@ -488,8 +489,9 @@ button:hover {
     color: #ffffff; }
 
 .btn-round-primary, .load-more {
-  background-color: #C5BCCF;
-  color: #ffffff; }
+  background-color: #9684AA;
+  color: #ffffff;
+  border: none; }
 
 .btn-round-sec {
   background-color: transparent;
@@ -521,14 +523,14 @@ input[type="radio"], input[type="checkbox"] {
   vertical-align: middle; }
 
 .select-option input[type=radio]:checked + .label-wrapper, .select-option input[type=radio]:checked + .edit-wrapper {
-  border: 1px solid #C1B497; }
+  border: 1px solid #C5BCCF; }
 
 .select-option input[type=radio]:checked + .label-wrapper .radio-btn, .select-option input[type=radio]:checked + .edit-wrapper .radio-btn {
-  border: 1px solid #C1B497;
+  border: 1px solid #C5BCCF;
   background: url(../css/images/icons/icon-tick-white.png) no-repeat center center/12px #C5BCCF; }
 
 .select-option input[type=checkbox]:checked + .radio-wrapper .radio-btn {
-  border: 1px solid #C1B497;
+  border: 1px solid #C5BCCF;
   background: url(../css/images/icons/icon-tick-white.png) no-repeat center center/12px #C5BCCF; }
 
 .mob-radio, .size-item {
@@ -1376,7 +1378,7 @@ input[type="radio"], input[type="checkbox"] {
       margin: 0 10%; } }
   .product-module .btn-sec {
     background: #fff;
-    color: #9B885F;
+    color: #9684AA;
     border: 1px solid #C1B497;
     width: 250px; }
     @media screen and (max-width: 767px) {
@@ -1502,7 +1504,7 @@ input[type="radio"], input[type="checkbox"] {
     padding-bottom: 94%; }
 .insta-mod .btn-sec {
   background: #fff;
-  color: #9B885F;
+  color: #9684AA;
   border: 1px solid #C1B497;
   width: 250px; }
   @media screen and (max-width: 767px) {
@@ -1633,7 +1635,7 @@ input[type="radio"], input[type="checkbox"] {
     .shopbag-wrapper, .chkout-wrapper {
       display: block; } }
 
-@media screen and (max-width: 1023px) {
+@media screen and (max-width: 767px) {
   .chkout-wrapper {
     flex-flow: column; } }
 
@@ -1676,7 +1678,8 @@ input[type="radio"], input[type="checkbox"] {
     .summary-wrapper .subtitle:hover {
       opacity: 1; }
   .summary-wrapper .btn-primary, .summary-wrapper .btn-sec, .summary-wrapper .custom-button {
-    width: 210px;
+    max-width: 210px;
+    width: 100%;
     margin: 14px auto; }
   .summary-wrapper .or-spacer {
     text-align: center;
@@ -1848,6 +1851,47 @@ input[type="radio"], input[type="checkbox"] {
 /*-----------------------------*/
 /* $CHECKOUT */
 /*-----------------------------*/
+.chkout-head {
+  padding: 0 50px 0;
+  height: 50px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  border-bottom: 1px solid #f8f8f8; }
+  @media screen and (max-width: 767px) {
+    .chkout-head {
+      padding: 0 6.6%; } }
+  .chkout-head .back-link {
+    float: left;
+    padding: 16px 21px;
+    background: url(../css/images/icons/icon-arrow-back-purp.svg) 0px 18px/12px 12px no-repeat; }
+    @media screen and (max-width: 767px) {
+      .chkout-head .back-link {
+        display: none; } }
+  @media screen and (min-width: 1024px) {
+    .chkout-head .riteslogo {
+      font-size: 28px;
+      padding: 8px 0;
+      text-align: center;
+      width: 100%;
+      display: block; } }
+  @media screen and (max-width: 767px) {
+    .chkout-head .riteslogo {
+      left: 0;
+      margin-left: 6.6%; } }
+  .chkout-head .help-link {
+    display: inline-block;
+    float: right;
+    margin-top: 9px; }
+    .chkout-head .help-link .care-call {
+      width: 35px;
+      height: 35px;
+      background: url(../css/images/icons/icon-phone-purp.svg) 10px 9px/13px 13px no-repeat;
+      vertical-align: middle; }
+    @media screen and (max-width: 767px) {
+      .chkout-head .help-link .phone {
+        display: none; } }
+
 .step-num {
   display: block;
   background-color: #ff2e63;
@@ -1865,13 +1909,6 @@ input[type="radio"], input[type="checkbox"] {
   margin-right: 20px;
   font-size: 11px;
   text-transform: uppercase; }
-
-.chkout-head {
-  padding: 0 50px 0;
-  height: 50px; }
-  .chkout-head .riteslogo {
-    float: none;
-    font-size: 28px; }
 
 @media screen and (min-width: 768px) and (max-width: 1279px) {
   .shopbag-content, .chkout-content, .acc-content, .cc-content {
@@ -1910,11 +1947,15 @@ input[type="radio"], input[type="checkbox"] {
     .shopbag-content .mob-container .btn-round-primary, .chkout-content .mob-container .btn-round-primary, .acc-content .mob-container .btn-round-primary, .cc-content .mob-container .btn-round-primary, .shopbag-content .mob-container .load-more, .chkout-content .mob-container .load-more, .acc-content .mob-container .load-more, .cc-content .mob-container .load-more {
       display: block; } }
 
-@media screen and (min-width: 768px) and (max-width: 1279px) {
-  .chkout-content, .acc-content, .cc-content {
-    margin-top: 50px; } }
-.chkout-content .input-link, .acc-content .input-link, .cc-content .input-link {
-  margin-bottom: 9px; }
+.chkout-content, .acc-content, .cc-content {
+  margin-top: 50px; }
+  .chkout-content .input-link, .acc-content .input-link, .cc-content .input-link {
+    margin-bottom: 9px; }
+  .chkout-content .chk-label, .acc-content .chk-label, .cc-content .chk-label {
+    display: block; }
+  .chkout-content .chk-input, .acc-content .chk-input, .cc-content .chk-input {
+    width: 100%;
+    height: 40px; }
 
 .form-line {
   width: 100%; }
@@ -1952,7 +1993,8 @@ input[type="radio"], input[type="checkbox"] {
   @media screen and (max-width: 1023px) {
     .label-wrapper, .edit-wrapper {
       display: block;
-      position: relative; } }
+      position: relative;
+      padding-right: 10px; } }
   .label-wrapper .radio-wrapper, .edit-wrapper .radio-wrapper {
     display: flex; }
   .label-wrapper .radio-label, .edit-wrapper .radio-label, .label-wrapper .chkbox-label, .edit-wrapper .chkbox-label {
@@ -2035,10 +2077,10 @@ input[type="radio"], input[type="checkbox"] {
   left: -27px;
   width: 22px;
   height: 22px;
-  border: 1px solid #C1B497;
+  border: 1px solid #C5BCCF;
   border-radius: 50%;
   vertical-align: middle;
-  background: url(../css/images/icons/icon-question-gold.svg) no-repeat center center/8px; }
+  background: url(../css/images/icons/icon-question-purp.svg) no-repeat center center/8px; }
 
 .edit-billing {
   margin: 38px 0 26px; }
@@ -2051,7 +2093,7 @@ input[type="radio"], input[type="checkbox"] {
     width: 780px;
     display: flex;
     justify-content: space-around;
-    color: $dk-gold;
+    color: $dk-purp;
 
     .step-num {
         font-family: $sans-med;
@@ -2072,11 +2114,12 @@ input[type="radio"], input[type="checkbox"] {
     }
 }*/
 .chkout-container, .acc-container, .cc-container {
-  width: 720px; }
+  width: 720px;
+  padding-bottom: 40px; }
   @media screen and (min-width: 768px) and (max-width: 1279px) {
     .chkout-container, .acc-container, .cc-container {
-      width: 69%; } }
-  @media screen and (max-width: 1023px) {
+      width: 67%; } }
+  @media screen and (max-width: 767px) {
     .chkout-container, .acc-container, .cc-container {
       width: 100%; } }
 
@@ -2112,7 +2155,7 @@ input[type="radio"], input[type="checkbox"] {
   position: relative;
   width: 48%;
   margin-bottom: 37px; }
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 1023px) {
     .email-info, .logged-info {
       width: 100%; } }
 
@@ -2165,6 +2208,8 @@ input[type="radio"], input[type="checkbox"] {
     .place-order button {
       margin-top: 31px;
       margin-bottom: 5px; } }
+  .place-order.finalpay {
+    margin-top: 40px; }
 
 .social-signin {
   padding: 31px 67px 12px;
@@ -2179,7 +2224,7 @@ input[type="radio"], input[type="checkbox"] {
   padding-left: 43px; }
   .order-num-wrapper .order-num {
     padding-left: 20px;
-    color: #9B885F; }
+    color: #9684AA; }
 
 .order-text {
   margin-top: 22px; }
@@ -2189,7 +2234,7 @@ input[type="radio"], input[type="checkbox"] {
 
 .new-account-wrap {
   padding: 27px;
-  border: 1px solid #C1B497;
+  border: 1px solid #C5BCCF;
   border-radius: 3px; }
   .new-account-wrap .chk-input {
     margin-bottom: 13px; }
@@ -2206,7 +2251,10 @@ input[type="radio"], input[type="checkbox"] {
   .order-confirm-info .info-block {
     width: 50%; }
   .order-confirm-info .email {
-    background: url(../css/images/icons/icon-email-gold.svg) 4px 4px/18px no-repeat;
+    background: url(../css/images/icons/icon-email-purp.svg) 4px 4px/18px no-repeat;
+    padding: 0 29px 0 42px; }
+  .order-confirm-info .time {
+    background: url(../css/images/icons/icon-time-purp.svg) 4px 0px/22px no-repeat;
     padding: 0 29px 0 42px; }
 
 .confirmed-summary {
@@ -3040,7 +3088,7 @@ input[type="radio"], input[type="checkbox"] {
   line-height: 50px; }
 
 .care-faq {
-  background: url(../css/images/icons/icon-question-gold.svg) 3px 4px/10px no-repeat;
+  background: url(../css/images/icons/icon-question-purp.svg) 3px 4px/10px no-repeat;
   background-position: 19px 17px;
   line-height: 50px; }
 
@@ -3062,7 +3110,7 @@ input[type="radio"], input[type="checkbox"] {
     margin-right: 14px; }
     .crumb-container .crumb:before {
       content: "/ ";
-      color: #9B885F; }
+      color: #9684AA; }
     .crumb-container .crumb:first-child:before {
       content: none; }
 
@@ -3854,7 +3902,7 @@ input[type="radio"], input[type="checkbox"] {
     padding-bottom: 44px; }
   .acc-container .step-head {
     padding: 17px 30px;
-    color: #9B885F; }
+    color: #9684AA; }
     .acc-container .step-head .step-title {
       margin: 0; }
   @media screen and (min-width: 768px) {
@@ -3990,7 +4038,7 @@ input[type="radio"], input[type="checkbox"] {
       display: block;
       margin-top: 10px; } }
   .order-status .status {
-    color: #9B885F; }
+    color: #9684AA; }
 
 .order-num {
   margin-top: 5px; }
@@ -4013,7 +4061,7 @@ input[type="radio"], input[type="checkbox"] {
   .sign-wrapper .tabs-title.active {
     background-color: #ffffff;
     border-radius: 3px;
-    color: #9B885F; }
+    color: #9684AA; }
 .sign-wrapper .detail-step, .sign-wrapper .order-list, .sign-wrapper .cc-section, .sign-wrapper .cc-half-section {
   width: 46%;
   height: 100%; }
@@ -4084,7 +4132,7 @@ input[type="radio"], input[type="checkbox"] {
     @media screen and (max-width: 767px) {
       .cc-content .page-title {
         display: none; } }
-  @media screen and (max-width: 1023px) {
+  @media screen and (min-width: 768px) {
     .cc-content .chkout-wrapper {
       flex-flow: row nowrap; }
       .cc-content .chkout-wrapper .summary-wrapper {
@@ -4102,7 +4150,7 @@ input[type="radio"], input[type="checkbox"] {
       .cc-content .step-head {
         margin: 0 20px; } }
     .cc-content .step-head .step-title {
-      color: #9B885F;
+      color: #9684AA;
       margin-left: 0 !important; }
 
 .submenu {
@@ -4117,7 +4165,7 @@ input[type="radio"], input[type="checkbox"] {
       padding: 9px 20px; } }
 
 .copy-title {
-  color: #9B885F;
+  color: #9684AA;
   font-size: 15px;
   margin-top: 36px;
   margin-bottom: 20px; }
@@ -4165,7 +4213,7 @@ input[type="radio"], input[type="checkbox"] {
     .cc-half-section .contact-blk .step-title {
       margin-top: 9px;
       margin-bottom: 15px;
-      color: #9B885F; }
+      color: #9684AA; }
 
 .cc-form {
   width: 100%; }

@@ -174,7 +174,6 @@ $med-grey: #DFDFDF;
 $dk-grey: #999999;
 $x-dk-grey: #666666;
 $gold: #C1B497;
-$dk-gold: #9B885F;
 $purp: #C5BCCF;
 $dk-purp: #9684AA;
 $hot-pink: #ff2e63;
@@ -198,11 +197,12 @@ $phone-purp: url(../css/images/icons/icon-phone-purp.svg);
 $dropdown: url(../css/images/icons/icon-dropdown.svg);
 $tick: url(../css/images/icons/icon-tick-white.png) no-repeat center center/ 12px $purp;
 $question: url(../css/images/icons/icon-question.svg);
-$question-gold: url(../css/images/icons/icon-question-gold.svg);
+$question-purp: url(../css/images/icons/icon-question-purp.svg);
 $chat-purp: url(../css/images/icons/icon-chat-purp.svg);
 $plus: url(../css/images/icons/icon-plus.svg);
 $plus-gold: url(../css/images/icons/icon-plus-gold.svg);
 $plus-purp: url(../css/images/icons/icon-plus-purp.svg);
+$time: url(../css/images/icons/icon-time-purp.svg);
 $fb-purp: url(../css/images/icons/logo-fb-purp.svg);
 $fb-white: url(../css/images/icons/logo-fb.svg);
 $insta-purp: url(../css/images/icons/logo-insta-purp.svg);
@@ -317,11 +317,12 @@ input {
     font-family: $site-font-stack;
     font-size: 12px;
     letter-spacing: $body-tracking;
+    padding-left: 18px;
 }
 
 input:focus {
     outline: none;
-    border-color: $purp;
+    border: 1px solid $purp;
     color: $near-black;
 }
 
@@ -424,7 +425,7 @@ label {
 .sub-serif {
     @extend .page-title-a;
     font-size: 15px;
-    color: $dk-gold;
+    color: $dk-purp;
 }
 
 .htitle {
@@ -439,7 +440,7 @@ h3 {
 }
 
 .h3-gold {
-    color: $dk-gold;
+    color: $dk-purp;
 }
 
 h4 {
@@ -448,7 +449,7 @@ h4 {
 }
 
 .h4-gold {
-    color: $dk-gold;
+    color: $dk-purp;
 }
 
 h5 {
@@ -601,7 +602,7 @@ button:hover {
 }
 
 .sm-a {
-    color: $dk-gold;
+    color: $dk-purp;
     font-size: 12px;
 }
 
@@ -719,8 +720,9 @@ button:hover {
 
 .btn-round-primary {
     @extend .btn-round;
-    background-color: $purp;
+    background-color: $dk-purp;
     color: #ffffff;
+    border: none;
 }
 
 .btn-round-sec {
@@ -765,16 +767,16 @@ input[type="radio"], input[type="checkbox"] {
 
 
 .select-option input[type=radio]:checked+.label-wrapper {
-  border: 1px solid $gold;
+  border: 1px solid $purp;
 }
 
 .select-option input[type=radio]:checked+.label-wrapper .radio-btn {
-    border: 1px solid $gold;
+    border: 1px solid $purp;
     background: $tick;
 }
 
 .select-option input[type=checkbox]:checked+.radio-wrapper .radio-btn {
-    border: 1px solid $gold;
+    border: 1px solid $purp;
     background: $tick;
 }
 
@@ -1927,7 +1929,7 @@ input[type="radio"], input[type="checkbox"] {
 
     .btn-sec {
         background: #fff;
-        color: $dk-gold;
+        color: $dk-purp;
         border: 1px solid $gold;
         width: 250px;
 
@@ -2108,7 +2110,7 @@ input[type="radio"], input[type="checkbox"] {
 
     .btn-sec {
         background: #fff;
-        color: $dk-gold;
+        color: $dk-purp;
         border: 1px solid $gold;
         width: 250px;
 
@@ -2285,7 +2287,7 @@ input[type="radio"], input[type="checkbox"] {
 .chkout-wrapper {
     @extend .shopbag-wrapper;
 
-    @include until($tablet) {
+    @include until($mobile) {
         flex-flow: column;
     } 
 }
@@ -2344,7 +2346,8 @@ input[type="radio"], input[type="checkbox"] {
     }
 
     .btn-primary {
-        width: 210px;
+        max-width: 210px;
+        width: 100%;
         margin: 14px auto;
     }
 
@@ -2585,6 +2588,63 @@ input[type="radio"], input[type="checkbox"] {
 /* $CHECKOUT */
 /*-----------------------------*/
 
+.chkout-head {
+    @extend .main-head;
+    padding: 0 50px 0;
+    height: 50px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    border-bottom: 1px solid $x-lgt-grey;
+
+    @include until($mobile) {
+        padding: 0 6.6%;
+    }
+
+    .back-link {
+        float: left;
+        padding: 16px 21px;
+        background: url(../css/images/icons/icon-arrow-back-purp.svg)  0px 18px/12px 12px no-repeat;
+
+        @include until($mobile) {
+            display: none;
+        }
+    }
+
+    .riteslogo {
+        @include at-least($tablet) {
+            font-size: 28px;
+            padding: 8px 0;
+            text-align: center;
+            width: 100%;
+            display: block;
+        }
+
+        @include until($mobile) {
+            left: 0;
+            margin-left: 6.6%;
+        }
+    }
+
+    .help-link {
+        display: inline-block;
+        float: right;
+        margin-top: 9px;
+
+        .care-call {
+            width: 35px;
+            height: 35px;
+            background: url(../css/images/icons/icon-phone-purp.svg) 10px 9px/13px 13px no-repeat;
+            vertical-align: middle;
+        }
+
+        .phone {
+            @include until($mobile) { 
+                display: none;
+            }
+        }
+    }
+}
 .step-num {
     display: block;
     background-color: $hot-pink;
@@ -2603,17 +2663,6 @@ input[type="radio"], input[type="checkbox"] {
     margin-right: 20px;
     font-size: 11px;
     text-transform: uppercase;
-}
-
-.chkout-head {
-    @extend .main-head;
-    padding: 0 50px 0;
-    height: 50px;
-
-    .riteslogo {
-        float: none;
-        font-size: 28px;
-    }
 }
 
 .shopbag-content {
@@ -2675,13 +2724,19 @@ input[type="radio"], input[type="checkbox"] {
 
 .chkout-content {
     @extend .shopbag-content;
-
-    @include between($mobile, $med-desk) {
-        margin-top: 50px;
-    }
+    margin-top: 50px;
 
     .input-link {
         margin-bottom: 9px;
+    }
+
+    .chk-label {
+        display: block;
+    }
+
+    .chk-input {
+        width: 100%;
+        height: 40px;
     }
 }
 
@@ -2734,6 +2789,7 @@ input[type="radio"], input[type="checkbox"] {
     @include until($tablet) {
         display: block;
         position: relative;
+        padding-right: 10px;
     }
     
     .radio-wrapper {
@@ -2849,10 +2905,10 @@ input[type="radio"], input[type="checkbox"] {
     left: -27px;
     width: 22px;
     height: 22px;
-    border: 1px solid $gold;
+    border: 1px solid $purp;
     border-radius: 50%;
     vertical-align: middle;
-    background: $question-gold no-repeat center center/ 8px;
+    background: $question-purp no-repeat center center/ 8px;
 }
 
 .edit-billing {
@@ -2869,7 +2925,7 @@ input[type="radio"], input[type="checkbox"] {
     width: 780px;
     display: flex;
     justify-content: space-around;
-    color: $dk-gold;
+    color: $dk-purp;
 
     .step-num {
         font-family: $sans-med;
@@ -2892,12 +2948,13 @@ input[type="radio"], input[type="checkbox"] {
 
 .chkout-container {
     width: 720px;
+    padding-bottom: 40px;
 
     @include between($mobile, $med-desk) {
-        width: 69%;
+        width: 67%;
     }
 
-    @include until($tablet) {
+    @include until($mobile) {
         width: 100%;
     } 
 }
@@ -2949,7 +3006,7 @@ input[type="radio"], input[type="checkbox"] {
     width: 48%;
     margin-bottom: 37px;
 
-    @include until($mobile) {
+    @include until($tablet) {
         width: 100%;
     } 
 }
@@ -3029,6 +3086,10 @@ input[type="radio"], input[type="checkbox"] {
             margin-bottom: 5px;
         }
     }
+
+    &.finalpay {
+        margin-top: 40px;
+    }
 }
 
 .social-signin {
@@ -3048,7 +3109,7 @@ input[type="radio"], input[type="checkbox"] {
     .order-num {
         @extend h4;
         padding-left: 20px;
-        color: $dk-gold;
+        color: $dk-purp;
     }
 }
 
@@ -3063,7 +3124,7 @@ input[type="radio"], input[type="checkbox"] {
 
 .new-account-wrap {
     padding: 27px;
-    border: 1px solid $gold;
+    border: 1px solid $purp;
     border-radius: 3px;
 
     .chk-input {
@@ -3090,7 +3151,12 @@ input[type="radio"], input[type="checkbox"] {
     }
 
     .email {
-        background: $email-gold 4px 4px/18px no-repeat;
+        background: $email-purp 4px 4px/18px no-repeat;
+        padding: 0 29px 0 42px;
+    }
+
+    .time {
+        background: $time 4px 0px/22px no-repeat;
         padding: 0 29px 0 42px;
     }
 }
@@ -4246,7 +4312,7 @@ input[type="radio"], input[type="checkbox"] {
 .care-faq {
     @extend .care-link;
     @extend .btn-mob-circle;
-    background: $question-gold 3px 4px/10px no-repeat;
+    background: $question-purp 3px 4px/10px no-repeat;
     background-position: 19px 17px;
     line-height: 50px;
 }
@@ -4275,7 +4341,7 @@ input[type="radio"], input[type="checkbox"] {
 
         &:before {
             content: "/ ";
-            color: $dk-gold;
+            color: $dk-purp;
         }
 
         &:first-child:before{
@@ -5412,7 +5478,7 @@ input[type="radio"], input[type="checkbox"] {
 
     .step-head {
         padding: 17px 30px;
-        color: $dk-gold;
+        color: $dk-purp;
 
         .step-title {
             margin: 0;
@@ -5638,7 +5704,7 @@ input[type="radio"], input[type="checkbox"] {
     }
 
     .status {
-        color: $dk-gold;
+        color: $dk-purp;
     }
 }
 
@@ -5671,7 +5737,7 @@ input[type="radio"], input[type="checkbox"] {
         &.active {
             background-color: #ffffff;
             border-radius: 3px;
-            color: $dk-gold;
+            color: $dk-purp;
         }
     }
 
@@ -5779,7 +5845,7 @@ input[type="radio"], input[type="checkbox"] {
         }
     }
 
-    @include until($tablet) {
+    @include at-least($mobile) {
         .chkout-wrapper {
             flex-flow: row nowrap;
 
@@ -5808,7 +5874,7 @@ input[type="radio"], input[type="checkbox"] {
         }
 
         .step-title {
-            color: $dk-gold;
+            color: $dk-purp;
             margin-left: 0 !important;
         }
     }
@@ -5833,7 +5899,7 @@ input[type="radio"], input[type="checkbox"] {
 }
 
 .copy-title {
-    color: $dk-gold;
+    color: $dk-purp;
     font-size: 15px;
     margin-top: 36px;
     margin-bottom: 20px;
@@ -5902,7 +5968,7 @@ input[type="radio"], input[type="checkbox"] {
         .step-title {
             margin-top: 9px;
             margin-bottom: 15px;
-            color: $dk-gold;
+            color: $dk-purp;
         }
     }
 }
