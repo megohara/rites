@@ -1,52 +1,52 @@
-var filterOffset;
+// var filterOffset;
 
-function initDesktopScroll() {
-    var scrollTop = $(window).scrollTop();
+// function initDesktopScroll() {
+//     var scrollTop = $(window).scrollTop();
          
-    var shouldFix = scrollTop >= filterOffset;
-    $('.listing-info, .filter-fix').toggleClass('fixed', shouldFix);   
-}
+//     var shouldFix = scrollTop >= filterOffset;
+//     $('.listing-info, .filter-fix').toggleClass('fixed', shouldFix);   
+// }
 
-function initMobileScroll() {
-    var scrollTop = $(window).scrollTop();
+// function initMobileScroll() {
+//     var scrollTop = $(window).scrollTop();
 
-    var shouldFix = scrollTop >= filterOffset;
-    $('.filters-wrapper').toggleClass('fixed', shouldFix);  
-}
+//     var shouldFix = scrollTop >= filterOffset;
+//     $('.filters-wrapper').toggleClass('fixed', shouldFix);  
+// }
 
-function initFixedFilters() {
-    //Fixing filter bar after scroll- Desktop only
-    if (matchMedia('screen and (min-width: 768px)').matches) {
-        filterOffset = $('.listing-info').offset().top;
+// function initFixedFilters() {
+//     //Fixing filter bar after scroll- Desktop only
+//     if (matchMedia('screen and (min-width: 768px)').matches) {
+//         filterOffset = $('.listing-info').offset().top;
 
-        $(window).off('scroll', initDesktopScroll);
-        $(window).scroll(initDesktopScroll);
-    }
+//         $(window).off('scroll', initDesktopScroll);
+//         $(window).scroll(initDesktopScroll);
+//     }
 
-    //Fixing filter bar after scroll- Desktop only
-    if (matchMedia('screen and (max-width: 767px)').matches) {   
-        filterOffset = $('.filters-wrapper').offset().top - $('.main-head').height();
+//     //Fixing filter bar after scroll- Desktop only
+//     if (matchMedia('screen and (max-width: 767px)').matches) {   
+//         filterOffset = $('.filters-wrapper').offset().top - $('.main-head').height();
         
-        $(window).off('scroll', initMobileScroll);
-        $(window).scroll(initMobileScroll);
-    }
-}
+//         $(window).off('scroll', initMobileScroll);
+//         $(window).scroll(initMobileScroll);
+//     }
+// }
 
-function menuToggle() {
-    $('.prime-nav').toggleClass('show');
-    $('.nav-trigger').toggleClass('close');
-    $('body').toggleClass('noscroll');
-    $('.rts-overlay').toggleClass('is-visible');
-    $('.sec-nav').removeClass('show');
-    $('.prime-title').css('display', 'flex');
-    $('.top-search').removeClass('active');
-}
+// function menuToggle() {
+//     $('.prime-nav').toggleClass('show');
+//     $('.nav-trigger').toggleClass('close');
+//     $('body').toggleClass('noscroll');
+//     $('.rts-overlay').toggleClass('is-visible');
+//     $('.sec-nav').removeClass('show');
+//     $('.prime-title').css('display', 'flex');
+//     $('.top-search').removeClass('active');
+// }
 
-function searchToggle() {
-    $('.top-search').toggleClass('active');
-    $('.prime-nav').removeClass('show');
-    $('.nav-trigger').removeClass('close');
-}
+// function searchToggle() {
+//     $('.top-search').toggleClass('active');
+//     $('.prime-nav').removeClass('show');
+//     $('.nav-trigger').removeClass('close');
+// }
 
 $(document).ready(function() {
 
@@ -120,6 +120,31 @@ $(document).ready(function() {
         });   
     }
 
+    // ---------------------------//
+    // Customer Care
+    // ---------------------------//
+
+    // Customer care mobile submenu toggle show
+    if (matchMedia('only screen and (max-width: 767px)').matches) {
+
+        $('.page-title').click(function(e) {
+            e.preventDefault();
+            $('.summary-wrapper').toggleClass('hide');
+            $('.submenu-overlay').toggleClass('is-visible');
+
+            $('.submenu-overlay').click(function(){
+
+                 $('.summary-wrapper').addClass('hide');
+                $('.submenu-overlay').removeClass('is-visible');
+            });
+        }); 
+    }
+
+    // FAQ - Toggle open/close question & answer
+    $('.cc-question').on('click', function() {
+        $(this).siblings('.cc-answer').toggleClass('show');
+        $(this).find('.icon-more').toggleClass('rotate');
+    });
 
 
     // ---------------------------//
@@ -175,7 +200,7 @@ $(document).ready(function() {
 //     });
 
 
-     initFixedFilters();
+     // initFixedFilters();
 
 
     // ---------------------------//
@@ -254,19 +279,6 @@ $(document).ready(function() {
     // });
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
     // Mobile open/close filter menu
     $('.nav-filter .mob-only').click(function(){
         $(this).parent('.nav-filter').addClass('active');
@@ -304,6 +316,7 @@ $(document).ready(function() {
         currentTarget.toggleClass('active');
         currentTarget.siblings().removeClass('active');
     });
+
 
 });
 
