@@ -4107,20 +4107,27 @@ input[type="radio"], input[type="checkbox"] {
 /* $Customer Care */
 /*-----------------------------*/
 .cc-content {
-  margin-top: 73px; }
-  @media screen and (min-width: 768px) and (max-width: 1279px) {
+  margin-top: 0; }
+  @media screen and (max-width: 1023px) {
     .cc-content {
-      margin-top: 113px; } }
+      margin-top: 50px; } }
   @media screen and (max-width: 767px) {
     .cc-content {
       margin-top: 92px; }
       .cc-content .summary-wrapper {
         display: none; } }
+  .cc-content .chkout-wrapper {
+    width: 1000px;
+    margin: 0 auto; }
+    @media screen and (max-width: 1279px) {
+      .cc-content .chkout-wrapper {
+        width: 100%;
+        max-width: 1000px; } }
   .cc-content .page-title {
-    width: 1106px;
+    width: 1000px;
     margin-left: auto;
     margin-right: auto;
-    padding-left: 435px; }
+    padding-left: 328px; }
     @media screen and (min-width: 1024px) and (max-width: 1279px) {
       .cc-content .page-title {
         width: auto;
@@ -4197,7 +4204,9 @@ input[type="radio"], input[type="checkbox"] {
   justify-content: space-between; }
   @media screen and (max-width: 1023px) {
     .cc-container .cc-faq {
-      order: 3; } }
+      order: 3; }
+    .cc-container .cc-call-section {
+      order: 2; } }
 
 .cc-half-section {
   width: 48%;
@@ -4208,6 +4217,9 @@ input[type="radio"], input[type="checkbox"] {
   .cc-half-section .contact-blk {
     display: flex;
     justify-content: space-between; }
+    @media screen and (max-width: 1023px) {
+      .cc-half-section .contact-blk {
+        justify-content: normal; } }
     .cc-half-section .contact-blk .info {
       width: 75%; }
     .cc-half-section .contact-blk .step-title {
@@ -4232,14 +4244,12 @@ input[type="radio"], input[type="checkbox"] {
   .cc-form .cc-radio {
     display: inline-block;
     vertical-align: middle;
-    margin-left: 30px; }
-    .cc-form .cc-radio .label-wrapper, .cc-form .cc-radio .edit-wrapper {
+    /*     margin-left: 30px;*/ }
+    .cc-form .cc-radio .label-wrapper, .cc-form .cc-radio .edit-wrapper, .cc-form .cc-radio .select-option input[type=radio]:checked + .label-wrapper, .cc-form .cc-radio .select-option input[type=radio]:checked + .edit-wrapper {
       padding: 0;
-      border: none; }
-    @media screen and (max-width: 1023px) {
-      .cc-form .cc-radio {
-        display: block;
-        margin: 15px 71px; } }
+      border: none !important; }
+    .cc-form .cc-radio .select-option {
+      margin-top: 12px; }
   .cc-form .button-wrapper {
     margin: 40px 0; }
 
@@ -4386,6 +4396,10 @@ input[type="radio"], input[type="checkbox"] {
 
 .red {
   background-color: red; }
+
+.rotate {
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg); }
 
 /*
  * Hide only visually, but have it available for screen readers:

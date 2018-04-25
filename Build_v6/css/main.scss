@@ -5810,25 +5810,34 @@ input[type="radio"], input[type="checkbox"] {
 /*-----------------------------*/
 .cc-content {
     @extend .chkout-content;
-    margin-top: 73px;
+    margin-top: 0;
 
-    @include between($mobile, $med-desk) {
-        margin-top: 113px;
+    @include until($tablet) {
+        margin-top: 50px;
     }
 
     @include until($mobile) {
         margin-top: 92px;
-
         .summary-wrapper {
             display: none;
         }
     }
 
+    .chkout-wrapper {
+        width: 1000px;
+        margin: 0 auto;
+
+        @include until($med-desk) {
+            width: 100%;
+            max-width: 1000px;
+        }
+    }
+
     .page-title {
-         width: 1106px;
+        width: 1000px;
         margin-left: auto;
         margin-right: auto;
-        padding-left: 435px;
+        padding-left: 328px;
 
         @include between($tablet, $med-desk) {
             width: auto;
@@ -5945,6 +5954,10 @@ input[type="radio"], input[type="checkbox"] {
         .cc-faq {
                order: 3;
         }
+
+        .cc-call-section {
+            order: 2;
+        }
     }
 }
 
@@ -5960,6 +5973,10 @@ input[type="radio"], input[type="checkbox"] {
     .contact-blk {
         display: flex;
         justify-content: space-between;
+
+        @include until($tablet) {
+            justify-content: normal;
+        }
 
         .info {
             width: 75%;
@@ -5997,16 +6014,15 @@ input[type="radio"], input[type="checkbox"] {
     .cc-radio {
         display: inline-block;
         vertical-align: middle;
-        margin-left: 30px;
+   /*     margin-left: 30px;*/
 
-        .label-wrapper {
+        .label-wrapper, .select-option input[type=radio]:checked + .label-wrapper {
             padding: 0;
-            border: none;
+            border: none !important;
         }
 
-        @include until($tablet) {
-            display: block;
-            margin: 15px 71px;
+        .select-option {
+            margin-top: 12px;
         }
     }
 
@@ -6224,6 +6240,11 @@ input[type="radio"], input[type="checkbox"] {
 
 .red {
     background-color: red;
+}
+
+.rotate {
+     -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
 }
 
 /*
