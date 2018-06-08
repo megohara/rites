@@ -473,14 +473,14 @@ button:hover {
   min-width: 150px;
   border: 1px solid #C5BCCF;
   padding: 0 30px;
-  font-family: "basisgrot-med", Helvetica, sans-serif; }
+  font-family: "basisgrot-med", Helvetica, sans-serif;
+  line-height: 43px; }
   @media screen and (max-width: 1023px) {
     .btn-round, .btn-rnd-purp-bg, .btn-round-primary, .load-more, .btn-round-sec, .btn-round-pink {
       display: block;
       margin: 0 auto 16px;
       padding: 0 12px;
-      max-width: 160px;
-      line-height: 43px; } }
+      max-width: 160px; } }
 
 .btn-rnd-purp-bg {
   border: 1px solid #fff;
@@ -520,7 +520,8 @@ input[type="radio"], input[type="checkbox"] {
   width: 22px;
   border: 1px solid #DFDFDF;
   border-radius: 50%;
-  vertical-align: middle; }
+  vertical-align: middle;
+  cursor: pointer; }
 
 .select-option input[type=radio]:checked + .label-wrapper, .select-option input[type=radio]:checked + .edit-wrapper {
   border: 1px solid #C5BCCF; }
@@ -3886,13 +3887,22 @@ input[type="radio"], input[type="checkbox"] {
 /*-----------------------------*/
 /* $My Account */
 /*-----------------------------*/
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: 1024px) {
   .acc-content {
     margin-top: 0; } }
 
 .acc-container {
   margin: 0 auto;
   padding-bottom: 50px; }
+  @media screen and (min-width: 768px) and (max-width: 1023px) {
+    .acc-container {
+      width: auto; } }
+  @media screen and (max-width: 767px) {
+    .acc-container {
+      width: 100%; } }
+  @media screen and (min-width: 1024px) {
+    .acc-container.sign-cont {
+      width: 960px; } }
   .acc-container .step, .acc-container .confirmed-summary, .acc-container .detail-step, .acc-container .order-list, .acc-container .cc-section, .acc-container .cc-half-section, .acc-container .order-single {
     padding-bottom: 0; }
     @media screen and (max-width: 767px) {
@@ -4012,6 +4022,14 @@ input[type="radio"], input[type="checkbox"] {
     .order-list .order-info {
       float: left;
       width: 31%; } }
+
+.order-header {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between; }
+  @media screen and (min-width: 768px) {
+    .order-header .tracking {
+      margin-top: -11px; } }
 
 .order-single .step-head .step-title {
   margin-left: 25px; }

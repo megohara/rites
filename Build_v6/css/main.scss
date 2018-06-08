@@ -698,13 +698,13 @@ button:hover {
     border: 1px solid $purp;
     padding: 0 30px;
     font-family: $sans-med;
+    line-height: 43px;
 
     @include until($tablet) {
         display: block;
         margin: 0 auto 16px;
         padding: 0 12px;
         max-width: 160px;
-        line-height: 43px;
     }
 }
 
@@ -762,6 +762,7 @@ input[type="radio"], input[type="checkbox"] {
     border: 1px solid $med-grey;
     border-radius: 50%;
     vertical-align: middle;
+    cursor: pointer;
 }
 
 
@@ -5452,7 +5453,7 @@ input[type="radio"], input[type="checkbox"] {
 .acc-content {
     @extend .chkout-content;
 
-    @include at-least($med-desk) {
+    @include at-least($tablet) {
         margin-top: 0;
     }
 }
@@ -5461,6 +5462,20 @@ input[type="radio"], input[type="checkbox"] {
     @extend .chkout-container;
     margin: 0 auto;
     padding-bottom: 50px;
+
+    @include between($mobile, $tablet) {
+       width: auto;
+    }
+
+    @include until($mobile) {
+        width: 100%;
+    } 
+
+    &.sign-cont {
+        @include at-least($tablet) {
+            width: 960px;
+        }
+    }
 
     .step {
         padding-bottom: 0;
@@ -5661,6 +5676,18 @@ input[type="radio"], input[type="checkbox"] {
         @include at-least($mobile) {
             float: left;
             width: 31%;
+        }
+    }
+}
+
+.order-header {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+
+    .tracking {
+        @include at-least($mobile) {
+            margin-top: -11px;
         }
     }
 }

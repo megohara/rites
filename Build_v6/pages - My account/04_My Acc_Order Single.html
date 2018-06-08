@@ -21,32 +21,93 @@
 
     <body>
         <header class="main-head clearfix">
-            <a href="/" class="nav-trigger" ><span class="icon-menu"></span></a>
-            <a href="/" class="nav-close"><span class="icon-close"></span></a>
-            <a href="/" class="search-trigger"><span class="icon-search icon"></span>
+            <div class="top-bar">
+                <a href="/" class="nav-trigger"></a>
+                <a href="/" class="search-trigger"></a>
 
-            <a href="/" class="riteslogo">Rites</a>
+               
+                <a href="/" class="riteslogo">Rites</a>
+
+
+                <div class="header-info"> 
+                    <!-- SEARCH-->
+         
+                    <form class="top-search" role="" action="">
+                        <input type="search" name="" placeholder="Search for items or designers" class="search-input" />
+                        <button class="search-btn"></button>
+                    </form>
+
+                    <div class="info-assist">
+
+                        <a href="/" class="head-hover">
+                            <span class="icon-assist"></span>
+                            <span class="info-btn">Assistance</span>
+                        </a>
+                        <div class="customer-serv-dropdown">
+                            <h6 class="bodycopy">Contact Us</h6>
+                            <ul>
+                                <li><a href="#" class="cust-link email">Email Us</a></li>
+                                <li><a href="#" class="cust-link phone">+44 7452 9234</a></li>
+                                <li><a href="#" class="cust-link chat">Live Chat <span>(unavailable)</span></a></li>
+                            </ul>
+                            <h6 class="bodycopy">Customer Service</h6>
+                            <ul>
+                                <li><a href="#" class="cust-serv-link">Shipping Information</a></li>
+                                <li><a href="#" class="cust-serv-link">Returns Policy</a></li>
+                                <li><a href="#" class="cust-serv-link">FAQs</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="info-user active">
+                        <a href="/" class="head-hover">
+                            <span class="icon-user"></span>
+                            <span class="info-btn">Sign In</span>
+                            <span class="signin-acc-name">Hannah</span>
+                        </a>
+                        <div class="customer-serv-dropdown">
+                            <ul>
+                                <li><a href="#" class="cust-serv-link">Orders</a></li>
+                                <li><a href="#" class="cust-serv-link">Account</a></li>
+                                <li><a href="#" class="cust-serv-link">Sign out</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <a href="/" class="info-wish">
+                        <span class="icon-wish"></span>
+                        <span class="info-btn">My List</span>
+                        <span class="wish-count">12</span>
+                    </a>
+
+                    <a href="/" class="info-bag">
+                        <span class="icon-bag"></span>
+                        <span class="bag-count">3</span>
+                    </a>
+                </div>
+
+            </div>
 
             <!-- MAIN NAV-->
             <nav class="prime-nav">
-                <ul>
-                    <li class="nav-item clearfix">
-                        <a href="" class="prime-title">
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="/" class="prime-title">
                             <span class="nav-a">New In</span>
                         </a>
                     </li>
 
-                    <li class="nav-item clearfix">
-                        <a href="" class="prime-title">
+                    <li class="nav-item">
+                        <a href="/" class="prime-title l2-link">
                             <span class="img-a">Fashion</span>
                             <div class="img-container">
                                 <img src="css/images/test2.jpg" alt=""/>
                             </div>
                         </a>
                     </li>
-                    
-                    <li class="nav-item clearfix">
-                        <a href="" class="prime-title" >
+
+                    <li class="nav-item">
+                        <a href="/" class="prime-title l2-link">
                             <span class="img-a">Jewellery</span>
                             <div class="img-container">
                                 <img src="css/images/test2.jpg" alt=""/>
@@ -54,17 +115,18 @@
                         </a>
                     </li>
 
-                    <li class="nav-item clearfix">
-                        <a href="" class="prime-title">
+                    <li class="nav-item">
+                        <a href="/" class="prime-title l2-link">
                             <span class="img-a">Beauty</span>
                             <div class="img-container">
                                 <img src="css/images/test2.jpg" alt=""/>
                             </div>
                         </a>
+
                     </li>
 
-                    <li class="nav-item clearfix">
-                        <a href="" class="prime-title">
+                    <li class="nav-item">
+                        <a href="/" class="prime-title l2-link">
                             <span class="img-a">Lifestyle</span>
                             <div class="img-container">
                                 <img src="css/images/test2.jpg" alt=""/>
@@ -72,43 +134,33 @@
                         </a>
                     </li>
                     
-                    <li class="nav-item clearfix">
-                        <a href="" class="prime-title">
+                    <li class="nav-item">
+                        <a href="/" class="prime-title">
                             <span class="nav-a">Designers</span>
                         </a>
+
                     </li>
 
                 </ul>
+
+                <div class="mob-menu-footer">
+                    <div class="btn-container">
+                        <a href="" class="btn-round">Sign In</a>
+                        <a href="" class="btn-round">New Customer</a>
+                    </div>
+
+                    <ul class="acc-signed-in">
+                        <li><a href="#" class="cust-serv-link">My Account</a></li>
+                        <li><a href="#" class="cust-serv-link">Sign out</a></li>
+                    </ul>
+
+                    <ul>
+                        <li><a href="mailto:" class="email-a">Email Us for Assistance</a></li>
+                        <li><a href="mailto:" class="help-a">FAQs</a></li>
+                        <li><a href="" class="dropdown-a"><span>Country: &nbsp; &nbsp;</span><span class="link-a">United Kingdom/ £ GBP</span></a></li>
+                    </ul>
+                </div>
             </nav>
-
-            <!-- SEARCH-->
-            <div class="site-search">
-                <form class="header-search-form" role="" action="">
-                    <input class="search-box" type="search" name="" placeholder="Search for items or designers" />
-                    <button class="search-btn"><img src="../css/images/icons/icon-search.svg" class="search-img"/></button>
-                </form>
-            </div>
-
-            <!-- USER INFO-->
-            <div class="info-block clearfix">
-                
-                <a href="" class="info-currency">£ GBP</a>
-           
-                <a href="/" class="info-user">
-                    <span class="icon-user"></span>
-                    <span class="info-btn">Sign In</span>
-                </a>
-
-                <a href="/" class="info-wish">
-                    <span class="icon-wish"></span>
-                    <span class="info-btn">My List</span>
-                </a>
-
-                <a href="/" class="info-bag">
-                    <span class="icon-bag"></span>
-                    <span class="bag-count">3</span>
-                </a>
-            </div>
 
         </header>
 
@@ -117,8 +169,11 @@
                 <a href="" class="acc-back">< Back to Order History</a>
 
                 <div class="acc-container">
-                    <h1 class="page-title">23 Sept 2017<span class="order-status">Status: <span class="status">Shipped</span></span></h1>
-                    
+                    <div class="order-header">
+                        <h1 class="page-title">23 Sept 2017<span class="order-status">Status: <span class="status">Shipped</span></span></h1>
+
+                        <div class="tracking btn-round-sec">Track Order</div>
+                    </div> 
         
                     <div class="order-single">
                         <div class="step-head">
