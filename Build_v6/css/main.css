@@ -346,7 +346,7 @@ h6 {
 .sec-close, .filter-close {
   padding: 9px 10px 11px;
   border-radius: 100%;
-  border: 1px solid #C1B497; }
+  border: 1px solid #C5BCCF; }
 
 .icon-info-block, .icon-user, .icon-assist, .icon-wish {
   height: 12px; }
@@ -3527,7 +3527,7 @@ input[type="radio"], input[type="checkbox"] {
   background-color: #f8f8f8;
   z-index: 999;
   width: 100%;
-  padding: 23px 6.6% 80px;
+  padding: 23px 6.6% 114px;
   max-height: 100vh;
   overflow: auto; }
   @media screen and (min-width: 768px) and (max-width: 1023px) {
@@ -3579,7 +3579,11 @@ input[type="radio"], input[type="checkbox"] {
       border: 1px solid #C5BCCF; } }
   @media screen and (max-width: 767px) {
     .filter-container {
-      width: 100%; } }
+      width: 100%;
+      /*        &.last {
+                  margin-bottom: 100px;
+              }
+      */ } }
   .filter-container.sort-filter {
     min-width: 180px;
     margin-right: 0;
@@ -3636,10 +3640,17 @@ input[type="radio"], input[type="checkbox"] {
         height: 44px;
         line-height: 44px;
         border-radius: 3px; } }
-    .filter-container .btn-dropdown.selected {
-      border: 1px solid #C5BCCF; }
-  .filter-container .filter-active {
+    @media screen and (min-width: 768px) {
+      .filter-container .btn-dropdown.selected {
+        border: 1px solid #C5BCCF; } }
+  .filter-container .count {
     display: none; }
+    .filter-container .count.show {
+      display: inline-block; }
+    .filter-container .count:before {
+      content: '('; }
+    .filter-container .count:after {
+      content: ')'; }
 
 .filter, .filter-menu, #sort-menu {
   display: none;
@@ -3693,9 +3704,12 @@ input[type="radio"], input[type="checkbox"] {
   @media screen and (max-width: 1023px) {
     .filter-close {
       position: absolute;
-      padding: 8px 10px 9px;
+      top: 14px;
       right: 6.6%;
-      top: 14px; } }
+      padding: 0;
+      width: 34px;
+      height: 34px;
+      background: url(../css/images/icons/icon-close-purp.svg) center center/10px no-repeat; } }
 
 .facets-wrapper {
   display: flex;

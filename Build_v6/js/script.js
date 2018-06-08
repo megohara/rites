@@ -175,15 +175,15 @@ $(document).ready(function() {
         $('.tab-item').toggleClass('active');
     });
 
-    $('.size-item').click(function(e) {
-         e.preventDefault();
-         $(this).toggleClass('active');
+    // $('.size-item').click(function(e) {
+    //      e.preventDefault();
+    //      $(this).toggleClass('active');
 
-         // on PDP oage only want one size selected at a time
-         if ($(this).parent('.size-picker')) {
-            $(this).siblings().removeClass('active');
-        }
-    });
+    //      // on PDP oage only want one size selected at a time
+    //      if ($(this).parent('.size-picker')) {
+    //         $(this).siblings().removeClass('active');
+    //     }
+    // });
 
     // Mobile - Show shipping details on click
     $('.more-details-a').click(function() {
@@ -234,28 +234,10 @@ $(document).ready(function() {
     //     console.log ()
     // });
 
-    // Size Facet Selection 
-     $('.size-filter').click('.size-item', function(e) {
-        e.preventDefault();
-        // var filterActive = $(this).closest('.filter-container').find('.filter-active');
-        // var filterSpan = $(this).closest('.filter-container').find('.count')
-        // var extgCount = filterSpan.html();
-        
-        $(this).toggleClass('active');
-        console.log(this);
-
-        // if ($(this).hasClass('active')) {
-        //     extgCount ++;
-        //     filterActive.css('display', 'unset');
-        // } else {
-        //     extgCount --;
-        //     if (extgCount == 0) {
-        //         filterActive.css('display', 'none');
-        //     }
-        // }
 
 
-    });
+
+    // });
 
     // $('.filter-menu .size-item').click(function(e) {
     //     e.preventDefault();
@@ -277,46 +259,6 @@ $(document).ready(function() {
     //     var newCount = filterSpan.html(extgCount);
 
     // });
-
-
-    // Mobile open/close filter menu
-    $('.nav-filter .mob-only').click(function(){
-        $(this).parent('.nav-filter').addClass('active');
-        $('body').toggleClass('noscroll');
-    });
-
-    $('.filter-close').click(function(){
-        $(this).closest('.nav-filter').removeClass('active');
-        $('body').toggleClass('noscroll');
-    });
-
-
-    // // Clear all filters
-    $('.facet-footer').on('click', '#clear', function(e) {
-        e.preventDefault();
-        $(this).closest('.filter').find('.rts-chkbox, .size-item').removeClass('active');
-    });
-
-    // Close filter menu
-    $('.facet-footer').on('click', '#close', function(e) {
-        e.preventDefault();
-        $(this).closest('.filter').removeClass('show');;
-    });
-
-    // Sort by - changing dropdown text once selection made
-
-    $('#sort-menu').click('.chkbox-item', function (e) {
-        e.preventDefault();
-        var currentTarget = $(e.target);
-        var name = currentTarget.attr('data-name');
-        var description = currentTarget.find('.chkbox-link').attr('data-description');
-
-        $(this).siblings('.btn-dropdown').html(description);
-
-        currentTarget.toggleClass('active');
-        currentTarget.siblings().removeClass('active');
-    });
-
 
 });
 
