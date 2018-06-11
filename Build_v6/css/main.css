@@ -3376,27 +3376,49 @@ input[type="radio"], input[type="checkbox"] {
   background-color: #ffffff;
   padding-top: 18px;
   border-top: 1px solid #C5BCCF; }
-  @media screen and (min-width: 768px) and (max-width: 1279px) {
+  @media screen and (min-width: 1024px) and (max-width: 1279px) {
     .plp-content {
       padding: 18px 50px 0; } }
-  @media screen and (max-width: 1023px) {
+  @media screen and (min-width: 768px) and (max-width: 1023px) {
+    .plp-content {
+      padding: 0; } }
+  @media screen and (max-width: 767px) {
     .plp-content {
       border-top: 1px solid #f8f8f8;
       padding-top: 0; } }
 
-@media screen and (min-width: 1024px) {
-  .listing-info {
-    position: absolute;
-    left: 50px;
-    right: 50px;
-    z-index: 10;
-    display: flex; }
-    .listing-info.fixed {
-      top: 0px; } }
-@media screen and (max-width: 1023px) {
-  .listing-info {
-    width: 100%;
-    z-index: 1999; } }
+.listing-info {
+  transition: opacity 0.35s ease; }
+  @media screen and (min-width: 1024px) {
+    .listing-info {
+      left: 50px;
+      right: 50px;
+      z-index: 10;
+      display: flex;
+      position: absolute; } }
+  @media screen and (min-width: 768px) and (max-width: 1023px) {
+    .listing-info {
+      position: relative;
+      padding: 18px 50px 0;
+      background-color: #fff; }
+      .listing-info .filters-wrapper {
+        position: absolute;
+        left: 0;
+        padding: 22px 50px 8px; } }
+  @media screen and (max-width: 1023px) {
+    .listing-info {
+      width: 100%;
+      z-index: 1999; } }
+  @media screen and (min-width: 1024px) {
+    .listing-info.active {
+      top: 0px;
+      position: fixed; } }
+  @media screen and (min-width: 768px) and (max-width: 1023px) {
+    .listing-info.active .filters-wrapper {
+      position: fixed;
+      top: 50px;
+      left: 0;
+      padding-top: 0px; } }
 
 .list-header {
   width: 31.3%;
@@ -3444,7 +3466,7 @@ input[type="radio"], input[type="checkbox"] {
 
 .plp-sidebar {
   width: 31.3%;
-  margin-top: 200px; }
+  margin-top: 83px; }
   @media screen and (min-width: 1140px) and (max-width: 1279px) {
     .plp-sidebar {
       width: 29%; } }
@@ -3456,8 +3478,11 @@ input[type="radio"], input[type="checkbox"] {
       display: none; } }
   .plp-sidebar .filter-fix {
     top: 200px; }
+    .plp-sidebar .filter-fix.active {
+      position: fixed; }
   .plp-sidebar .btn-add {
-    margin-top: 20px; }
+    margin-top: 20px;
+    display: none; }
 
 .active-filter {
   display: flex;
@@ -3492,7 +3517,8 @@ input[type="radio"], input[type="checkbox"] {
   @media screen and (min-width: 768px) and (max-width: 1023px) {
     .filters-wrapper {
       width: 100%;
-      margin-top: 22px; } }
+      height: auto;
+      padding-top: 22px; } }
   @media screen and (max-width: 767px) {
     .filters-wrapper {
       width: 100%;
@@ -3500,9 +3526,10 @@ input[type="radio"], input[type="checkbox"] {
       padding: 8px 6.6%;
       background: #fff;
       height: auto; }
-      .filters-wrapper.fixed {
+      .filters-wrapper.active {
         top: 50px;
-        border-top: 1px solid #f8f8f8; } }
+        border-top: 1px solid #f8f8f8;
+        position: fixed; } }
 
 .nav-filter {
   display: flex;
@@ -3633,7 +3660,8 @@ input[type="radio"], input[type="checkbox"] {
     text-align: left;
     height: 48px;
     line-height: 48px;
-    border-radius: 2px; }
+    border-radius: 2px;
+    overflow: hidden; }
     @media screen and (max-width: 767px) {
       .filter-container .btn-dropdown {
         display: none;
@@ -3841,7 +3869,8 @@ input[type="radio"], input[type="checkbox"] {
 @media screen and (min-width: 768px) and (max-width: 1023px) {
   .listing-products {
     width: 100%;
-    margin-top: 25px; } }
+    margin-top: 78px;
+    padding: 0 50px; } }
 @media screen and (max-width: 767px) {
   .listing-products {
     margin: 84px 6.6% 20px;
@@ -4442,6 +4471,10 @@ input[type="radio"], input[type="checkbox"] {
 
 .show {
   display: block; }
+
+.fade {
+  opacity: 0;
+  transition: opacity 0.35s ease; }
 
 .fixed {
   position: fixed; }

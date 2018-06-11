@@ -4741,32 +4741,62 @@ input[type="radio"], input[type="checkbox"] {
     padding-top: 18px;
     border-top: 1px solid $purp;
 
-    @include between($mobile, $med-desk) {
+    @include between($tablet, $med-desk) {
         padding: 18px 50px 0;
     } 
 
-    @include until($tablet) {
+    @include between($mobile, $tablet) {
+        padding: 0;
+    } 
+
+    @include until($mobile) {
         border-top: 1px solid #f8f8f8;
         padding-top: 0;
     }
 }
 
 .listing-info {
+    transition: opacity 0.35s ease;
+
     @include at-least($tablet) {
-        position: absolute;
         left: 50px;
         right: 50px;
         z-index: 10;
         display: flex;
+        position: absolute;
+    }
 
-        &.fixed {
-            top: 0px;
+    @include between($mobile, $tablet) {
+        position: relative;
+        padding: 18px 50px 0;
+        background-color: #fff;
+
+        .filters-wrapper {
+            position: absolute;
+            left: 0;
+            padding: 22px 50px 8px;
         }
     }
 
     @include until($tablet) {
         width: 100%;
         z-index: 1999;
+    }
+
+    &.active {
+        @include at-least($tablet) {
+            top: 0px;
+            position: fixed;
+        }
+
+        @include between($mobile, $tablet) {
+            .filters-wrapper {
+                position: fixed;
+                top: 50px;
+                left: 0;
+                padding-top: 0px;
+            }
+        }
     }
 }
 
@@ -4831,7 +4861,7 @@ input[type="radio"], input[type="checkbox"] {
 
 .plp-sidebar {
     width: 31.3%;
-    margin-top: 200px;
+    margin-top: 83px;
 
     @include between($sm-desk, $med-desk) {
         width: 29%;
@@ -4847,10 +4877,15 @@ input[type="radio"], input[type="checkbox"] {
 
     .filter-fix {
         top: 200px;
+
+        &.active {
+            position: fixed;
+        }
     }
 
     .btn-add {
         margin-top: 20px;
+        display: none;
     }
 }
 
@@ -4893,7 +4928,8 @@ input[type="radio"], input[type="checkbox"] {
 
     @include between($mobile, $tablet) {
         width: 100%;
-        margin-top: 22px;
+        height: auto;
+        padding-top: 22px;
     }
 
     @include until ($mobile) {
@@ -4903,9 +4939,10 @@ input[type="radio"], input[type="checkbox"] {
         background: #fff;
         height: auto;
 
-        &.fixed {
+        &.active {
           top: 50px;
           border-top: 1px solid $x-lgt-grey;
+          position: fixed;
         }
     }
 }
@@ -5088,6 +5125,7 @@ input[type="radio"], input[type="checkbox"] {
         height: 48px;
         line-height: 48px;
         border-radius: 2px;
+        overflow: hidden;
 
         @include until ($mobile) {
             display: none;
@@ -5386,7 +5424,8 @@ input[type="radio"], input[type="checkbox"] {
 
     @include between ($mobile, $tablet) {
         width: 100%;
-        margin-top: 25px;
+        margin-top: 78px;
+        padding: 0 50px;
     }
 
     @include until ($mobile) {
@@ -6295,6 +6334,7 @@ input[type="radio"], input[type="checkbox"] {
  * Hide visually and from screen readers
  */
 
+
 .hidden {
     display: none !important;
 }
@@ -6305,6 +6345,11 @@ input[type="radio"], input[type="checkbox"] {
 
 .show {
     display: block;
+}
+
+.fade {
+    opacity: 0;
+    transition: opacity 0.35s ease;
 }
 
 .fixed {
