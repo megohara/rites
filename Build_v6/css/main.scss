@@ -4876,10 +4876,11 @@ input[type="radio"], input[type="checkbox"] {
     } 
 
     .filter-fix {
-        top: 200px;
+        position: absolute;
 
         &.active {
             position: fixed;
+            top: 83px;
         }
     }
 
@@ -5505,6 +5506,15 @@ input[type="radio"], input[type="checkbox"] {
     @extend .btn-round-primary;
     margin: 0 auto;
     display: block;
+    max-width: 150px;
+}
+
+.page-load-status {
+  display: none; /* hidden by default */
+  padding-top: 20px;
+  border-top: 1px solid #DDD;
+  text-align: center;
+  color: #777;
 }
 
 /*-----------------------------*/

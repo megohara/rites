@@ -3477,9 +3477,10 @@ input[type="radio"], input[type="checkbox"] {
     .plp-sidebar {
       display: none; } }
   .plp-sidebar .filter-fix {
-    top: 200px; }
+    position: absolute; }
     .plp-sidebar .filter-fix.active {
-      position: fixed; }
+      position: fixed;
+      top: 83px; }
   .plp-sidebar .btn-add {
     margin-top: 20px;
     display: none; }
@@ -3925,7 +3926,16 @@ input[type="radio"], input[type="checkbox"] {
 
 .load-more {
   margin: 0 auto;
-  display: block; }
+  display: block;
+  max-width: 150px; }
+
+.page-load-status {
+  display: none;
+  /* hidden by default */
+  padding-top: 20px;
+  border-top: 1px solid #DDD;
+  text-align: center;
+  color: #777; }
 
 /*-----------------------------*/
 /* $My Account */

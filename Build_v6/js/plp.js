@@ -1,10 +1,9 @@
 var filterOffset;
-var sideBottom;
-var listingEnd;
-
 
 function initDesktopScroll() {
     var scrollTop = $(window).scrollTop();
+    var listingEnd = $('.products-wrapper').offset().top + $('.products-wrapper').height();
+    var sideBottom = filterOffset + $('.filter-fix').height();
          
     var shouldFix = scrollTop >= filterOffset;
     $('.listing-info, .filter-fix').toggleClass('active', shouldFix);
@@ -19,6 +18,7 @@ function initDesktopScroll() {
 
 function initMobileScroll() {
     var scrollTop = $(window).scrollTop();
+    var listingEnd = $('.products-wrapper').offset().top + $('.products-wrapper').height();
 
     var shouldFix = scrollTop >= filterOffset;
     $('.filters-wrapper').toggleClass('active', shouldFix); 
@@ -28,11 +28,8 @@ function initMobileScroll() {
 }
 
 function initFixedFilters() {
-    listingEnd = $('.products-wrapper').offset().top + $('.products-wrapper').height();
-
     if (matchMedia('screen and (min-width: 1024px)').matches) {
         filterOffset = $('.main-head').height() + 18;
-        sideBottom = $('.filter-fix').offset().top + $('.filter-fix').height();
 
         $(window).off('scroll', initDesktopScroll);
         $(window).scroll(initDesktopScroll);
@@ -46,7 +43,7 @@ function initFixedFilters() {
     }
 
     if (matchMedia('screen and (max-width: 767px)').matches) {   
-        filterOffset = $('.filters-wrapper').offset().top - $('.main-head').height();
+        filterOffset = $('.list-header').height() + $('.main-head').height();
         
         $(window).off('scroll', initMobileScroll);
         $(window).scroll(initMobileScroll);
@@ -131,6 +128,22 @@ $(document).ready(function() {
         currentTarget.siblings().removeClass('active');
     });
 
+
+    // Infinite scroll products on button click
+    $('.container').infiniteScroll({
+        path: 'page{{#}}.html',
+        append: '.post',
+        checkLastPage: '.load-more',
+        // history: 'replace',
+        button: '.load-more',
+        scrollThreshold: false
+        // status: '.page-load-status'
+    });
+
+    $('.load-more').click(function () {
+
+        initFixedFilters();
+    });
 
     initFixedFilters();
 
