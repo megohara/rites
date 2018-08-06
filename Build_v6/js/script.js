@@ -1,53 +1,3 @@
-// var filterOffset;
-
-// function initDesktopScroll() {
-//     var scrollTop = $(window).scrollTop();
-         
-//     var shouldFix = scrollTop >= filterOffset;
-//     $('.listing-info, .filter-fix').toggleClass('fixed', shouldFix);   
-// }
-
-// function initMobileScroll() {
-//     var scrollTop = $(window).scrollTop();
-
-//     var shouldFix = scrollTop >= filterOffset;
-//     $('.filters-wrapper').toggleClass('fixed', shouldFix);  
-// }
-
-// function initFixedFilters() {
-//     //Fixing filter bar after scroll- Desktop only
-//     if (matchMedia('screen and (min-width: 768px)').matches) {
-//         filterOffset = $('.listing-info').offset().top;
-
-//         $(window).off('scroll', initDesktopScroll);
-//         $(window).scroll(initDesktopScroll);
-//     }
-
-//     //Fixing filter bar after scroll- Desktop only
-//     if (matchMedia('screen and (max-width: 767px)').matches) {   
-//         filterOffset = $('.filters-wrapper').offset().top - $('.main-head').height();
-        
-//         $(window).off('scroll', initMobileScroll);
-//         $(window).scroll(initMobileScroll);
-//     }
-// }
-
-// function menuToggle() {
-//     $('.prime-nav').toggleClass('show');
-//     $('.nav-trigger').toggleClass('close');
-//     $('body').toggleClass('noscroll');
-//     $('.rts-overlay').toggleClass('is-visible');
-//     $('.sec-nav').removeClass('show');
-//     $('.prime-title').css('display', 'flex');
-//     $('.top-search').removeClass('active');
-// }
-
-// function searchToggle() {
-//     $('.top-search').toggleClass('active');
-//     $('.prime-nav').removeClass('show');
-//     $('.nav-trigger').removeClass('close');
-// }
-
 $(document).ready(function() {
 
     // ---------------------------//
@@ -260,8 +210,4 @@ $(document).ready(function() {
 
     // });
 
-});
-
-$(window).resize(function(){
-    initFixedFilters();
 });
