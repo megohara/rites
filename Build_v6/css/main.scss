@@ -523,6 +523,13 @@ h6 {
     width: 16px;
 }
 
+.icon-close-white {
+    @extend .icon;
+    background: url(../css/images/icons/icon-close.svg) no-repeat center center;
+    height: 10px;
+    width: 16px;
+}
+
 .icon-more {
     @extend .icon;
     background: url(../css/images/icons/icon-plus.svg) no-repeat center center;
@@ -597,8 +604,12 @@ button:hover {
     opacity : 0.7;
 }
 
-.link-a {
+.link-a, .white-a {
     color: #ffffff;
+
+    &:hover {
+        color: #fff;
+    }
 }
 
 .sm-a {
@@ -833,6 +844,52 @@ input[type="radio"], input[type="checkbox"] {
     &.active {
         background: $tick;
         border: 1px solid $purp;
+    }
+}
+
+/*----------------------------*/
+/* $Banner
+/*----------------------------*/
+
+.privacybanner{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 20px 50px;
+    background-color: $purp;
+    display: flex;
+    justify-content: space-between;
+
+    @include until($mobile) {
+        padding: 20px 26px;
+    }
+
+    .privacy-text {
+        font-family: $sans-med;
+        color: #fff;
+
+        @include between($mobile, $sm-desk) {
+            padding-right: 50px;
+        }
+
+        @include until($mobile) {
+            padding-right: 18px;
+        }
+    }
+
+    .white-a {
+        font-family: $sans-med;
+    }
+
+    .icon-close-white {
+        height: 15px;
+        margin-top: 2px;
+        cursor: pointer;
+
+        @include until($mobile) {
+            width: 50px;
+        }
     }
 }
 

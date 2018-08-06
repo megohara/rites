@@ -322,7 +322,7 @@ h6 {
   .riteslogo:hover {
     color: #9684AA; }
 
-.icon, .icon-search, .icon-close-purp, .icon-more, .icon-info-block, .icon-user, .icon-assist, .icon-wish, .icon-bag, .nav-trigger, .nav-trigger.close {
+.icon, .icon-search, .icon-close-purp, .icon-close-white, .icon-more, .icon-info-block, .icon-user, .icon-assist, .icon-wish, .icon-bag, .nav-trigger, .nav-trigger.close {
   display: inline-block;
   vertical-align: middle; }
 
@@ -335,6 +335,11 @@ h6 {
 
 .icon-close-purp {
   background: url(../css/images/icons/icon-close-purp.svg) no-repeat center center;
+  height: 10px;
+  width: 16px; }
+
+.icon-close-white {
+  background: url(../css/images/icons/icon-close.svg) no-repeat center center;
   height: 10px;
   width: 16px; }
 
@@ -394,8 +399,10 @@ button:focus {
 button:hover {
   opacity: 0.7; }
 
-.link-a {
+.link-a, .white-a {
   color: #ffffff; }
+  .link-a:hover, .white-a:hover {
+    color: #fff; }
 
 .sm-a {
   color: #9684AA;
@@ -579,6 +586,40 @@ input[type="radio"], input[type="checkbox"] {
   .rts-chkbox.active {
     background: url(../css/images/icons/icon-tick-white.png) no-repeat center center/12px #C5BCCF;
     border: 1px solid #C5BCCF; }
+
+/*----------------------------*/
+/* $Banner
+/*----------------------------*/
+.privacybanner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20px 50px;
+  background-color: #C5BCCF;
+  display: flex;
+  justify-content: space-between; }
+  @media screen and (max-width: 767px) {
+    .privacybanner {
+      padding: 20px 26px; } }
+  .privacybanner .privacy-text {
+    font-family: "basisgrot-med", Helvetica, sans-serif;
+    color: #fff; }
+    @media screen and (min-width: 768px) and (max-width: 1139px) {
+      .privacybanner .privacy-text {
+        padding-right: 50px; } }
+    @media screen and (max-width: 767px) {
+      .privacybanner .privacy-text {
+        padding-right: 18px; } }
+  .privacybanner .white-a {
+    font-family: "basisgrot-med", Helvetica, sans-serif; }
+  .privacybanner .icon-close-white {
+    height: 15px;
+    margin-top: 2px;
+    cursor: pointer; }
+    @media screen and (max-width: 767px) {
+      .privacybanner .icon-close-white {
+        width: 50px; } }
 
 /*----------------------------*/
 /* $Header

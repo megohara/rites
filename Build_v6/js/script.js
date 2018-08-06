@@ -1,5 +1,10 @@
 $(document).ready(function() {
 
+    // Close banner on click
+    $('.privacybanner').click('.banner-close', function() {
+        $(this).closest('.banner').hide();
+    });
+
     // ---------------------------//
     // Main Navigation
     // ---------------------------//
@@ -11,7 +16,6 @@ $(document).ready(function() {
     // });
 
     // $( this ).find('.sec-nav').removeClass( 'active' );
-
 
     // Mobile open search form
     $('.search-trigger').click(function(e) {
