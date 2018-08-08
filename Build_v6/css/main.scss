@@ -174,6 +174,7 @@ $med-grey: #DFDFDF;
 $dk-grey: #999999;
 $x-dk-grey: #666666;
 $gold: #C1B497;
+$lgt-purp: #E2DDE7;
 $purp: #C5BCCF;
 $dk-purp: #9684AA;
 $hot-pink: #ff2e63;
@@ -380,6 +381,36 @@ label {
     top: 0;
     left: 0;
     width: 100%;
+}
+
+.modal {
+    display: none;
+    overflow-y: scroll;
+    align-items: center;
+    justify-content: center;
+    overflow: auto;
+    direction: ltr;
+    height: 100vh;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    z-index: 9999;
+
+    &:before {
+        background: $purp;
+        bottom: 0;
+        content: "";
+        left: 0;
+        opacity: .9;
+        position: fixed;
+        right: 0;
+        top: 0;
+    }
+}
+
+.modal-show {
+    display: flex;
 }
 
 .page-title-a {
@@ -4783,6 +4814,132 @@ input[type="radio"], input[type="checkbox"] {
 
     .img-container {
         padding-bottom: 140%;
+    }
+}
+
+/*-----------------------------*/
+/* $Size Guide) */
+/*-----------------------------*/
+
+.size-guide {
+    padding: 30px;
+    max-height: 95%;
+    width: 90rem;
+    background: #fff;
+    direction: ltr;
+    max-width: 60%;
+    min-height: 10rem;
+    min-width: 10rem;
+    overflow: auto;
+    position: relative;
+
+    @include until($tablet) {
+        max-width: 100%;
+        max-height: 100%;
+        min-height: 100vh;
+        padding: 30px 20px;
+    } 
+
+    .size-header {
+        h4 {
+            text-align: center;
+            font-family: $site-font-stack;
+            font-size: 18px;
+            color: $dk-purp;
+            padding-bottom: 30px;
+
+            @include until($sm-mobile) {
+                text-align: left;
+            }
+        }
+
+        .icon-close-purp {  
+            position: absolute;
+            top: 21px;
+            right: 23px;
+            width: 41px;
+            height: 41px;
+            border: 1px solid $lgt-purp;
+            border-radius: 50%;
+            cursor: pointer; 
+            background-size: 11px; 
+
+            &:hover {
+                background-color: $lgt-purp;
+            }
+        }
+    }
+
+    .table-wrap {
+        margin: 0 auto;
+        max-width: 540px;
+
+        @include until($tablet) {
+            overflow: hidden;
+        }
+
+        .help-link {
+            margin-left: 30px;
+
+            @include until($tablet) {
+                margin-left: 5px;
+            }
+
+            .size-modal-text {
+                display: inline-block;
+                max-width: 440px;
+                vertical-align: top;
+                padding-top: 4px;
+
+                @include until($tablet) {
+                    max-width: 78%;
+                }
+            }
+        }
+
+        .care-faq {
+            display: inline-block;
+            width: 42px;
+            height: 42px;
+            background-size: 9px;
+            background-position: 16px 14px;
+        }
+    }
+
+    .size-grid {
+        border-spacing: 0;
+        border: 1px solid $lgt-grey;
+        margin-bottom: 30px;
+
+        @include until($tablet) {
+            margin-bottom: 21px;
+            width: 100%;
+        }
+
+        tr {
+             &:nth-child(odd) {
+                background-color: $x-lgt-grey;
+             }
+        }
+
+        th {
+            padding: 12px 40px;
+            font-family: $sans-med;
+            font-weight: normal;
+            border-right: 1px solid $lgt-grey;
+
+            @include until($tablet) {
+                padding: 12px 10px;
+            }
+        }
+
+        td {
+            padding: 12px 32px;
+
+            @include until($tablet) {
+                padding: 12px 14px;
+            }
+        }
     }
 }
 

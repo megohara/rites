@@ -5,6 +5,19 @@ $(document).ready(function() {
         $(this).closest('.banner').hide();
     });
 
+    //Modal open
+    $('.modal-launch').click(function(e) {
+        e.preventDefault();
+        console.log(this);
+        $(this).siblings('.modal').addClass('modal-show');
+    });
+
+    //Close modal
+    $('.modal-close').click(function() {
+        $(this).closest('.modal').removeClass('modal-show');
+    });
+
+
     // ---------------------------//
     // Main Navigation
     // ---------------------------//
