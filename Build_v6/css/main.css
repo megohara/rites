@@ -4552,7 +4552,7 @@ input[type="radio"], input[type="checkbox"] {
     text-transform: uppercase; }
     @media screen and (min-width: 1280px) {
       .dsgn-glossary-list li:hover {
-        background-color: #C1B497; }
+        background-color: #C5BCCF; }
         .dsgn-glossary-list li:hover .glossary-item {
           opacity: 1;
           color: #fff !important; } }
@@ -4566,9 +4566,7 @@ input[type="radio"], input[type="checkbox"] {
   padding: 30px 0 30px 100px;
   background-color: #ffffff;
   border-radius: 3px;
-  display: flex;
-  flex-flow: column wrap;
-  height: 574px; }
+  display: flex; }
   @media screen and (max-width: 1279px) {
     .dsgn-list-container {
       width: 100%;
@@ -4577,6 +4575,9 @@ input[type="radio"], input[type="checkbox"] {
     .dsgn-list-container {
       padding: 20px 10%;
       height: 780px; } }
+
+.dsgn-col {
+  width: 33%; }
 
 .glossary-title {
   font-size: 22px;

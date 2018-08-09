@@ -6433,7 +6433,7 @@ input[type="radio"], input[type="checkbox"] {
 
         @include at-least($med-desk) {
             &:hover {
-                background-color: $gold;
+                background-color: $purp;
 
                 .glossary-item {
                     opacity: 1;
@@ -6456,8 +6456,7 @@ input[type="radio"], input[type="checkbox"] {
     background-color: #ffffff;
     border-radius: 3px;
     display: flex;
-    flex-flow: column wrap;
-    height: 574px;
+
 
     @include until($med-desk) {
         width: 100%;
@@ -6468,6 +6467,10 @@ input[type="radio"], input[type="checkbox"] {
         padding: 20px 10%;
         height: 780px;
     }
+}
+
+.dsgn-col {
+    width: 33%;
 }
 
 .glossary-title {
