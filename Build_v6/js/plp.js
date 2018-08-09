@@ -130,16 +130,6 @@ $(document).ready(function() {
     });
 
 
-    // $('.size-item').click( function() {
-    //     var size = $(this);
-
-    //     if (size.parent('.size-picker') && !size.hasClass('outofstock')) {
-    //      size.toggleClass('active');
-    //       size.siblings().removeClass('active');
-    //     }
-    // });
-
-
     // Infinite scroll products on button click
     $('.container').infiniteScroll({
         path: 'page{{#}}.html',

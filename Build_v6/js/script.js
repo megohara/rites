@@ -142,18 +142,7 @@ $(document).ready(function() {
         $('.tab-item').toggleClass('active');
     });
 
-
-    // $('.size-picker').click(function(e) {
-    //      e.preventDefault();
-    //      $(this).toggleClass('active');
-
-    //      // on PDP oage only want one size selected at a time
-    //      if ($(this).parent('.size-picker')) {
-    //         $(this).siblings().removeClass('active');
-    //     }
-    // });
-
-    $('.size-item').click( function() {
+    $('.size-picker .size-item').click( function() {
         var size = $(this);
 
         if (size.parent('.size-picker') && !size.hasClass('outofstock')) {
