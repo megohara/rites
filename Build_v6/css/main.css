@@ -3872,13 +3872,15 @@ input[type="radio"], input[type="checkbox"] {
   #sort-menu .facet {
     padding: 0; }
   #sort-menu .chkbox-item {
-    padding: 17px 21px; }
+    padding: 0;
+    display: block; }
     #sort-menu .chkbox-item:hover, #sort-menu .chkbox-item.active {
       background-color: #f5f5f5; }
       #sort-menu .chkbox-item:hover .chkbox-link, #sort-menu .chkbox-item.active .chkbox-link {
         color: #333333; }
   #sort-menu .chkbox-link {
-    padding-left: 0; }
+    display: block;
+    padding: 17px 21px; }
   #sort-menu .rts-chkbox {
     display: none; }
 

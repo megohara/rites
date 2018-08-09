@@ -117,16 +117,27 @@ $(document).ready(function() {
     $('.filter-footer #clear, .plp-sidebar .btn-add').click(resetFilters);
 
     // // Sort by filter - changing dropdown text once selection made
-    $('#sort-menu').click('.chkbox-item', function (e) {
+    $('#sort-menu').click('.chkbox-link', function (e) {
         e.preventDefault();
         var currentTarget = $(e.target);
-        var description = currentTarget.find('.chkbox-link').html();
+        var description = currentTarget.html();
+        var wrap = currentTarget.closest('.chkbox-item');
 
         $(this).siblings('.btn-dropdown').html(description);
 
-        currentTarget.toggleClass('active');
-        currentTarget.siblings().removeClass('active');
+        wrap.toggleClass('active');
+        wrap.siblings().removeClass('active');
     });
+
+
+    // $('.size-item').click( function() {
+    //     var size = $(this);
+
+    //     if (size.parent('.size-picker') && !size.hasClass('outofstock')) {
+    //      size.toggleClass('active');
+    //       size.siblings().removeClass('active');
+    //     }
+    // });
 
 
     // Infinite scroll products on button click
