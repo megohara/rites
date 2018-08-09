@@ -141,10 +141,10 @@ $(document).ready(function() {
         // status: '.page-load-status'
     });
 
-    // $('.load-more').click(function () {
+    $('.load-more').click(function () {
 
-    //     initFixedFilters();
-    // });
+        initFixedFilters();
+    });
 
     initFixedFilters();
 

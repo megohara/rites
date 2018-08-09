@@ -1778,8 +1778,11 @@ input[type="radio"], input[type="checkbox"] {
         bottom: 20px; } }
 
 .bag-img-wrapper {
-  width: 16.5%;
+  width: 17.5%;
   float: left; }
+  @media screen and (min-width: 1024px) and (max-width: 1279px) {
+    .bag-img-wrapper {
+      width: 19%; } }
   @media screen and (max-width: 1023px) {
     .bag-img-wrapper {
       width: 140px;

@@ -2480,8 +2480,12 @@ input[type="radio"], input[type="checkbox"] {
 }
 
 .bag-img-wrapper {
-    width: 16.5%;
+    width: 17.5%;
     float: left;
+
+    @include between($tablet, $med-desk) {
+        width: 19%;
+    }
 
     @include until($tablet) {
         width: 140px;
