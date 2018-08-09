@@ -1,11 +1,3 @@
-// function pickSize() {
-//     var size = $(event.target);
-           
-//     size.toggleClass('active');
-//     size.siblings().removeClass('active');
-// }
-
-
 $(document).ready(function() {
 
     // Close banner on click
