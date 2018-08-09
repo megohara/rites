@@ -4166,8 +4166,14 @@ input[type="radio"], input[type="checkbox"] {
     }
 
     &.outofstock {
-        opacity: 0.8;
+        opacity: 0.6;
         position: relative;
+        cursor: not-allowed;
+        border-color: $med-grey;
+
+        &:hover {
+            border-color: $med-grey;
+        }
 
         .crossthrough {
             width: 28px;
@@ -4183,13 +4189,13 @@ input[type="radio"], input[type="checkbox"] {
                 rgba(180,180,180,180) 50%,
                 rgba(0,0,0,0) calc(50% + 0.8px),
                 rgba(0,0,0,0) 100%);
-            }
+        }
     }
 }
 
-.size-input {
+/*.size-input {
     display: none;
-}
+}*/
 
 .size-guide-link {
     position: absolute;

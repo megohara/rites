@@ -1,3 +1,11 @@
+// function pickSize() {
+//     var size = $(event.target);
+           
+//     size.toggleClass('active');
+//     size.siblings().removeClass('active');
+// }
+
+
 $(document).ready(function() {
 
     // Close banner on click
@@ -142,7 +150,8 @@ $(document).ready(function() {
         $('.tab-item').toggleClass('active');
     });
 
-    // $('.size-item').click(function(e) {
+
+    // $('.size-picker').click(function(e) {
     //      e.preventDefault();
     //      $(this).toggleClass('active');
 
@@ -151,6 +160,16 @@ $(document).ready(function() {
     //         $(this).siblings().removeClass('active');
     //     }
     // });
+
+    $('.size-item').click( function() {
+        var size = $(this);
+
+        if (size.parent('.size-picker') && !size.hasClass('outofstock')) {
+         size.toggleClass('active');
+          size.siblings().removeClass('active');
+        }
+    });
+
 
     // Mobile - Show shipping details on click
     $('.more-details-a').click(function() {

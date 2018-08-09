@@ -2988,8 +2988,12 @@ input[type="radio"], input[type="checkbox"] {
     .size-item.active .size-value {
       color: #ffffff; }
   .size-item.outofstock {
-    opacity: 0.8;
-    position: relative; }
+    opacity: 0.6;
+    position: relative;
+    cursor: not-allowed;
+    border-color: #DFDFDF; }
+    .size-item.outofstock:hover {
+      border-color: #DFDFDF; }
     .size-item.outofstock .crossthrough {
       width: 28px;
       height: 28px;
@@ -2999,9 +3003,9 @@ input[type="radio"], input[type="checkbox"] {
       left: 5px;
       background: linear-gradient(to top left, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) calc(50% - 0.8px), #b4b4b4 50%, rgba(0, 0, 0, 0) calc(50% + 0.8px), rgba(0, 0, 0, 0) 100%); }
 
-.size-input {
-  display: none; }
-
+/*.size-input {
+    display: none;
+}*/
 .size-guide-link {
   position: absolute;
   font-size: 12px; }
