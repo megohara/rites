@@ -158,73 +158,18 @@ $(document).ready(function() {
         $(this).parent('.tab-item').find('.tab-item-sub').toggleClass('show');
     });
 
-
-    //     // Show more product details
-//     $('.more-details-a').click(function(e) {
-//         e.preventDefault();
-//         $(this).css('display', 'none');
-//         $('.item-details').toggleClass('show');;
-//     });
-
-
-     // initFixedFilters();
-
+    // Add item to bag - Show success message
+    $('.add-bag').click( function(e) {
+        e.preventDefault();
+        $('.bag-success').show().delay(2500).fadeOut();
+    });
 
     // ---------------------------//
-    // Product Listing Page
+    // Checkout
     // ---------------------------//
 
-    // Facet Selection 
-    // $('.filter-menu .chkbox-link').click(function(e) {
-    //     e.preventDefault();
-    //     var filter = $(this).closest('.filter-container');
-    //     var filterActive = $(this).closest('.filter-container').find('.filter-active');
-    //     var filterSpan = $(this).closest('.filter-container').find('.count')
-    //     var extgCount = filterSpan.html();
-    //     var chkbox = $(this).find('.rts-chkbox');
-        
-    //     chkbox.toggleClass('active');
-
-    //     if (chkbox.hasClass('active')) {
-    //         extgCount ++;
-    //         filterActive.css('display', 'unset');
-    //         filter.find('.btn-dropdown').addClass('selected');
-    //     } else {
-    //         extgCount --;
-    //         if (extgCount == 0) {
-    //             filterActive.css('display', 'none');
-    //             filter.find('.btn-dropdown').removeClass('selected');
-    //         }
-    //     }
-
-    //     var newCount = filterSpan.html(extgCount);
-    //     console.log ()
-    // });
-
-
-
-
-    // });
-
-    // $('.filter-menu .size-item').click(function(e) {
-    //     e.preventDefault();
-    //     var filterActive = $(this).closest('.filter-container').find('.filter-active');
-    //     var filterSpan = $(this).closest('.filter-container').find('.count')
-    //     var extgCount = filterSpan.html();
-        
-    //     $(this).toggleClass('active');
-
-    //     if ($(this).hasClass('active')) {
-    //         extgCount ++;
-    //         filterActive.css('display', 'unset');
-    //     } else {
-    //         extgCount --;
-    //         if (extgCount == 0) {
-    //             filterActive.css('display', 'none');
-    //         }
-    //     }
-    //     var newCount = filterSpan.html(extgCount);
-
-    // });
+    $('.bg-question, .tooltext').click(function() {
+        $('.tooltext').toggle();
+    });
 
 });

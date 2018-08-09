@@ -625,6 +625,43 @@ h6 {
     /*margin-left: 3px;*/
 }
 
+.bag-success {
+    display: none;
+    position: absolute;
+    top: 52px;
+    right: 29px;
+    z-index: 999;
+    box-shadow: 0px 3px 14px 2px rgba(0, 0, 0, 0.05);
+
+    @include until($mobile) {
+        right: 2.6%;
+    }
+
+    &:before {
+        content: "";
+    bottom: auto;
+    left: auto;
+    top: -9px;
+    right: 16px;
+    margin-left: 0;
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    background: #fff;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    z-index: -1;
+    -webkit-box-shadow: 0 4px 16px 0 rgba(0,0,0,.12);
+    box-shadow: 0 4px 16px 0 rgba(0,0,0,.12);
+    }
+
+
+    .help-list {
+        padding: 15px;
+        background-color: #ffffff;
+    }
+}
+
 /* ____Buttons and Links_____*/
 
 button:focus {
@@ -2994,6 +3031,18 @@ input[type="radio"], input[type="checkbox"] {
     @include until($mobile) {
         margin-left: 28px;
     }
+
+    .tooltext {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 3px;
+        width: 140px;
+        background-color: white;
+        border: 1px solid $lgt-grey;
+        border-radius: 5px;
+        padding: 10px;
+    }
 }
 
 .bg-question {
@@ -4262,6 +4311,7 @@ input[type="radio"], input[type="checkbox"] {
     .btn-primary, .btn-sec {
         width: 47%;
     }
+
 
     .moodboard {
        background: $fav-purp 14px 16px/23px 12px no-repeat;
