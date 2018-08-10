@@ -2061,20 +2061,6 @@ input[type="radio"], input[type="checkbox"] {
   .chkout-content .chk-input, .acc-content .chk-input, .cc-content .chk-input {
     width: 100%;
     height: 40px; }
-  .chkout-content .chkout-wrapper, .acc-content .chkout-wrapper, .cc-content .chkout-wrapper {
-    position: relative; }
-    .chkout-content .chkout-wrapper .summary-wrapper, .acc-content .chkout-wrapper .summary-wrapper, .cc-content .chkout-wrapper .summary-wrapper {
-      position: absolute;
-      right: 0; }
-      .chkout-content .chkout-wrapper .summary-wrapper.active, .acc-content .chkout-wrapper .summary-wrapper.active, .cc-content .chkout-wrapper .summary-wrapper.active {
-        position: fixed;
-        left: 919px;
-        top: 83px; }
-        @media screen and (max-width: 1279px) {
-          .chkout-content .chkout-wrapper .summary-wrapper.active, .acc-content .chkout-wrapper .summary-wrapper.active, .cc-content .chkout-wrapper .summary-wrapper.active {
-            left: auto;
-            top: 83px;
-            right: 50px; } }
 
 .form-line {
   width: 100%; }

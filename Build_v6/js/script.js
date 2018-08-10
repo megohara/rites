@@ -190,25 +190,6 @@ $(document).ready(function() {
         e.preventDefault();
         var parent = $(this).parent('.add-new-wrap');
         parent.toggle().siblings('.saved-opts').show().siblings('.add-new-btn').show();
-    });
+    });   
 
-    
-
-});
-
-$(window).scroll(function(){
-   if (matchMedia('screen and (min-width: 1024px)').matches) {
-        summaryOffset = $('.chkout-head').height() + 26;
-
-        var scrollTop = $(window).scrollTop();
-        var divToFix = $('.chkout-content .summary-wrapper')
-
-         console.log(scrollTop);
-         console.log(divToFix);
-        var scrollFix = scrollTop >= summaryOffset;
-        divToFix.toggleClass('active', scrollFix);
-
-        $(window).off('scroll', initDesktopScroll);
-        $(window).scroll(initDesktopScroll);
-    }
 });

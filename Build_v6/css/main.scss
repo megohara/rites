@@ -2873,27 +2873,6 @@ input[type="radio"], input[type="checkbox"] {
         width: 100%;
         height: 40px;
     }
-
-    .chkout-wrapper {
-        position: relative;
-
-        .summary-wrapper {
-            position: absolute;
-            right:0;
-
-            &.active {
-                position: fixed;
-                left: 919px;
-                top: 83px;
-
-                 @include until($med-desk) {
-                    left: auto; 
-                    top: 83px;
-                    right: 50px;
-                }
-            }
-        }
-    } 
 }
 
 .form-line {
