@@ -62,7 +62,7 @@
                                 </div>
 
                                 <div class="step-body">
-                                    <div class="saved-addresses">
+                                    <div class="saved-addresses saved-opts">
                                         <div class="select-option">
                                             <input type="radio" name="addressOptionRadio" id="address1">
 
@@ -99,7 +99,48 @@
                                         </div>
                                     </div>  
 
-                                    <button class="btn-add btn-space">+  Add New Address</button> 
+                                    <div class="add-new-wrap">
+                                        <div>
+                                            <div class="form-line">
+                                                <label for="AddressLine1" class="chk-label">Address *</label>
+                                                <input type="text" name="AddressLine1" class="chk-input">
+                                            </div>
+
+                                            <div class="form-line">
+                                                <input type="text" name="AddressLine2" class="chk-input">
+                                            </div>
+
+                                            <div class="col-line">
+                                                <div class="desk-half-line">
+                                                    <label for="City" class="chk-label">City *</label>
+                                                    <input type="text" name="City" class="chk-input">
+                                                </div>
+
+                                                <div class="desk-half-line">
+                                                    <label for="Postcode" class="chk-label">Postal or Zip Code *</label>
+                                                    <input type="tel" name="Postcode" class="chk-input">
+                                                </div>
+                                            </div>
+
+                                            <div class="col-line">
+                                                <div class="half-line">
+                                                    <label for="Country" class="chk-label">Country *</label>
+                                                    <select name="Country" class="form-select chk-input">
+                                                        <option >United Kingdom</option>
+                                                    </select>
+                                                </div>
+
+                                                <div class="half-line">
+                                                    <label for="State" class="chk-label">State / Region / Province</label>
+                                                    <input type="tel" name="State" class="chk-input">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <a href="/" class="cancel-link">Back to Card List</a>
+                                    </div>
+
+                                    <button class="btn-add btn-space add-new-btn">+  Add New Address</button> 
                                 </div>
                             </div>
 
@@ -166,7 +207,7 @@
                                 </div>
 
                                 <div class="step-body">
-                                    <div class="saved-cards">
+                                    <div class="saved-cards saved-opts">
                                         <div class="select-option">
                                             <input type="radio" name="cardOptionRadio" id="card1">
 
@@ -201,9 +242,141 @@
                                                 </div>
                                             </label> 
                                         </div>
+                                    </div>
+
+                                    <div class="add-new-wrap">
+                                        <div class="payment-options">
+                                            <div class="select-option">
+                                                <input type="radio" name="paymentOptionRadio" id="credit-card" checked>
+
+                                                <label class="label-wrapper pay-tab-radio" for="credit-card">
+                                                    <div class="radio-wrapper">
+                                                        <span class="radio-btn"></span>
+                                                        <span class="radio-label">Debit or Credit Card</span>
+                                                    </div>
+                                                </label> 
+                                            </div>
+
+                                            <div class="select-option">
+                                                <input type="radio" name="paymentOptionRadio" id="paypal">
+
+                                                <label class="label-wrapper paypal pay-tab-radio" for="paypal">
+                                                    <div class="radio-wrapper">
+                                                        <span class="radio-btn"></span>
+                                                        <span class="radio-label">Paypal</span>
+                                                    </div>
+                                                </label> 
+                                            </div>
+                                        </div>
+
+                                        <div class="paypal-option pay-tab-opt">
+                                            <div>You will be redirected to the Paypal website</div>
+                                        </div>
+
+                                        <div class="card-option pay-tab-opt">
+                                            <div class="form-line">
+                                                <label for="CardNumber" class="chk-label">Card Number</label>
+                                                <input type="tel" name="CardNumber" class="chk-input">
+                                            </div>
+
+                                            <div class="col-line">
+                                                <div class="half-line">
+                                                    <label for="ExpiryDate" class="chk-label">Expiry Date</label>
+
+                                                    <div class="col-line">
+                                                        <div class="desk-half-line">
+                                                            <select name="expiremonth" placeholder="Month" class="form-select chk-input">
+                                                                <option value>Month</option>
+                                                                <option value="01">01</option>
+                                                                <option value="01">02</option>
+                                                            </select>
+                                                        </div>
+
+                                                        <div class="desk-half-line">
+                                                            <select name="expireyear" placeholder="Month" class="form-select chk-input">
+                                                                <option value>Year</option>
+                                                                <option value="01">2018</option>
+                                                                <option value="01">2019</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="half-line cvv-space">
+                                                    <div class="col-line">
+                                                        <div class="desk-half-line">
+                                                            <label for="CardCCV" class="chk-label">CCV</label>
+                                                            <input type="tel" name="ccv" class="chk-input">
+                                                        </div>
+
+                                                        <div class="tooltip">
+                                                            <span class="bg-question"></span>
+                                                            <div class="tooltext">CVV is the 3 or 4 digit code that can be found on the front or back of a credit card</div>
+                                                        </div> 
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="half-line">
+                                                <label for="CardName" class="chk-label">Name on the card</label>
+                                                <input type="text" name="CardName" class="chk-input">
+                                            </div>
+
+                                            
+                                            <div class="select-option">
+                                                <input type="checkbox" checked name="billing" id="billing">
+                                                <label for="billing" class="radio-wrapper billing-same">
+                                                    <span class="radio-btn"></span>
+                                                    <span class="chkbox-label">Billing address same as shipping</span>
+                                                </label>
+                                            </div> 
+
+                                            <div class="edit-billing">
+                                                <h3 class="step-title">Enter New Billing Address</h3>
+                                                <div class="form-line">
+                                                    <label for="AddressLine1" class="chk-label">Address *</label>
+                                                    <input type="text" name="AddressLine1" class="chk-input">
+                                                </div>
+
+                                                <div class="form-line">
+                                                    <input type="text" name="AddressLine2" class="chk-input">
+                                                </div>
+
+                                                <div class="col-line">
+                                                    <div class="desk-half-line">
+                                                        <label for="City" class="chk-label">City *</label>
+                                                        <input type="text" name="City" class="chk-input">
+                                                    </div>
+
+                                                    <div class="desk-half-line">
+                                                        <label for="Postcode" class="chk-label">Postal or Zip Code *</label>
+                                                        <input type="tel" name="Postcode" class="chk-input">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-line">
+                                                    <div class="half-line">
+                                                        <label for="Country" class="chk-label">Country *</label>
+                                                        <select name="Country" class="form-select chk-input">
+                                                            <option >United Kingdom</option>
+                                                        </select>
+                                                    </div>
+
+                                                    <div class="half-line">
+                                                        <label for="State" class="chk-label">State / Region / Province</label>
+                                                        <input type="tel" name="State" class="chk-input">
+                                                    </div>
+                                                </div>
+                                            </div>  
+
+                                            
+                                        </div>
+
+                                         <a href="/" class="cancel-link">Back to Card List</a>
+
                                     </div> 
 
-                                    <button class="btn-add btn-space">+  Add New Card</button>
+                                    <button class="btn-add btn-space add-new-btn">+  Add New Card</button>
                                 </div>
 
                                 <div class="place-order finalpay">
@@ -255,7 +428,12 @@
         <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
         <script>window.jQuery || document.write('<script src="../js/vendor/jquery-3.2.1.min.js"><\/script>')</script>
         <script src="../js/plugins.js"></script>
-        <script src="../js/script.js"></script>
+       
+
+        <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+        <script type="text/javascript" src="../js/plugins/slick/slick.min.js"></script>
+         <script src="../js/script.js"></script>
 
     
     </body>

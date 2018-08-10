@@ -172,4 +172,43 @@ $(document).ready(function() {
         $('.tooltext').toggle();
     });
 
+    $('.billing-same').click(function() {
+        $('.edit-billing').toggle();
+    });
+
+    $('.pay-tab-radio').click(function(){
+        $('.pay-tab-opt').toggle();
+    });
+
+    $('.add-new-btn').click(function(e){
+        e.preventDefault();
+        $(this).hide().siblings('.add-new-wrap').show();
+        $(this).siblings('.saved-opts').hide();
+    });
+
+    $('.cancel-link').click(function(e){
+        e.preventDefault();
+        var parent = $(this).parent('.add-new-wrap');
+        parent.toggle().siblings('.saved-opts').show().siblings('.add-new-btn').show();
+    });
+
+    
+
+});
+
+$(window).scroll(function(){
+   if (matchMedia('screen and (min-width: 1024px)').matches) {
+        summaryOffset = $('.chkout-head').height() + 26;
+
+        var scrollTop = $(window).scrollTop();
+        var divToFix = $('.chkout-content .summary-wrapper')
+
+         console.log(scrollTop);
+         console.log(divToFix);
+        var scrollFix = scrollTop >= summaryOffset;
+        divToFix.toggleClass('active', scrollFix);
+
+        $(window).off('scroll', initDesktopScroll);
+        $(window).scroll(initDesktopScroll);
+    }
 });
