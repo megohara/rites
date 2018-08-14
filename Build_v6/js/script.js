@@ -192,4 +192,17 @@ $(document).ready(function() {
         parent.toggle().siblings('.saved-opts').show().siblings('.add-new-btn').show();
     });   
 
+    // ---------------------------//
+    // My Account
+    // ---------------------------//
+
+    $('.tabs-title').click(function(){
+        $('.tabs-title').toggleClass('active');
+        $('.detail-step').toggle();
+    });
+
+    $('.success-msg').click( function() {
+        $(this).fadeOut(400);
+    })
+
 });

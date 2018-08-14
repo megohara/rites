@@ -5935,6 +5935,12 @@ input[type="radio"], input[type="checkbox"] {
     }
 }
 
+ @include until($tablet) {
+    .create-reg {
+        display: none;
+    }
+}
+
 .detail-step {
     @extend .step;
 
@@ -6127,6 +6133,7 @@ input[type="radio"], input[type="checkbox"] {
         font-family: $serif-stack;
         font-size: 16px;
         color: $dk-grey;
+        cursor: pointer;
 
         &.active {
             background-color: #ffffff;
@@ -6197,6 +6204,21 @@ input[type="radio"], input[type="checkbox"] {
     @include at-least($tablet) {
         display: none;
     }
+}
+
+.success-msg {
+    width: 290px;
+    margin: 0 auto 40px;
+    text-align: center;
+    padding: 10px 40px;
+    background: url(../css/images/icons/icon-close.svg) no-repeat right 20px center;
+    background-size: 12px;
+    background-color: $purp;
+    border-radius: 20px;
+    color: #fff;
+    font-size: 15px;
+    font-weight: $sans-med;
+    cursor: pointer;
 }
 
 /*-----------------------------*/
@@ -6553,6 +6575,88 @@ input[type="radio"], input[type="checkbox"] {
 
     li {
         padding: 5px 0;
+    }
+}
+
+/*-----------------------------*/
+/* $Wishlist*/
+/*-----------------------------*/
+
+.wish-content {
+    @include until($tablet) {
+        flex-flow: column;
+    }
+
+    .plp-sidebar {
+        display: block;
+        width: 25%; 
+        margin-top: 15px;
+
+        @include between($mobile, $tablet) {
+            padding: 20px 50px 8px;
+        }
+
+        @include until($tablet) {
+            width: 100%;
+        }
+
+        .list-header {
+            width: 90%;
+
+            .wish-descrip {
+                margin-top: 15px;
+            }
+        }
+    }
+
+    .listing-products {
+        width: 75%;
+        margin-top: 39px;
+
+        @include until($tablet) {
+            width: 100%;
+        }
+
+        @include until($mobile) {
+            width: 86.8%;
+        }
+
+        .listing-item {
+            width: 30%;
+
+            @include between($sm-tab, $tablet) {
+                width: 23%;
+            }
+
+            @include until($mobile) {
+                width: 44%;
+            }
+
+            @include until($sm-mobile) {
+                width: 100%;
+            }
+        }
+
+        .item-subtitle {
+            height: auto;
+        }
+
+        .wish-buttons {
+            margin: 30px 0 60px;
+            display: flex;
+            justify-content: space-between;
+
+            .add-bag {
+                width: 55%;
+                margin-bottom: 0;
+            }
+
+            .remove {
+                background: url(../css/images/icons/icon-close-purp.svg) left center no-repeat;
+                padding-left: 18px;
+                background-size: 9px;
+            }
+        }
     }
 }
 
